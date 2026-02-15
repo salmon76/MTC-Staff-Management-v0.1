@@ -166,4 +166,4 @@ If PoC is successful, the project will proceed with further feature development 
 
 | Date       | Decision / Update                  | Author |
 |------------|-------------------------------------|--------|
-| YYYY-MM-DD | Initial technical decision document | TBD    |
+| 2026-02-11 | Initial technical decision document | Salmon    |
