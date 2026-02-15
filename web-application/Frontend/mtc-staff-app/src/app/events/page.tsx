@@ -142,7 +142,7 @@ export default function EventsPage() {
                                 cursor: "pointer",
                             }}
                         >
-                            {tab === "Annotate" ? "Annotate" : tab === "MyTasks" ? "Assignments" : "Calendar"}
+                            {tab === "MyTasks" ? "Assignments" : "Calendar"}
                         </button>
                     ))}
                 </div>
