@@ -14,7 +14,7 @@ const STAFF_DATA = [
         status: "online",
         avatarBg: "#EF5350", // Red
         avatarColor: "#fff",
-        phone: "081-123-4567",
+        phone: "084-504-8418",
     },
     {
         id: 2,
