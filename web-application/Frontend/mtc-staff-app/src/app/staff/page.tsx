@@ -318,18 +318,20 @@ export default function StaffPage() {
                             {/* Action Buttons */}
                             <div style={{ display: "flex", gap: 8 }}>
                                 <a
-                                    href={`tel:${staff.phone}`}
+                                    href={`tel:${staff.phone.replace(/-/g, "").replace(/\s/g, "")}`}
+                                    aria-label={`Call ${staff.name}`}
                                     style={{
                                         width: 36,
                                         height: 36,
                                         borderRadius: "50%",
-                                        background: "var(--background)", // lighter than surface
-                                        color: "var(--mtc-red)",
+                                        background: "#E8F5E9", // Light Green background for Call action
+                                        color: "#2E7D32", // Darker Green icon
                                         display: "flex",
                                         alignItems: "center",
                                         justifyContent: "center",
                                         textDecoration: "none",
-                                        transition: "background var(--transition-fast)",
+                                        transition: "transform 0.1s ease, background 0.2s",
+                                        border: "1px solid #C8E6C9",
                                     }}
                                 >
                                     <svg
