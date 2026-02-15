@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import BottomNav from "@/components/BottomNav";
 import Link from "next/link";
 
-// Mock Data for Staff
+// Mock Data นะครับ เดี๋ยวรอ ETL จาก Master
 const STAFF_DATA = [
     {
         id: 1,
@@ -24,7 +24,7 @@ const STAFF_DATA = [
         status: "meeting",
         avatarBg: "#42A5F5", // Blue
         avatarColor: "#fff",
-        phone: "089-987-6543",
+        phone: "089-770-2379",
     },
     {
         id: 3,

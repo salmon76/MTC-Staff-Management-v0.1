@@ -69,20 +69,64 @@ const EVENTS_DATA = [
     },
 ];
 
+// Mock Master Data (Dropdown Options)
+const MASTER_DATA = {
+    categories: [
+        { id: "cat_1", label: "General Task", color: "#757575" },
+        { id: "cat_2", label: "Pastoral Care", color: "#AB47BC" },
+        { id: "cat_3", label: "Maintenance", color: "#FF7043" },
+        { id: "cat_4", label: "IT / Media", color: "#42A5F5" },
+        { id: "cat_5", label: "Administrative", color: "#78909C" },
+    ],
+    priorities: [
+        { id: "prio_1", label: "Low", value: "low" },
+        { id: "prio_2", label: "Medium", value: "medium" },
+        { id: "prio_3", label: "High", value: "high" },
+        { id: "prio_4", label: "Urgent", value: "urgent" },
+    ],
+    locations: [
+        { id: "loc_1", label: "Main Sanctuary" },
+        { id: "loc_2", label: "Meeting Room 1" },
+        { id: "loc_3", label: "Youth Hall" },
+        { id: "loc_4", label: "Office" },
+        { id: "loc_5", label: "Off-site" },
+    ],
+    assignees: [
+        { id: "user_1", label: "Me (Self)" },
+        { id: "user_2", label: "Staff Team A" },
+        { id: "user_3", label: "Volunteer Group" },
+    ],
+};
+
 export default function EventsPage() {
     const [viewMode, setViewMode] = useState<"Day" | "Week" | "Month">("Month");
     const [activeTab, setActiveTab] = useState<"Calendar" | "MyTasks">("Calendar");
+    const [showAddTask, setShowAddTask] = useState(false);
+
+    // Mock form state
+    const [newTask, setNewTask] = useState({
+        title: "",
+        category: "",
+        priority: "medium",
+        location: "",
+        assignee: "user_1",
+        date: new Date().toISOString().split('T')[0],
+        time: "09:00",
+    });
 
     // Mock Filtering Logic
     const filteredEvents = EVENTS_DATA.filter((event) => {
-        // 1. Filter by Tab
         if (activeTab === "MyTasks" && event.type !== "Task") return false;
-        // 2. Filter by View Mode (Simplified)
-        if (viewMode === "Day" && event.date !== "2026-06-12") return false; // Show only today
-        if (viewMode === "Week" && (event.date < "2026-06-12" || event.date > "2026-06-18")) return false; // Show this week
-
-        return true; // Month shows all (simplified)
+        if (viewMode === "Day" && event.date !== "2026-06-12") return false;
+        if (viewMode === "Week" && (event.date < "2026-06-12" || event.date > "2026-06-18")) return false;
+        return true;
     });
+
+    const handleSaveTask = (e: React.FormEvent) => {
+        e.preventDefault();
+        alert(`Simulate Saving Task:\nTitle: ${newTask.title}\nCategory: ${newTask.category}\nPriority: ${newTask.priority}`);
+        setShowAddTask(false);
+    };
 
     return (
         <div
@@ -114,7 +158,7 @@ export default function EventsPage() {
                     </div>
                 </div>
 
-                {/* Tab Switcher: Calendar vs My Tasks */}
+                {/* Tab Switcher */}
                 <div
                     style={{
                         display: "flex",
@@ -147,7 +191,7 @@ export default function EventsPage() {
                     ))}
                 </div>
 
-                {/* View Mode Switcher (Only visible in Calendar Tab) */}
+                {/* View Mode Switcher */}
                 {activeTab === "Calendar" && (
                     <div style={{ display: "flex", gap: 8, overflowX: "auto", paddingBottom: 4 }}>
                         {(["Day", "Week", "Month"] as const).map((mode) => (
@@ -195,45 +239,23 @@ export default function EventsPage() {
                                     cursor: "pointer",
                                 }}
                             >
-                                {/* Event Color Strip */}
-                                <div
-                                    style={{
-                                        width: 6,
-                                        background: event.color,
-                                        flexShrink: 0,
-                                    }}
-                                />
-
+                                <div style={{ width: 6, background: event.color, flexShrink: 0 }} />
                                 <div style={{ padding: "16px", flex: 1 }}>
-                                    {/* Date & Status Row */}
                                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 6 }}>
-                                        <span style={{
-                                            fontSize: 12,
-                                            fontWeight: 700,
-                                            color: event.color,
-                                            textTransform: "uppercase",
-                                            letterSpacing: 0.5
-                                        }}>
+                                        <span style={{ fontSize: 12, fontWeight: 700, color: event.color, textTransform: "uppercase", letterSpacing: 0.5 }}>
                                             {new Date(event.date).toLocaleDateString('en-US', { weekday: 'short', day: 'numeric' })} • {event.time.split('-')[0]}
                                         </span>
                                         {event.type === "Task" && (
                                             <span style={{
-                                                fontSize: 10,
-                                                padding: "2px 8px",
-                                                borderRadius: 10,
+                                                fontSize: 10, padding: "2px 8px", borderRadius: 10,
                                                 background: event.status === "done" ? "#E8F5E9" : "#FFF3E0",
-                                                color: event.status === "done" ? "#2E7D32" : "#EF6C00",
-                                                fontWeight: 600,
+                                                color: event.status === "done" ? "#2E7D32" : "#EF6C00", fontWeight: 600,
                                             }}>
                                                 {event.status === "done" ? "DONE" : "PENDING"}
                                             </span>
                                         )}
                                     </div>
-
-                                    <h3 style={{ fontSize: 16, fontWeight: 700, color: "#212121", marginBottom: 4 }}>
-                                        {event.title}
-                                    </h3>
-
+                                    <h3 style={{ fontSize: 16, fontWeight: 700, color: "#212121", marginBottom: 4 }}>{event.title}</h3>
                                     <p style={{ fontSize: 13, color: "#757575", display: "flex", alignItems: "center", gap: 6 }}>
                                         {event.type === "Task" ? "👤 Assigned to Me" : `📍 ${event.location}`}
                                     </p>
@@ -244,15 +266,16 @@ export default function EventsPage() {
                 )}
             </main>
 
-            {/* Floating Action Button */}
+            {/* Add Task Button (Extended FAB with text) */}
             <button
+                onClick={() => setShowAddTask(true)}
                 style={{
                     position: "fixed",
                     bottom: 90,
                     right: 20,
-                    width: 56,
                     height: 56,
-                    borderRadius: "50%",
+                    padding: "0 24px 0 20px", // space for icon and text
+                    borderRadius: 30, // capsule shape
                     background: "var(--mtc-red)",
                     color: "white",
                     border: "none",
@@ -260,17 +283,154 @@ export default function EventsPage() {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
+                    gap: 12, // space between icon and text
                     zIndex: 90,
                     cursor: "pointer",
+                    fontWeight: 600,
+                    fontSize: 15,
                     transition: "transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
                 }}
-            // Add minimal hover effect if needed, but CSS hover is better
             >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <line x1="12" y1="5" x2="12" y2="19"></line>
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                 </svg>
+                Add Task
             </button>
+
+            {/* Add Task Modal */}
+            {showAddTask && (
+                <div style={{
+                    position: "fixed", top: 0, left: 0, right: 0, bottom: 0, zIndex: 200,
+                    background: "rgba(0,0,0,0.5)", backdropFilter: "blur(4px)",
+                    display: "flex", alignItems: "flex-end", // Bottom sheet style
+                    justifyContent: "center",
+                }}>
+                    {/* Modal Content */}
+                    <div
+                        className="animate-fade-in-up"
+                        style={{
+                            width: "100%", maxWidth: 600,
+                            background: "white",
+                            borderRadius: "20px 20px 0 0",
+                            padding: "24px 24px 40px 24px",
+                            maxHeight: "90vh",
+                            overflowY: "auto",
+                            boxShadow: "0 -4px 20px rgba(0,0,0,0.1)",
+                        }}>
+                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
+                            <h2 style={{ fontSize: 20, fontWeight: 700, color: "var(--text-primary)" }}>Create New Task</h2>
+                            <button
+                                onClick={() => setShowAddTask(false)}
+                                style={{ border: "none", background: "none", fontSize: 24, color: "#BDBDBD", cursor: "pointer" }}
+                            >
+                                ×
+                            </button>
+                        </div>
+
+                        <form onSubmit={handleSaveTask} style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                            {/* Title */}
+                            <div>
+                                <label style={{ display: "block", fontSize: 13, fontWeight: 600, color: "var(--text-secondary)", marginBottom: 6 }}>Title</label>
+                                <input
+                                    type="text"
+                                    placeholder="What needs to be done?"
+                                    value={newTask.title}
+                                    onChange={(e) => setNewTask({ ...newTask, title: e.target.value })}
+                                    style={{ width: "100%", padding: "12px", borderRadius: 8, border: "1px solid var(--border-light)", fontSize: 15 }}
+                                    required
+                                />
+                            </div>
+
+                            {/* Date & Time Row */}
+                            <div style={{ display: "flex", gap: 12 }}>
+                                <div style={{ flex: 1 }}>
+                                    <label style={{ display: "block", fontSize: 13, fontWeight: 600, color: "var(--text-secondary)", marginBottom: 6 }}>Date</label>
+                                    <input
+                                        type="date"
+                                        value={newTask.date}
+                                        onChange={(e) => setNewTask({ ...newTask, date: e.target.value })}
+                                        style={{ width: "100%", padding: "12px", borderRadius: 8, border: "1px solid var(--border-light)", fontSize: 15 }}
+                                    />
+                                </div>
+                                <div style={{ width: 120 }}>
+                                    <label style={{ display: "block", fontSize: 13, fontWeight: 600, color: "var(--text-secondary)", marginBottom: 6 }}>Time</label>
+                                    <input
+                                        type="time"
+                                        value={newTask.time}
+                                        onChange={(e) => setNewTask({ ...newTask, time: e.target.value })}
+                                        style={{ width: "100%", padding: "12px", borderRadius: 8, border: "1px solid var(--border-light)", fontSize: 15 }}
+                                    />
+                                </div>
+                            </div>
+
+                            {/* Master Data Dropdown: Category */}
+                            <div>
+                                <label style={{ display: "block", fontSize: 13, fontWeight: 600, color: "var(--text-secondary)", marginBottom: 6 }}>Category</label>
+                                <select
+                                    value={newTask.category}
+                                    onChange={(e) => setNewTask({ ...newTask, category: e.target.value })}
+                                    style={{ width: "100%", padding: "12px", borderRadius: 8, border: "1px solid var(--border-light)", fontSize: 15, background: "white", WebkitAppearance: "none" }}
+                                >
+                                    <option value="">Select Category</option>
+                                    {MASTER_DATA.categories.map(cat => (
+                                        <option key={cat.id} value={cat.id}>{cat.label}</option>
+                                    ))}
+                                </select>
+                            </div>
+
+                            {/* Master Data Dropdown: Priority */}
+                            <div style={{ display: "flex", gap: 12 }}>
+                                <div style={{ flex: 1 }}>
+                                    <label style={{ display: "block", fontSize: 13, fontWeight: 600, color: "var(--text-secondary)", marginBottom: 6 }}>Priority</label>
+                                    <select
+                                        value={newTask.priority}
+                                        onChange={(e) => setNewTask({ ...newTask, priority: e.target.value })}
+                                        style={{ width: "100%", padding: "12px", borderRadius: 8, border: "1px solid var(--border-light)", fontSize: 15, background: "white" }}
+                                    >
+                                        {MASTER_DATA.priorities.map(p => (
+                                            <option key={p.id} value={p.value} label={p.label}>{p.label}</option>
+                                        ))}
+                                    </select>
+                                </div>
+                                {/* Master Data Dropdown: Assignee */}
+                                <div style={{ flex: 1 }}>
+                                    <label style={{ display: "block", fontSize: 13, fontWeight: 600, color: "var(--text-secondary)", marginBottom: 6 }}>Assign To</label>
+                                    <select
+                                        value={newTask.assignee}
+                                        onChange={(e) => setNewTask({ ...newTask, assignee: e.target.value })}
+                                        style={{ width: "100%", padding: "12px", borderRadius: 8, border: "1px solid var(--border-light)", fontSize: 15, background: "white" }}
+                                    >
+                                        {MASTER_DATA.assignees.map(u => (
+                                            <option key={u.id} value={u.id}>{u.label}</option>
+                                        ))}
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div style={{ marginTop: 24 }}>
+                                <button
+                                    type="submit"
+                                    style={{
+                                        width: "100%",
+                                        padding: "14px",
+                                        background: "var(--mtc-red)",
+                                        color: "white",
+                                        fontSize: 16,
+                                        fontWeight: 700,
+                                        borderRadius: 12,
+                                        border: "none",
+                                        cursor: "pointer",
+                                        boxShadow: "0 4px 12px rgba(198, 40, 40, 0.3)",
+                                    }}
+                                >
+                                    Create Task
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            )}
 
             <BottomNav />
         </div>
