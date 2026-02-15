@@ -2,61 +2,8 @@
 
 import React, { useState } from "react";
 import BottomNav from "@/components/BottomNav";
-import Link from "next/link";
-
-// Mock Data นะครับ เดี๋ยวรอ ETL จาก Master
-const STAFF_DATA = [
-    {
-        id: 1,
-        name: "Rev. Somchai Jaidee",
-        role: "Senior Pastor",
-        department: "Pastoral",
-        status: "online",
-        avatarBg: "#EF5350", // Red
-        avatarColor: "#fff",
-        phone: "084-504-8418",
-    },
-    {
-        id: 2,
-        name: "Pas. Mana Raksa",
-        role: "Associate Pastor",
-        department: "Pastoral",
-        status: "meeting",
-        avatarBg: "#42A5F5", // Blue
-        avatarColor: "#fff",
-        phone: "089-770-2379",
-    },
-    {
-        id: 3,
-        name: "Ms. Suda Ngam",
-        role: "Administrator",
-        department: "Office",
-        status: "leave",
-        avatarBg: "#FFCA28", // Yellow
-        avatarColor: "#333",
-        phone: "02-222-3333",
-    },
-    {
-        id: 4,
-        name: "Mr. Piti Music",
-        role: "Music Director",
-        department: "Worship",
-        status: "offline",
-        avatarBg: "#AB47BC", // Purple
-        avatarColor: "#fff",
-        phone: "086-555-4444",
-    },
-    {
-        id: 5,
-        name: "Khu Lek",
-        role: "Sunday School Teacher",
-        department: "Education",
-        status: "online",
-        avatarBg: "#66BB6A", // Green
-        avatarColor: "#fff",
-        phone: "081-999-8888",
-    },
-];
+import { STAFF_DATA } from "@/data/staff";
+import { Staff } from "@/types";
 
 // Status Indicator Component
 const StatusDot = ({ status }: { status: string }) => {
@@ -262,8 +209,8 @@ export default function StaffPage() {
                                         width: 48,
                                         height: 48,
                                         borderRadius: "50%",
-                                        background: staff.avatarBg,
-                                        color: staff.avatarColor,
+                                        background: staff.avatarBg || "#DDD",
+                                        color: staff.avatarColor || "#000",
                                         display: "flex",
                                         alignItems: "center",
                                         justifyContent: "center",
@@ -324,8 +271,8 @@ export default function StaffPage() {
                                         width: 36,
                                         height: 36,
                                         borderRadius: "50%",
-                                        background: "#E8F5E9", // Light Green background for Call action
-                                        color: "#2E7D32", // Darker Green icon
+                                        background: "#E8F5E9",
+                                        color: "#2E7D32",
                                         display: "flex",
                                         alignItems: "center",
                                         justifyContent: "center",

@@ -2,101 +2,8 @@
 
 import React, { useState } from "react";
 import BottomNav from "@/components/BottomNav";
-
-// Mock Data for Events and Tasks
-const EVENTS_DATA = [
-    {
-        id: 1,
-        title: "Morning Prayer",
-        date: "2026-06-12",
-        time: "06:00 - 07:00",
-        description: "Lead prayer meeting",
-        type: "Service",
-        location: "Main Sanctuary",
-        color: "#EF5350", // Red
-    },
-    {
-        id: 2,
-        title: "Staff Meeting",
-        date: "2026-06-12",
-        time: "09:00 - 11:00",
-        description: "Weekly staff briefing",
-        type: "Meeting",
-        location: "Conference Room B",
-        color: "#42A5F5", // Blue
-    },
-    {
-        id: 3,
-        title: "Prepare Sermon Slides",
-        date: "2026-06-12",
-        time: "14:00 - 16:00",
-        description: "For Sunday Service",
-        type: "Task",
-        assignee: "Me",
-        status: "pending",
-        color: "#FFCA28", // Yellow
-    },
-    {
-        id: 4,
-        title: "Youth Outreach Planning",
-        date: "2026-06-13",
-        time: "17:00 - 19:00",
-        description: "Community center visit",
-        type: "Ministry",
-        location: "Youth Hall",
-        color: "#66BB6A", // Green
-    },
-    {
-        id: 5,
-        title: "Sunday Service",
-        date: "2026-06-15",
-        time: "09:00 - 12:00",
-        description: "Main weekly service",
-        type: "Service",
-        location: "Main Sanctuary",
-        color: "#EF5350",
-    },
-    {
-        id: 6,
-        title: "Visit Elder Boonmee",
-        date: "2026-06-14",
-        time: "13:00 - 15:00",
-        description: "Pastoral care visit",
-        type: "Task",
-        assignee: "Me",
-        status: "done",
-        color: "#AB47BC", // Purple
-    },
-];
-
-// Mock Master Data (Dropdown Options)
-const MASTER_DATA = {
-    categories: [
-        { id: "cat_1", label: "General Task", color: "#757575" },
-        { id: "cat_2", label: "Pastoral Care", color: "#AB47BC" },
-        { id: "cat_3", label: "Maintenance", color: "#FF7043" },
-        { id: "cat_4", label: "IT / Media", color: "#42A5F5" },
-        { id: "cat_5", label: "Administrative", color: "#78909C" },
-    ],
-    priorities: [
-        { id: "prio_1", label: "Low", value: "low" },
-        { id: "prio_2", label: "Medium", value: "medium" },
-        { id: "prio_3", label: "High", value: "high" },
-        { id: "prio_4", label: "Urgent", value: "urgent" },
-    ],
-    locations: [
-        { id: "loc_1", label: "Main Sanctuary" },
-        { id: "loc_2", label: "Meeting Room 1" },
-        { id: "loc_3", label: "Youth Hall" },
-        { id: "loc_4", label: "Office" },
-        { id: "loc_5", label: "Off-site" },
-    ],
-    assignees: [
-        { id: "user_1", label: "Me (Self)" },
-        { id: "user_2", label: "Staff Team A" },
-        { id: "user_3", label: "Volunteer Group" },
-    ],
-};
+import { EVENTS_DATA, MASTER_DATA } from "@/data/events";
+import { EventTask } from "@/types";
 
 export default function EventsPage() {
     const [viewMode, setViewMode] = useState<"Day" | "Week" | "Month">("Month");
@@ -108,7 +15,7 @@ export default function EventsPage() {
         title: "",
         category: "",
         priority: "medium",
-        location: "",
+        location: "", // assign default if needed
         assignee: "user_1",
         date: new Date().toISOString().split('T')[0],
         time: "09:00",
@@ -242,7 +149,7 @@ export default function EventsPage() {
                                 <div style={{ width: 6, background: event.color, flexShrink: 0 }} />
                                 <div style={{ padding: "16px", flex: 1 }}>
                                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 6 }}>
-                                        <span style={{ fontSize: 12, fontWeight: 700, color: event.color, textTransform: "uppercase", letterSpacing: 0.5 }}>
+                                        <span style={{ fontSize: 12, fontWeight: 700, color: event.color || "gray", textTransform: "uppercase", letterSpacing: 0.5 }}>
                                             {new Date(event.date).toLocaleDateString('en-US', { weekday: 'short', day: 'numeric' })} • {event.time.split('-')[0]}
                                         </span>
                                         {event.type === "Task" && (
@@ -257,7 +164,7 @@ export default function EventsPage() {
                                     </div>
                                     <h3 style={{ fontSize: 16, fontWeight: 700, color: "#212121", marginBottom: 4 }}>{event.title}</h3>
                                     <p style={{ fontSize: 13, color: "#757575", display: "flex", alignItems: "center", gap: 6 }}>
-                                        {event.type === "Task" ? "👤 Assigned to Me" : `📍 ${event.location}`}
+                                        {event.type === "Task" ? "👤 Assigned to Me" : `📍 ${event.location || 'N/A'}`}
                                     </p>
                                 </div>
                             </div>
@@ -266,7 +173,7 @@ export default function EventsPage() {
                 )}
             </main>
 
-            {/* Add Task Button (Extended FAB with text) */}
+            {/* Add Task Button */}
             <button
                 onClick={() => setShowAddTask(true)}
                 style={{
@@ -274,8 +181,8 @@ export default function EventsPage() {
                     bottom: 90,
                     right: 20,
                     height: 56,
-                    padding: "0 24px 0 20px", // space for icon and text
-                    borderRadius: 30, // capsule shape
+                    padding: "0 24px 0 20px",
+                    borderRadius: 30,
                     background: "var(--mtc-red)",
                     color: "white",
                     border: "none",
@@ -283,7 +190,7 @@ export default function EventsPage() {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    gap: 12, // space between icon and text
+                    gap: 12,
                     zIndex: 90,
                     cursor: "pointer",
                     fontWeight: 600,
@@ -303,10 +210,9 @@ export default function EventsPage() {
                 <div style={{
                     position: "fixed", top: 0, left: 0, right: 0, bottom: 0, zIndex: 200,
                     background: "rgba(0,0,0,0.5)", backdropFilter: "blur(4px)",
-                    display: "flex", alignItems: "flex-end", // Bottom sheet style
+                    display: "flex", alignItems: "flex-end",
                     justifyContent: "center",
                 }}>
-                    {/* Modal Content */}
                     <div
                         className="animate-fade-in-up"
                         style={{
@@ -379,7 +285,7 @@ export default function EventsPage() {
                                 </select>
                             </div>
 
-                            {/* Master Data Dropdown: Priority */}
+                            {/* Master Data Dropdown: Priority & Assignee */}
                             <div style={{ display: "flex", gap: 12 }}>
                                 <div style={{ flex: 1 }}>
                                     <label style={{ display: "block", fontSize: 13, fontWeight: 600, color: "var(--text-secondary)", marginBottom: 6 }}>Priority</label>
@@ -393,7 +299,6 @@ export default function EventsPage() {
                                         ))}
                                     </select>
                                 </div>
-                                {/* Master Data Dropdown: Assignee */}
                                 <div style={{ flex: 1 }}>
                                     <label style={{ display: "block", fontSize: 13, fontWeight: 600, color: "var(--text-secondary)", marginBottom: 6 }}>Assign To</label>
                                     <select
