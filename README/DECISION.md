@@ -1,169 +1,104 @@
-# Technical Decision Record (decision.md)
+# Technical Decision Record (DECISION.md)
 
-This document records key technical decisions for the project.  
-The purpose is to provide context and rationale for the chosen architecture and technology stack, especially for onboarding developers and future maintainers.
+This document records key technical decisions for the MTC Staff Management project.  
+The purpose is to provide context and rationale for the chosen architecture, data models, and technology stack for onboarding developers and future maintainers.
 
 ---
 
 ## 1. Objective
 
-The objective of this project is to develop a web application integrated with LINE platform, focusing on:
+The objective of this project is to develop a fullstack web application integrated with the LINE platform for Maitrichit Church (MTC), focusing on:
 
-- Providing a web interface via LINE LIFF
-- Supporting LINE Messaging API for notifications and interactions
-- Building a scalable and maintainable fullstack web application
-- Supporting rapid PoC development and future extension to production
-
-This document serves as a reference for all technical decisions made during the initial phase of the project.
-
----
-
-## 2. Architecture Overview
-
-The system follows a Fullstack JavaScript architecture using Next.js for both frontend and backend:
-
-- Frontend: Web application built with Next.js (App Router) and Tailwind CSS  
-- Backend: API implemented using Next.js API Routes (Node.js runtime)  
-- Database: Supabase (PostgreSQL)  
-- Integration: LINE LIFF for web entry point and LINE Messaging API for chatbot/notifications  
-- Deployment: Vercel with GitHub integration for CI/CD
-
-High-level flow:
-
-User (LINE App / Browser)  
-→ LIFF Web App (Next.js Frontend)  
-→ Next.js API Routes (Backend)  
-→ Supabase (PostgreSQL)  
-→ LINE Bot (Messaging API for notifications and events)
+- Providing an accessible web interface via LINE LIFF for all church staff, deacons (มัคนายก), and pastors (ศิษยาภิบาล).
+- Supporting LINE Messaging API for automated notifications, roster reminders, and equipment ticket updates.
+- Automated serving roster arrangement (Mor.Nor. x Pastoral Team Scheduler) matching church business rules.
+- Equipment borrow/return digital handover with Base64 signature verification.
+- SLA-based repair ticket management for church facilities and equipment.
+- Supporting scalable production deployment on Vercel Cloud and Supabase PostgreSQL.
 
 ---
 
-## 3. Technology Stack
+## 2. Architecture & Tech Stack Summary
 
-### 3.1 Frontend
-- Next.js (App Router)
-- Tailwind CSS
-
-### 3.2 Backend
-- Next.js API Routes (Node.js runtime)
-
-### 3.3 API & Documentation
-- Postman (API testing)
-- Swagger / OpenAPI (API documentation)
-
-### 3.4 Database
-- Supabase (PostgreSQL)
-
-### 3.5 Deployment & CI/CD
-- Vercel (Hosting & Deployment)
-- GitHub Integration (Auto deploy on push / PR)
-
-### 3.6 LINE Integration
-- @line/bot-sdk: LINE Messaging API (Webhook, Push message)
-- @line/liff: LIFF SDK for Web App inside LINE
+- **Frontend:** Next.js 15 (App Router), React 19, Tailwind CSS, Canvas Signature Pad, HTML5 QR Scanner
+- **Backend:** Next.js API Routes (Node.js runtime), Prisma ORM
+- **Database:** Supabase PostgreSQL Database
+- **Messaging Integration:** `@line/bot-sdk` for Webhooks & Push Notifications, `@line/liff` for LINE Web App Gateway
+- **Deployment & CI/CD:** Vercel Cloud Platform with GitHub Auto-Deployment (`salmon76/MTC-Staff-Management-v1`)
 
 ---
 
-## 4. Key Decisions & Rationale
+## 3. Key Technical Decisions & Rationale
 
-### 4.1 Use Next.js for Fullstack Development
+### 3.1 Use Next.js 15 (App Router) for Fullstack Architecture
 **Decision:**  
-Use Next.js for both frontend and backend (API Routes).
+Use Next.js 15 for both frontend rendering and backend API routes in a single repository.
 
 **Rationale:**  
-- Single framework for fullstack development reduces complexity  
-- Easy deployment with Vercel  
-- Supports Server-side Rendering (SSR) and modern React patterns  
-- Suitable for PoC and scalable for production
+- Eliminates frontend-backend decoupling overhead for a small/medium dev team.
+- Built-in API Routes seamlessly deploy as Vercel Serverless Functions.
+- Provides server-side rendering (SSR) and client components where dynamic interaction is required (e.g. signature pad, QR scanner).
 
 ---
 
-### 4.2 Use Supabase as Primary Database
-
+### 3.2 Database Choice: Supabase PostgreSQL with Prisma ORM
 **Decision:**  
-Use Supabase (PostgreSQL) as the main database.
+Use Supabase PostgreSQL as managed cloud database, paired with Prisma ORM for schema definitions and type-safe client queries.
 
 **Rationale:**  
-- Managed PostgreSQL with built-in Auth and Storage  
-- Easy JavaScript SDK integration  
-- Supports rapid PoC and scalable to production  
-- Reduces DevOps overhead
+- Managed cloud infrastructure removes database server maintenance overhead.
+- Prisma ORM ensures compile-time type safety, migration tracking, and auto-generated TypeScript types.
+- Relational integrity ensures consistent mappings between Staff, Serving Rosters, Equipment, and Repair Tickets.
 
 ---
 
-### 4.3 LINE Platform Integration
-
+### 3.3 Mor.Nor. x Pastoral Team Scheduler Engine Implementation
 **Decision:**  
-Integrate with LINE using LIFF for web interface and Messaging API for chatbot/notifications.
+Build a multi-tiered rule engine in `/api/roster` enforcing 4 Conditional Arrangement Rules and automated substitute finding.
 
 **Rationale:**  
-- Enables seamless user experience inside LINE ecosystem  
-- LIFF allows web app access without separate login flow  
-- LINE Bot enables notifications, reminders, and user interactions
+- **Main Logic 1 (Special Day Department Mapping):** Guarantees deacons lead worship on their department's annual celebration day.
+- **Main Logic 2 (Location Priority Order):** Priority 1 (Main/Lower Sanctuary) ➔ Priority 2 (Entrance) ➔ Priority 3 (Timothy Room).
+- **Main Logic 3 (Quota Rule):** Caps serving frequency at 2 weeks/month to prevent deacon burnout.
+- **Minor Logic (Conflict Prevention):** Filters out staff with approved leave or conflicting serving duties.
+- **Automated Substitute Workflow:** `/api/roster` endpoint handles response actions (`confirm`, `swap_request`, `emergency_change`) by querying available unassigned staff.
 
 ---
 
-### 4.4 JavaScript / TypeScript as Core Language
-
+### 3.4 Equipment Digital Handover with Base64 Canvas Signatures
 **Decision:**  
-Use JavaScript/TypeScript as the primary programming language.
+Capture handovers and returns using HTML5 Canvas digital signatures stored as Base64 strings directly in PostgreSQL.
 
 **Rationale:**  
-- Fullstack JS reduces context switching for developers  
-- Large ecosystem and community support  
-- Easy onboarding for web developers  
-- TypeScript is recommended for type safety and maintainability
+- Provides legally non-repudiable audit trails for high-value church equipment (microphones, projectors).
+- Removes physical paper sign-out logs completely.
+- Status transition pipeline (`pending_handover` ➔ `active` ➔ `returned`) guarantees item tracking accountability.
 
 ---
 
-### 4.5 Deployment on Vercel with GitHub Integration
-
+### 3.5 SLA-Based Repair Ticket Engine with Cron Monitoring
 **Decision:**  
-Deploy application on Vercel with GitHub integration.
+Implement automated SLA deadline calculation on ticket creation (`low`: 72h, `medium`: 48h, `high`: 24h, `critical`: 4h) and periodic cron monitoring via `/api/cron/sla-check`.
 
 **Rationale:**  
-- Seamless deployment for Next.js  
-- Automatic CI/CD on push or pull request  
-- Easy environment separation (Dev / Staging / Production)  
-- Minimal operational overhead
+- Ensures technicians receive immediate SLA warnings before maintenance deadlines breach.
+- Automates status progression (`open` ➔ `in_progress` ➔ `resolved` ➔ `closed`).
 
 ---
 
-## 5. Proof of Concept (PoC) Scope
+### 3.6 LINE LIFF & Messaging Bot Ecosystem
+**Decision:**  
+Adopt LINE LIFF for zero-install user access and LINE Messaging API for push notifications.
 
-The initial PoC aims to validate the following:
-
-- LIFF can open the web application successfully  
-- Web frontend can call Next.js API Routes  
-- API can read/write data from Supabase  
-- LINE Bot can receive webhook events and send messages back to users  
-- End-to-end flow works from LINE → Web App → Backend → Database → LINE
-
-If PoC is successful, the project will proceed with further feature development and production hardening.
+**Rationale:**  
+- Elimination of app store installation barrier for non-technical users and elderly church members.
+- Direct push notifications ensure high open-rates for 2-week, 1-week, and 1-day serving reminders.
 
 ---
 
-## 6. Future Considerations
+## 4. Change Log
 
-- Authentication & Authorization (e.g., Supabase Auth with LINE Login mapping)  
-- Environment separation (Dev / Staging / Production)  
-- Observability (logging, monitoring)  
-- Security hardening (rate limit, webhook signature verification)  
-- Performance optimization and caching strategy
-
----
-
-## 7. Open Questions / To Be Decided
-
-- Final authentication strategy (LINE Login vs custom identity mapping)  
-- Data retention and compliance requirements  
-- Role-based access control (RBAC) model  
-- Production readiness checklist
-
----
-
-## 8. Change Log
-
-| Date       | Decision / Update                  | Author |
-|------------|-------------------------------------|--------|
-| 2026-02-11 | Initial technical decision document | Salmon    |
+| Date       | Decision / Update                                                                                                   | Author |
+|------------|---------------------------------------------------------------------------------------------------------------------|--------|
+| 2026-02-11 | Initial technical decision document                                                                                | Salmon |
+| 2026-08-07 | Integrated Mor.Nor. x Pastoral Scheduler Rules, Prisma ORM, Base64 Digital Signatures, and Repair SLA Cron Engine | Salmon |

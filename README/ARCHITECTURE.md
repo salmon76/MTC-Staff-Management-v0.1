@@ -1,115 +1,84 @@
-# System Architecture
+# System Architecture (Updated August 2026)
 
-This document describes the high-level and logical architecture of the system.
+This document describes the high-level and logical architecture of the MTC Staff Management System.
 
 ---
 
 ## 1. Overview
 
-The system is a Fullstack Web Application integrated with LINE platform.  
-It consists of a web frontend (LIFF), backend APIs, database, and LINE Messaging API.
+The system is a Fullstack Web Application integrated with the LINE platform for Maitrichit Church (MTC).  
+It consists of a Next.js 15 App Router web frontend (LIFF Gateway), serverless backend APIs, Supabase PostgreSQL database, and LINE Messaging API bot notifications.
 
-The architecture is designed to support:
-- Rapid Proof of Concept (PoC)
-- Scalability to production
-- Maintainability and extensibility
-
----
-
-## 2. High-Level Architecture
-
-Components:
-
-- Client
-  - LINE LIFF Web App
-  - Web Browser (for admin or backoffice if needed)
-
-- Frontend
-  - Next.js (App Router)
-  - Tailwind CSS
-
-- Backend
-  - Next.js API Routes (Node.js runtime)
-
-- Database
-  - Supabase (PostgreSQL)
-
-- External Integration
-  - LINE Messaging API (Webhook, Push Message)
-
-- Deployment
-  - Vercel
-  - GitHub Integration (CI/CD)
-
-High-level flow:
-
-User  
-→ LINE App (LIFF)  
-→ Next.js Frontend  
-→ Next.js API Routes  
-→ Supabase (PostgreSQL)  
-→ LINE Messaging API (for notifications)
+The architecture supports:
+- **Single Source of Truth** for church staff, deacons (มัคนายก), pastors (ศิษยาภิบาล), equipment catalog, and repair tickets.
+- **Mor.Nor. x Pastoral Team Scheduler Engine:** Auto-arrangement of serving rosters following 4 Conditional Arrangement Rules and automated substitute finding.
+- **Digital Handover & Audit Trail:** QR Code scanning with Base64 digital canvas signatures for equipment borrow/return.
+- **SLA Tracking & Maintenance:** Automatic SLA deadline calculation and repair ticket lifecycle management.
+- **Scalable Production Deployment:** Hosted on Vercel Serverless with GitHub CI/CD auto-deployment.
 
 ---
 
-## 3. Logical Architecture
+## 2. High-Level System Components
 
-### 3.1 Frontend Layer
-Responsibilities:
-- Render UI via LIFF
-- Handle user interactions
-- Call backend APIs
-- Manage client-side state
-
-### 3.2 Backend Layer
-Responsibilities:
-- Expose REST APIs
-- Handle business logic
-- Integrate with LINE Webhook
-- Validate requests and security
-- Communicate with Supabase
-
-### 3.3 Data Layer
-Responsibilities:
-- Store master data and transactional data
-- Enforce data integrity (constraints, relations)
-- Support future analytics and reporting
+```
+User (LINE App / Web Browser)  
+  ↓ (LIFF SDK / HTTPS)  
+Next.js 15 App Router (Vercel Serverless Cloud)  
+  ├── Frontend UI (Tailwind CSS, Canvas Signature Pad, QR Scanner)  
+  └── Backend REST API Routes  
+        ├── /api/roster (Mor.Nor. x Pastoral Scheduler Engine & Auto-Substitute)  
+        ├── /api/equipment & /api/equipment/bulk (QR Code Catalog)  
+        ├── /api/bookings/equipment/handover & /return (Digital Signature API)  
+        └── /api/tickets & /api/cron/sla-check (Repair Tickets & SLA Engine)  
+  ↓ (Prisma ORM / Connection Pooling)  
+Supabase PostgreSQL Database  
+  ↓ (Webhook Event / Push Message API)  
+LINE Messaging API Bot → User LINE Application
+```
 
 ---
 
-## 4. Deployment Architecture
+## 3. Core Modules & Logical Architecture
 
-- Frontend and Backend deployed as a single Next.js application on Vercel
-- Environment separation:
-  - Development
-  - Staging
-  - Production
-- Supabase project separated per environment (if required)
+### 3.1 Mor.Nor. x Pastoral Team Scheduler Engine (`/api/roster`)
+- **Main Logic 1 (Special Day Department Mapping):** Auto-assigns Deacons to serve on their department's annual special service (e.g., New Year ➔ President, Child Dedication ➔ Christian Education, Youth Sunday ➔ Youth Dept).
+- **Main Logic 2 (Location Priority Order):** Priority 1 (Main Sanctuary / Lower Sanctuary) ➔ Priority 2 (Church Entrance) ➔ Priority 3 (Timothy Youth Room).
+- **Main Logic 3 (Serving Quota):** Enforces max 2 serving weeks per month per Deacon to balance workload.
+- **Minor Logic (Conflict Prevention):** Validates no Deacon is double-booked or assigned while on leave.
+- **Automated Substitute Finder & Workflow:** Handles response actions (`confirm`, `swap_request`, `emergency_change`) by querying available Deacons and re-assigning substitute staff.
+
+### 3.2 Equipment & Digital Handover Engine (`/api/bookings/equipment/*`)
+- Master equipment catalog with unique QR Code identification.
+- Handover and return confirmation featuring **Base64 Digital Signature capture** stored directly in Supabase.
+- Status state transitions: `pending_handover` ➔ `active` ➔ `returned`.
+
+### 3.3 Repair Tickets & SLA Engine (`/api/tickets`, `/api/cron/sla-check`)
+- Auto-calculates `slaDeadline` based on priority level (`low`: 72h, `medium`: 48h, `high`: 24h, `critical`: 4h).
+- Tracks `respondedAt` (technician response time) and `resolvedAt` (completion time).
+- Cron route `/api/cron/sla-check` monitors overdue tickets and triggers notifications.
 
 ---
 
-## 5. Security Considerations
+## 4. Deployment Architecture & Environments
 
-- LINE Webhook signature verification
-- API authentication and authorization
-- Environment variables for secrets (LINE Channel Secret, Access Token, Supabase Key)
-- HTTPS enforced by Vercel
-- Basic rate limiting for APIs (future)
+- **Application Hosting:** Single Next.js Fullstack application on Vercel Serverless Functions.
+- **Database:** Managed Supabase PostgreSQL database.
+- **CI/CD Pipeline:** GitHub repository `salmon76/MTC-Staff-Management-v1` triggers auto-deployment on push to `main`.
+- **Environment Isolation:** Secrets separated via `.env` / Vercel Environment Variables.
+
+---
+
+## 5. Security & Compliance Baseline
+
+- **LINE Webhook Signature Verification (`x-line-signature`):** Ensures inbound webhooks originate strictly from LINE platform servers.
+- **HTTPS Enforcement:** Enforced across all Vercel edge endpoints.
+- **Data Privacy & PDPA Compliance:** Restricted data access via Prisma queries and role-based data filtering.
+- **Digital Audit Trail:** Base64 signature timestamps and signer identity recording.
 
 ---
 
 ## 6. Non-Functional Requirements
 
-- Scalability: Horizontal scaling via Vercel serverless functions
-- Availability: Managed hosting on Vercel and Supabase
-- Maintainability: Modular architecture, typed codebase (TypeScript recommended)
-- Observability: Logging and error monitoring (e.g., Sentry – optional)
-
----
-
-## 7. Future Enhancements
-
-- Background jobs / queue (for notifications)
-- Caching layer (Redis or Edge caching)
-- Admin dashboard for operations
-- Analytics and reporting
+- **Scalability:** Horizontal serverless function scaling on Vercel.
+- **Availability:** 99.9% uptime SLA via managed Vercel and Supabase cloud infrastructure.
+- **Maintainability:** Standardized TypeScript codebase with Prisma ORM type safety.

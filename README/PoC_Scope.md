@@ -1,80 +1,62 @@
-# Proof of Concept (PoC) Scope
+# Proof of Concept (PoC) Scope & Phase Status
 
-This document defines the scope and success criteria of the Proof of Concept phase.
+This document defines the original scope, success criteria, and current status of the Proof of Concept and Production implementation phase.
 
 ---
 
 ## 1. Objective
 
-Validate the feasibility of:
-- LINE LIFF integration
-- Fullstack communication between Frontend, Backend, and Database
-- LINE Bot messaging capability
-- End-to-end user flow
+Validate and deliver the core capabilities of the MTC Staff Management System:
+- LINE LIFF Web App integration
+- Mor.Nor. x Pastoral Team Serving Roster arrangement engine (4 Conditional Arrangement Rules)
+- Equipment catalog QR Code scanning & Base64 digital signature handover/return
+- Repair Ticket lifecycle tracking & SLA monitoring cron
+- Production fullstack deployment on Vercel Cloud and Supabase PostgreSQL
 
 ---
 
-## 2. In Scope
+## 2. In Scope & Implementation Status
 
-### 2.1 Functional Scope
-
-- LIFF
-  - User can open LIFF Web App from LINE
-  - Display basic UI (e.g., Welcome page with user info)
-
-- Frontend
-  - Call backend API
-  - Display response from API
-
-- Backend
-  - Expose at least 1–2 API endpoints
-  - Handle request from frontend
-  - Integrate with LINE Webhook
-
-- Database (Supabase)
-  - Create basic table (e.g., users, sessions, logs)
-  - Insert and query data from API
-
-- LINE Bot
-  - Receive webhook event (e.g., message or follow event)
-  - Send a reply or push message back to user
+| Capability / Module | PoC Requirement | Status | Verification & API Implementation |
+|---|---|---|---|
+| **LINE LIFF Gateway** | Open web app from LINE without login re-prompt | 🟢 Completed | `@line/liff` SDK integrated into Next.js App Router |
+| **Database Connectivity** | Prisma ORM connected to Supabase PostgreSQL | 🟢 Completed | Prisma Client querying models (`Staff`, `Serving_Roster`, `Equipment`, `Equipment_Booking`, `Repair_Ticket`) |
+| **Equipment & QR Code API** | Catalog management, bulk import, QR scanning | 🟢 Completed | `/api/equipment` & `/api/equipment/bulk` endpoints |
+| **Digital Handover Signatures** | Base64 canvas signature capture on borrow/return | 🟢 Completed | `/api/bookings/equipment/handover` & `/return` endpoints |
+| **Repair Ticket & SLA Engine** | Ticket creation, SLA calculation, cron check | 🟢 Completed | `/api/tickets`, `/api/tickets/stats`, & `/api/cron/sla-check` endpoints |
+| **Serving Roster Engine** | Mor.Nor. x Pastoral rules & substitute finder | 🟢 Completed | `/api/roster` supporting 4 rules, status responses, and auto-substitutes |
+| **LINE Bot Notifications** | Webhook verification & push notifications | 🟢 Completed | `@line/bot-sdk` signature verification & push notification dispatcher |
 
 ---
 
-## 3. Out of Scope (for PoC)
+## 3. Success Criteria & Verification Summary
 
-- Production-grade security hardening
-- Complex business logic
-- Performance optimization
-- Full UX/UI design
-- Role-based access control (RBAC)
+All PoC success criteria have been fully met and verified:
 
----
-
-## 4. Success Criteria
-
-The PoC is considered successful if:
-
-- LIFF Web App opens successfully inside LINE  
-- Frontend can call backend API without errors  
-- Backend can read/write data to Supabase  
-- LINE Bot can receive events and respond to users  
-- Basic end-to-end flow works without manual intervention
+- ✅ **LIFF Gateway Integration:** Web app loads smoothly inside LINE application.
+- ✅ **Database & API Logic:** Frontend seamlessly executes REST API calls backed by Supabase PostgreSQL.
+- ✅ **Digital Audit Trail:** Equipment handovers record digital signatures with timestamps in PostgreSQL.
+- ✅ **Scheduler Engine:** Roster logic correctly evaluates location priorities (Main/Lower Sanctuary ➔ Entrance ➔ Timothy Room), department mappings, 2-week quota limits, and conflict checks.
+- ✅ **CI/CD Cloud Deployment:** Vercel Cloud automatically builds and deploys updates from GitHub main branch.
 
 ---
 
-## 5. Deliverables
+## 4. Key Deliverables Produced
 
-- GitHub repository with initial project structure  
-- Working demo environment deployed on Vercel  
-- Basic README for setup and running the project  
-- This PoC scope document committed to repo
+- **GitHub Repository:** `salmon76/MTC-Staff-Management-v1`
+- **Live Vercel Production Environment:** `https://mtc-staff-management-v1.vercel.app`
+- **Documentation Suite (README/):**
+  - `kickoff_summary.html` (Executive Deck & Blueprint)
+  - `presentation_kickoff_deck.md` (Slide outline)
+  - `ARCHITECTURE.md` (System Architecture & Component Diagram)
+  - `DECISION.md` (Technical Decision Record & Rationale)
+  - `ENV.example` (Environment Blueprint)
+  - `PoC_Scope.md` (PoC Scope & Implementation Matrix)
 
 ---
 
-## 6. Next Steps After PoC
+## 5. Next Steps & Roadmap
 
-- Review PoC results and technical risks  
-- Finalize production architecture  
-- Define feature backlog and roadmap  
-- Prepare production environment and security baseline
+1. **Pilot Testing:** Run trial roster generation with pastoral leadership and committee members.
+2. **LINE Bot Notification Timeline:** Finalize scheduled push reminders (2 weeks, 1 week, 1 day prior to service).
+3. **Staff Onboarding & Training:** Conduct brief hands-on training sessions for church deacons and maintenance staff.
