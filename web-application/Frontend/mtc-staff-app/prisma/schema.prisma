@@ -38,6 +38,11 @@ model Staff {
   // ความสัมพันธ์ใหม่ (เพิ่มเติม)
   Reported_Tickets  Repair_Ticket[]     @relation("ReporterRelation")
   Assigned_Tickets  Repair_Ticket[]     @relation("AssigneeRelation")
+
+  // [NEW] Scheduler Fields & Relations (Requirement for Scheduler .pdf)
+  deaconDepartment   String?             // ฝ่ายของมัคนายก เช่น "คริสเตียนศึกษา", "สงเคราะห์", "อนุชน"
+  Serving_Rosters    Serving_Roster[]    @relation("RosterStaffRelation")
+  Swapped_Rosters    Serving_Roster[]    @relation("RosterSwappedStaffRelation")
 }
 
 /// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
@@ -154,3 +159,39 @@ model Repair_Ticket {
   Reporter     Staff     @relation("ReporterRelation", fields: [reporterId], references: [id], onDelete: Cascade)
   Assignee     Staff?    @relation("AssigneeRelation", fields: [assignedToId], references: [id], onDelete: SetNull)
 }
+
+// ---------------------------------------------------------------------------
+// [NEW] SCHEDULER ROSTER MODEL (Requirement for Scheduler .pdf)
+// ---------------------------------------------------------------------------
+
+/// ตารางจัดผู้รับใช้ปรนนิบัติ (Mor.Nor. x Pastoral Team Scheduler)
+model Serving_Roster {
+  id                 String    @id @default(uuid())
+  date               DateTime  // วันอาทิตย์/วันรับใช้
+  serviceName        String    // เช่น "วันนมัสการปกติ", "วันปีใหม่", "วันถวายบุตร", "วันอนุชน"
+  location           String    // "โบสถ์บน" | "โบสถ์ล่าง" | "ประตูโบสถ์" | "อนุชน ทิโมธี"
+  locationPriority   Int       @default(1) // 1: โบสถ์บน/ล่าง, 2: ประตูโบสถ์, 3: อนุชน ทิโมธี
+  
+  assignedStaffId    String
+  assignedRole       String    @default("มัคนายกนำนมัสการ") // "มัคนายกนำนมัสการ" | "ศิษยาภิบาลเทศนา" | "ทีมต้อนรับ"
+  department         String?   // ฝ่ายเจ้าของวัน เช่น "คริสเตียนศึกษา", "สงเคราะห์", "อนุชน"
+  
+  // Status: "pending" | "confirmed" | "swap_requested" | "swapped" | "declined"
+  status             String    @default("pending")
+  swapReason         String?   // เหตุผลเมื่อขอเปลี่ยนตาราง
+  swappedWithStaffId String?   // ID ของผู้รับใช้คนใหม่ที่มารับแทน
+
+  // Reminder Tracking Timelines (อ้างอิง PDF Page 2)
+  reminder2WeeksSent Boolean   @default(false) // 2 อาทิตย์ก่อนหน้า
+  reminder1WeekSent  Boolean   @default(false) // 1 อาทิตย์ก่อนหน้า (ส่ง Pre-work)
+  reminder1DaySent   Boolean   @default(false) // 1 วันก่อนหน้า
+  thankYouSent       Boolean   @default(false) // คืนที่รับใช้เสร็จแล้ว
+
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+
+  // ความสัมพันธ์
+  Staff              Staff     @relation("RosterStaffRelation", fields: [assignedStaffId], references: [id], onDelete: Cascade)
+  SwappedStaff       Staff?    @relation("RosterSwappedStaffRelation", fields: [swappedWithStaffId], references: [id], onDelete: SetNull)
+}
+
