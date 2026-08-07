@@ -595,73 +595,40 @@
             </div>
         </div>
 
-        <!-- Section 2.5: Business Logic for Scheduler -->
+        <!-- Section 3.5: Backoffice CRM Admin Portal Showcase -->
         <div class="section-title">
-            <span>⚙️</span> 4. Business Logic การจัดตารางปรนนิบัติ (Requirement for Scheduler .pdf)
+            <span>💻</span> 4. ระบบหลังบ้านสำหรับการบริหารจัดการคริสตจักร (Backoffice CRM & Admin Portal)
         </div>
 
         <div class="card" style="margin-bottom: 30px; border-top: 5px solid var(--accent-purple);">
             <div class="card-header">
-                <div class="card-icon icon-purple">📋</div>
+                <div class="card-icon icon-purple">🖥️</div>
                 <div>
-                    <h3>เงื่อนไขการจัดตารางรับใช้ มน. x ศบ. (Conditional Arrangement Rules)</h3>
-                    <p style="color: #64748b; font-size: 0.93rem;">อ้างอิงจากข้อกำหนดในเอกสาร Requirement for Scheduler
-                        .pdf (มัคนายก 15 คน / ศิษยาภิบาล 5 คน)</p>
+                    <h3>ระบบ CRM และแผงควบคุมผู้ดูแลระบบ (Executive Backoffice Dashboard)</h3>
+                    <p style="color: #64748b; font-size: 0.93rem;">ศูนย์กลางบริหารจัดการสำหรับเจ้าหน้าที่คริสตจักร ศิษยาภิบาล และคณะอนุกรรมการ เชื่อมโยงข้อมูลกับแอปหน้าบ้าน real-time</p>
                 </div>
             </div>
 
-            <div class="grid-2" style="margin-top: 15px;">
-                <div
-                    style="background: #f8fafc; padding: 18px; border-radius: 14px; border-left: 4px solid var(--primary-light);">
-                    <strong style="color: #1e3a8a; font-size: 1.05rem;">🎯 4 กฎหลักในการจัดตาราง (Main & Minor
-                        Logics):</strong>
-                    <ul style="margin-top: 10px;">
-                        <li class="check"><strong>Main Logic 1 (Mapping วันสำคัญ):</strong> มน.
-                            ประจำฝ่ายเป็นผู้นำนมัสการในวันของฝ่ายตนเอง (เช่น วันปีใหม่ -> ประธาน, วันถวายบุตร ->
-                            คริสเตียนศึกษา, วันอนุชน -> อนุชน)</li>
-                        <li class="check"><strong>Main Logic 2 (Priority สถานที่):</strong> จัด มน.
-                            รับใช้ไม่ซ้ำกันในแต่ละอาทิตย์ โดยเรียงลำดับ Priority 1: โบสถ์บน/ล่าง $\rightarrow$ Priority
-                            2: ประตูโบสถ์ $\rightarrow$ Priority 3: อนุชน ทิโมธี</li>
-                        <li class="check"><strong>Main Logic 3 (โควตา):</strong> กำหนด มน. รับใช้ 2 อาทิตย์ต่อเดือน
-                            เพื่อกระจายภาระงานสม่ำเสมอ</li>
-                        <li class="check"><strong>Minor Logic (หลีกเลี่ยงตารางชน):</strong> เช็ก มน.
-                            ไม่ติดงานรับใช้อื่นๆ ในวันเดียวกัน</li>
-                    </ul>
-                </div>
-
-                <div
-                    style="background: #f8fafc; padding: 18px; border-radius: 14px; border-left: 4px solid var(--accent-amber);">
-                    <strong style="color: #92400e; font-size: 1.05rem;">🔔 ระบบแจ้งเตือนตามลำดับเวลา (Reminder
-                        Timeline):</strong>
-                    <ul style="margin-top: 10px;">
-                        <li class="pending"><strong>2 อาทิตย์ก่อนหน้า:</strong> ส่ง Reminder ให้เตรียมตัวรับใช้</li>
-                        <li class="pending"><strong>1 อาทิตย์ก่อนหน้า:</strong> ส่ง Reminder ให้ส่ง Pre-work
-                            (ข้อมูลสูจิบัตร) ให้ทีมที่เกี่ยวข้อง</li>
-                        <li class="pending"><strong>1 วันก่อนหน้า:</strong> ส่ง Reminder "พรุ่งนี้เราร่วมรับใช้ด้วยกัน"
-                        </li>
-                        <li class="check"><strong>คืนหลังเสร็จงาน:</strong> ส่งข้อความขอบคุณและขอพระเจ้าเสริมกำลัง</li>
-                    </ul>
-                </div>
+            <div style="text-align: center; margin: 18px 0; background: #0f172a; padding: 20px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1);">
+                <img src="backoffice_crm_mockup.png" alt="MTC Staff Management Backoffice CRM Admin Dashboard" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: var(--shadow-xl);" />
             </div>
 
-            <div
-                style="margin-top: 20px; background: #eff6ff; padding: 16px; border-radius: 12px; border: 1px solid #bfdbfe;">
-                <strong style="color: #1e40af;">🔄 3 Scenarios กระบวนการตอบรับและการขอเปลี่ยนตาราง:</strong>
-                <ol style="margin-top: 8px; padding-left: 20px; color: #1e3a8a;">
-                    <li><strong>ตอบรับปกติ:</strong> มน. กดตอบรับผ่าน LINE -> ระบบตอบรับ -> เข้าสู่ระบบแจ้งเตือน
-                        Reminder ตามลำดับเวลา</li>
-                    <li><strong>ขอเปลี่ยนตาราง (ก่อนวันงาน):</strong> กดไม่สะดวก -> ระบบค้นหาคนที่ว่างเป็น Option ->
-                        ติดต่อคนว่าง -> เมื่อตอบตกลง -> ระบบส่ง Confirm ให้ผู้เกี่ยวข้อง (เช่น คนลงสูจิบัตร) ->
-                        เข้าสู่ระบบ Reminder</li>
-                    <li><strong>เปลี่ยนฉุกเฉิน (หลังรับงานแล้ว):</strong> กด Request ขอเปลี่ยนแปลง -> ระบบหาคนว่างแทน ->
-                        เมื่อตอบตกลง -> ส่ง Confirm ผู้เกี่ยวข้อง -> เข้าสู่ระบบ Reminder</li>
-                </ol>
-            </div>
-        </div>
-
-        <!-- Section 5: System Architecture & Data Flow (ARCHITECTURE.md) -->
+            <div class="card-body">
+                <h4 style="color: var(--primary); font-size: 1.1rem; margin-bottom: 12px;">🛠️ 5 โมดูลบริหารหลักในระบบหลังบ้าน (Core CRM Modules):</h4>
+                <div class="grid-2">
+                    <div style="background: #f8fafc; padding: 16px; border-radius: 12px; border-left: 4px solid var(--accent-purple);">
+                        <strong style="color: #5b21b6;">1. Executive Overview Analytics:</strong>
+                        <p style="font-size: 0.92rem; color: #475569; margin-top: 4px;">สรุปจำนวนบุคลากรประจำการ (Total Staff), อัตราการรับใช้, และกราฟสถิติภาพรวมพันธกิจ</p>
+                    </div>
+                    <div style="background: #f8fafc; padding: 16px; border-radius: 12px; border-left: 4px solid var(--accent-purple);">
+                        <strong style="color: #5b21b6;">2. Serving Roster Master Calendar:</strong>
+                        <p style="font-size: 0.92rem; color: #475569; margin-top: 4px;">หน้าจอจัดตารางรับใช้ มน. x ศบ. แบบรวมศูนย์ ช่วยเช็กตารางชนและคำนวณโควตาอัตโนมัติก่อนส่งเตือนเข้า LINE</p>
+                    </div>
+                    <div style="background: #f8fafc; padding: 16px; border-radius: 12px; border-left: 4px solid var(--accent-purple);">
+                        <strong style="color: #5b21b6;">3. Equipment Inventory & QR Management:</strong>
+                        <p style="font-size: 0.92rem; color: #475569; margin-top: 4px;">คลังอุปกรณ์พร้อมสถานะ real-time (พร้อมใช้/ถูกยืม/ซ่อม) ตรว�        <!-- Section 6: System Architecture & Data Flow (ARCHITECTURE.md) -->
         <div class="section-title">
-            <span>🏗️</span> 5. สถาปัตยกรรมระบบ และการรับส่งข้อมูล (ARCHITECTURE.md)
+            <span>🏗️</span> 6. สถาปัตยกรรมระบบ และการรับส่งข้อมูล (ARCHITECTURE.md)
         </div>
 
         <div class="card" style="margin-bottom: 30px; border-top: 5px solid var(--primary-light);">
@@ -706,9 +673,9 @@
             </div>
         </div>
 
-        <!-- Section 6: Technical Decisions Rationale (DECISION.md) -->
+        <!-- Section 7: Technical Decisions Rationale (DECISION.md) -->
         <div class="section-title">
-            <span>🛠️</span> 6. สรุปเหตุผลการตัดสินใจเลือกเทคโนโลยี (DECISION.md)
+            <span>🛠️</span> 7. สรุปเหตุผลการตัดสินใจเลือกเทคโนโลยี (DECISION.md)
         </div>
 
         <table class="tech-table">
@@ -748,9 +715,9 @@
             </tbody>
         </table>
 
-        <!-- Section 7: PoC Scope & Deliverables (PoC_Scope.md) -->
+        <!-- Section 8: PoC Scope & Deliverables (PoC_Scope.md) -->
         <div class="section-title">
-            <span>🎯</span> 7. ขอบเขตและเกณฑ์ความสำเร็จการทดสอบ PoC (PoC_Scope.md)
+            <span>🎯</span> 8. ขอบเขตและเกณฑ์ความสำเร็จการทดสอบ PoC (PoC_Scope.md)
         </div>
 
         <div class="grid-2">
@@ -779,6 +746,201 @@
                 <div class="card-body">
                     <ul>
                         <li class="check"><strong>GitHub Repository:</strong> โครงสร้างโค้ดโปรเจกต์มาตรฐานสากล</li>
+                        <li class="check"><strong>Working Vercel Environment:</strong> ระบบ Demo ที่เปิดใช้งานได้บน
+                            Cloud</li>
+                        <li class="check"><strong>Architecture Docs:</strong> เอกสาร ARCHITECTURE.md, DECISION.md,
+                            PoC_Scope.md</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 9: Honest System Status -->
+        <div class="section-title">
+            <span>🔍</span> 9. รายงานความคืบหน้าระบบตามความเป็นจริง (Honest System Status)
+        </div>
+
+        <!-- Sub-section 9.1: Logic Bound & DB Complete -->
+        <h3 style="color: #10b981; margin: 20px 0 15px 0; font-size: 1.3rem;">🟢 หมวดที่ 1: เสร็จสมบูรณ์ และผูก Backend
+            / Database / Logic จริงแล้ว (100% Implemented)</h3>
+
+        <div class="grid-2">
+            <div class="card card-logic-done">
+                <span class="status-pill status-done">✓ ผูก DB & Logic จริงแล้ว</span>
+                <div class="card-header">
+                    <div class="card-icon icon-green">📦</div>
+                    <h3>คลังอุปกรณ์ & สแกน QR Code (Equipment API)</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li class="check">สร้าง Database Schema รองรับหมวดหมู่และซีเรียลนัมเบอร์เรียบร้อย</li>
+                        <li class="check">สแกน QR Code ประจำอุปกรณ์ ดึงข้อมูลจริงจาก Supabase PostgreSQL</li>
+                        <li class="check">ตรวจสอบสถานะอุปกรณ์ (พร้อมใช้ / กำลังซ่อม / ถูกยืม) ได้ real-time</li>
+                    </ul>
+                    <div class="metaphor-box">
+                        <strong>สถานะจริง:</strong> เขียนโค้ด API และผูก Logic บันทึกข้อมูลลง Database เรียบร้อยแล้ว
+                    </div>
+                </div>
+            </div>
+
+            <div class="card card-logic-done">
+                <span class="status-pill status-done">✓ ผูก DB & Logic จริงแล้ว</span>
+                <div class="card-header">
+                    <div class="card-icon icon-green">✍️</div>
+                    <h3>ยืม-คืน อุปกรณ์พร้อมลายเซ็นดิจิทัล (Digital Handover API)</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li class="check">บันทึกภาพถ่ายและ **ลายเซ็นดิจิทัลจริง (Base64 Signature)** ลง Database</li>
+                        <li class="check">บันทึกชื่อผู้รับมอบ ผู้คืน วันเวลาจริง ป้องกันการปฏิเสธความรับผิดชอบ</li>
+                        <li class="check">มีสถานะติดตามการรับมอบ (pending_handover -> active -> returned)</li>
+                    </ul>
+                    <div class="metaphor-box">
+                        <strong>สถานะจริง:</strong> ระบบลายเซ็นและ API บันทึกการยืม-คืนผูก Logic ทำงานได้จริง
+                    </div>
+                </div>
+            </div>
+
+            <div class="card card-logic-done">
+                <span class="status-pill status-done">✓ ผูก DB & Logic จริงแล้ว</span>
+                <div class="card-header">
+                    <div class="card-icon icon-green">🔧</div>
+                    <h3>แจ้งซ่อม & ติดตามช่างซ่อม (Repair Ticket SLA API)</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li class="check">สร้างใบแจ้งซ่อมอุปกรณ์ชำรุด พร้อมคำนวณวันหมดเขตซ่อม (SLA Deadline) อัตโนมัติ
+                        </li>
+                        <li class="check">บันทึกเวลาช่างรับงาน (Responded At) และเวลาซ่อมเสร็จ (Resolved At)</li>
+                        <li class="check">แนบรูปถ่ายหลักฐานก่อน-หลังซ่อมเสร็จจริง</li>
+                    </ul>
+                    <div class="metaphor-box">
+                        <strong>สถานะจริง:</strong> มี API และ Logic คำนวณ SLA ทำงานเชื่อมกับ Database แล้ว
+                    </div>
+                </div>
+            </div>
+
+            <div class="card card-logic-done">
+                <span class="status-pill status-done">✓ ผูก DB & Logic จริงแล้ว</span>
+                <div class="card-header">
+                    <div class="card-icon icon-green">🗄️</div>
+                    <h3>โครงสร้างฐานข้อมูลทะเบียน (Prisma Database Schema)</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li class="check">ออกแบบ Schema รองรับข้อมูลบุคลากร อุปกรณ์ คำขอลา และใบแจ้งซ่อม</li>
+                        <li class="check">รองรับการเชื่อมโยงกับฐานข้อมูลทะเบียนคริสตจักรเดิม (Backward Compatible)</li>
+                    </ul>
+                    <div class="metaphor-box">
+                        <strong>สถานะจริง:</strong> โครงสร้างตู้เซฟเก็บข้อมูลถูกสร้างขึ้นและทำงานบน Cloud Supabase แล้ว
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sub-section 9.2: UI Prototype & Pending Logic -->
+        <h3 style="color: #f59e0b; margin: 30px 0 15px 0; font-size: 1.3rem;">🟡 หมวดที่ 2: หน้า UI Prototype เสร็จแล้ว
+            แต่กำลังอยู่ในช่วงเขียน Logic ผูกหลังบ้าน (Pending Backend Logic)</h3>
+
+        <div class="grid-2">
+            <div class="card card-logic-pending">
+                <span class="status-pill status-pending">⏳ อยู่ระหว่างผูก Logic หลังบ้าน</span>
+                <div class="card-header">
+                    <div class="card-icon icon-amber">📅</div>
+                    <h3>ตารางปรนนิบัติ (Serving Roster & Scheduler Logic)</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li class="pending"><strong>สถานะปัจจุบัน:</strong> หน้าจอ UI ออกแบบครบถ้วนสวยงามแล้ว แต่
+                            **ยังใช้ Mock Data ในการแสดงผล**</li>
+                        <li class="pending"><strong>สิ่งที่กำลังทำ:</strong> ทีม Dev กำลังนำ Scheduler Business Logic
+                            (ข้อกำหนด มน. x ศบ.) มาเขียนผูกสายไฟเข้ากับฐานข้อมูลจริง</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card card-logic-pending">
+                <span class="status-pill status-pending">⏳ อยู่ระหว่างผูก Webhook Bot</span>
+                <div class="card-header">
+                    <div class="card-icon icon-amber">💬</div>
+                    <h3>การเชื่อมต่อ LINE App (LIFF & LINE Bot Notifications)</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li class="pending"><strong>สถานะปัจจุบัน:</strong> วางโครงสร้างสถาปัตยกรรม (Architecture & PoC
+                            Scope) เรียบร้อยแล้ว</li>
+                        <li class="pending"><strong>สิ่งที่กำลังทำ:</strong> กำลังพัฒนา LINE Webhook
+                            เพื่อส่งข้อความแจ้งเตือน Reminder ตามลำดับเวลาเข้า LINE</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card card-logic-pending">
+                <span class="status-pill status-pending">⏳ อยู่ระหว่างพัฒนาระบบสิทธิ์</span>
+                <div class="card-header">
+                    <div class="card-icon icon-amber">🔐</div>
+                    <h3>ระบบจัดการสิทธิ์ผู้ใช้งาน (Full RBAC Authentication)</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li class="pending"><strong>สถานะปัจจุบัน:</strong> ออกแบบสิทธิ์ Admin / ศิษยาภิบาล / ผู้รับใช้
+                            ใน Schema ไว้แล้ว</li>
+                        <li class="pending"><strong>สิ่งที่กำลังทำ:</strong>
+                            กำลังพัฒนาระบบยืนยันตัวตนเพื่อล็อกสิทธิ์การเข้าถึงหน้าจอและข้อมูลทะเบียน</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card card-logic-pending">
+                <span class="status-pill status-pending">⏳ อยู่ระหว่างเชื่อมโยงปฏิทิน</span>
+                <div class="card-header">
+                    <div class="card-icon icon-amber">📆</div>
+                    <h3>ระบบปฏิทินกิจกรรม & การลา (Events & Leave Management)</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li class="pending"><strong>สถานะปัจจุบัน:</strong> หน้า UI
+                            แสดงปฏิทินกิจกรรมและการลาออกแบบเสร็จแล้ว</li>
+                        <li class="pending"><strong>สิ่งที่กำลังทำ:</strong> กำลังย้ายจากการใช้ Mock Data
+                            มาเป็นการดึงข้อมูลคำขอลาจริงจาก Database</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 10: Development Process & Roadmap -->
+        <div class="section-title">
+            <span>🚀</span> 10. ขั้นตอนการทำงาน และแผนการดำเนินงานถัดไป (Roadmap)
+        </div>
+
+        <div class="process-flow">
+            <div class="process-step">
+                <div class="step-num">1</div>
+                <h4>Phase 1: ผูก Logic ที่เหลือ</h4>
+                <p>เร่งเขียน Scheduler Business Logic ผูกหน้า UI ตารางปรนนิบัติ มน. x ศบ. เข้ากับ Database จริง</p>
+            </div>
+            <div class="process-step">
+                <div class="step-num">2</div>
+                <h4>Phase 2: เชื่อม LINE Bot</h4>
+                <p>พัฒนา LINE Webhook และ Push Notification แจ้งเตือน Reminder ล่วงหน้า 2 อาทิตย์ / 1 อาทิตย์ / 1 วัน
+                </p>
+            </div>
+            <div class="process-step">
+                <div class="step-num">3</div>
+                <h4>Phase 3: Pilot Test</h4>
+                <p>เปิดทดสอบใช้งานจริงร่วมกับคณะอนุกรรมการ ศิษยาภิบาล และเจ้าหน้าที่หน้างาน</p>
+            </div>
+            <div class="process-step">
+                <div class="step-num">4</div>
+                <h4>Phase 4: Training & Go-Live</h4>
+                <p>จัดอบรมการใช้งานสั้นๆ แบบจับมือทำ และเปิดใช้งานเต็มรูปแบบทั่วทั้งคริสตจักร</p>
+            </div>
+        </div>
+
+        <!-- Section 11: Executive Q&A -->
+        <div class="section-title">
+            <span>❓</span> 11. คู่มือตอบคำถามคณะอนุกรรมการ (Executive Q&A Cheat Sheet)
+        </div>GitHub Repository:</strong> โครงสร้างโค้ดโปรเจกต์มาตรฐานสากล</li>
                         <li class="check"><strong>Working Vercel Environment:</strong> ระบบ Demo ที่เปิดใช้งานได้บน
                             Cloud</li>
                         <li class="check"><strong>Architecture Docs:</strong> เอกสาร ARCHITECTURE.md, DECISION.md,
