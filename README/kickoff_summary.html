@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,9 @@
     <!-- Google Fonts: Prompt & Kanit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --primary: #1e3a8a;
@@ -179,11 +182,25 @@
             flex-shrink: 0;
         }
 
-        .icon-red { background: linear-gradient(135deg, #ef4444, #991b1b); }
-        .icon-amber { background: linear-gradient(135deg, #f59e0b, #b45309); }
-        .icon-green { background: linear-gradient(135deg, #10b981, #047857); }
-        .icon-blue { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
-        .icon-purple { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
+        .icon-red {
+            background: linear-gradient(135deg, #ef4444, #991b1b);
+        }
+
+        .icon-amber {
+            background: linear-gradient(135deg, #f59e0b, #b45309);
+        }
+
+        .icon-green {
+            background: linear-gradient(135deg, #10b981, #047857);
+        }
+
+        .icon-blue {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        }
+
+        .icon-purple {
+            background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+        }
 
         .card h3 {
             font-size: 1.25rem;
@@ -312,34 +329,39 @@
         }
 
         .process-step {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
+            background: #f0f7ff;
+            border: 1px solid #bfdbfe;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.08);
             border-radius: 16px;
             padding: 20px;
-            color: #fff;
+            color: #1e3a8a;
         }
 
         .step-num {
             width: 34px;
             height: 34px;
-            background: var(--primary-light);
+            background: linear-gradient(135deg, #3b82f6, #0284c7);
+            color: #ffffff;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
             margin-bottom: 12px;
+            box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
         }
 
         .process-step h4 {
             font-size: 1.1rem;
             margin-bottom: 8px;
+            color: #1d4ed8;
+            font-weight: 700;
         }
 
         .process-step p {
             font-size: 0.9rem;
-            color: #cbd5e1;
+            color: #0369a1;
+            font-weight: 500;
         }
 
         /* Q&A Cards */
@@ -378,501 +400,568 @@
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 1.75rem; }
-            .grid-2 { grid-template-columns: 1fr; }
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
+
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <!-- Hero Header -->
-    <div class="hero">
-        <div class="badge-kickoff">✨ Executive Presentation Blueprint | Kick-off</div>
-        <h1>โครงการระบบบริหารจัดการบุคลากรและพันธกิจ (MTC Staff Management)</h1>
-        <p>เจาะลึกตั้งแต่จุดเริ่มต้น, ปัญหาดั้งเดิม (Pain Points), สถาปัตยกรรมระบบ (ARCHITECTURE.md), การตัดสินใจเลือก Stack (DECISION.md), ขอบเขต PoC (PoC_Scope.md), Business Logic การจัดตาราง (Requirement for Scheduler .pdf) และรายงานสถานะระบบตามความเป็นจริง</p>
-    </div>
-
-    <!-- Section 1: Background & Pain Points -->
-    <div class="section-title">
-        <span>📍</span> 1. จุดเริ่มต้นและ 4 ปัญหาหลักที่เราต้องการเปลี่ยนแปลง (Pain Points)
-    </div>
-
-    <div class="grid-2">
-        <div class="card card-pain">
-            <span class="status-pill status-pain">🔴 Pain Point 1</span>
-            <div class="card-header">
-                <div class="card-icon icon-red">📝</div>
-                <h3>เอกสารกระดาษ & LINE Group กระจัดกระจาย</h3>
-            </div>
-            <div class="card-body">
-                <ul>
-                    <li class="cross">คำขออนุมัติ การแจ้งลา หรือการมอบหมายงาน ตกหล่นในกลุ่ม LINE</li>
-                    <li class="cross">ค้นหาประวัติย้อนหลังยาก และไม่มีระบบแจ้งเตือนที่เป็นทางการ</li>
-                    <li class="cross"><strong>เป้าหมายการเปลี่ยน:</strong> ย้ายสู่ศูนย์กลางข้อมูลหนึ่งเดียว (Single Source of Truth) บนเว็บและ LINE</li>
-                </ul>
-            </div>
+        <!-- Hero Header -->
+        <div class="hero">
+            <div class="badge-kickoff">✨ Executive Presentation Blueprint | Kick-off</div>
+            <h1>โครงการระบบบริหารจัดการบุคลากรและพันธกิจ (MTC Staff Management)</h1>
+            <p>เจาะลึกตั้งแต่จุดเริ่มต้น, ปัญหาดั้งเดิม (Pain Points), สถาปัตยกรรมระบบ (ARCHITECTURE.md),
+                การตัดสินใจเลือก Stack (DECISION.md), ขอบเขต PoC (PoC_Scope.md), Business Logic การจัดตาราง (Requirement
+                for Scheduler .pdf) และรายงานสถานะระบบตามความเป็นจริง</p>
         </div>
 
-        <div class="card card-pain">
-            <span class="status-pill status-pain">🔴 Pain Point 2</span>
-            <div class="card-header">
-                <div class="card-icon icon-amber">📦</div>
-                <h3>อุปกรณ์ยืม-คืนไม่มีหลักฐาน & ช่างซ่อมช้า</h3>
-            </div>
-            <div class="card-body">
-                <ul>
-                    <li class="cross">ไมโครโฟน โปรเจกเตอร์ ยืมไปใช้แล้วไม่รู้ว่าอยู่ที่ใคร ไม่มีคนรับผิดชอบ</li>
-                    <li class="cross">เมื่ออุปกรณ์ชำรุด ไม่มีใครแจ้งซ่อม ช่างซ่อมช้าเพราะไม่มีตัวนับเวลา (SLA)</li>
-                    <li class="cross"><strong>เป้าหมายการเปลี่ยน:</strong> สแกน QR Code + เซ็นชื่อดิจิทัลรับยืมคืน + แจ้งซ่อมตามเวลา SLA</li>
-                </ul>
-            </div>
+        <!-- Section 1: Background & Pain Points -->
+        <div class="section-title">
+            <span>📍</span> 1. จุดเริ่มต้นและ 4 ปัญหาหลักที่เราต้องการเปลี่ยนแปลง (Pain Points)
         </div>
 
-        <div class="card card-pain">
-            <span class="status-pill status-pain">🔴 Pain Point 3</span>
-            <div class="card-header">
-                <div class="card-icon icon-red">📅</div>
-                <h3>ตารางปรนนิบัติ (Serving Roster) ชนกัน</h3>
-            </div>
-            <div class="card-body">
-                <ul>
-                    <li class="cross">ผู้จัดตารางไม่รู้ว่าผู้รับใช้ติดภารกิจอื่นหรือแจ้งลาล่วงหน้าหรือไม่</li>
-                    <li class="cross">เกิดปัญหาขาดคนรับใช้หน้างานในวันอาทิตย์อย่างกะทันหัน</li>
-                    <li class="cross"><strong>เป้าหมายการเปลี่ยน:</strong> ระบบเช็กตารางชนอัตโนมัติ และเตือนผู้รับใช้ล่วงหน้า</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="card card-pain">
-            <span class="status-pill status-pain">🔴 Pain Point 4</span>
-            <div class="card-header">
-                <div class="card-icon icon-amber">🔒</div>
-                <h3>ฐานข้อมูลทะเบียนคริสตจักรเสี่ยงไม่ปลอดภัย</h3>
-            </div>
-            <div class="card-body">
-                <ul>
-                    <li class="cross">ข้อมูลสมาชิกและบุคลากรเก็บกระจายใน Excel ไม่มีการจำกัดสิทธิ์ (RBAC)</li>
-                    <li class="cross">เสี่ยงต่อข้อมูลรั่วไหล และไม่สอดคล้องกับมาตรฐานคุ้มครองข้อมูลส่วนบุคคล (PDPA)</li>
-                    <li class="cross"><strong>เป้าหมายการเปลี่ยน:</strong> จัดเก็บในตู้เซฟดิจิทัล ล็อกสิทธิ์ดูข้อมูลเฉพาะผู้มีหน้าที่</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <!-- Section 1.5: As-Is Roster Visual Comparison -->
-    <div class="section-title">
-        <span>📊</span> 2. ตารางรับใช้แบบเดิม (As-Is Process vs To-Be Platform)
-    </div>
-
-    <div class="card" style="margin-bottom: 30px; border-top: 5px solid var(--accent-amber);">
-        <div class="card-header">
-            <div class="card-icon icon-amber">📑</div>
-            <div>
-                <h3>ภาพตารางรับใช้เดิมแบบกรอก Excel (As-Is Roster Sheet)</h3>
-                <p style="color: #64748b; font-size: 0.93rem;">รูปแบบไฟล์ Excel spreadsheet ดั้งเดิมที่ใช้จัดผู้รับใช้ในปัจจุบัน</p>
-            </div>
-        </div>
-        
-        <div style="text-align: center; margin: 15px 0; background: #0f172a; padding: 16px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1);">
-            <img src="as_is_serving_roster.png" alt="As-Is Serving Roster Excel" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: var(--shadow-lg);" />
-        </div>
-
-        <div class="card-body">
-            <div class="grid-2" style="margin-bottom: 0;">
-                <div style="background: #fff1f2; padding: 18px; border-radius: 14px; border-left: 4px solid var(--accent-red);">
-                    <strong style="color: #991b1b; font-size: 1.05rem;">🔴 ข้อจำกัดของรูปแบบเดิม (As-Is Excel):</strong>
-                    <ul style="margin-top: 10px;">
-                        <li class="cross">จัดตารางใน Excel ไม่เชื่อมต่อกับสถานะการลาหรือภารกิจอื่นของผู้รับใช้</li>
-                        <li class="cross">เมื่อมีคนแจ้งเปลี่ยน/ติดงาน ต้องพิมพ์แก้ไขไฟล์ใหม่และส่งไฟล์เข้ากลุ่ม LINE ซ้ำๆ</li>
-                        <li class="cross">เกิดปัญหาตารางชนกัน และผู้รับใช้ขาดหน้างานในวันอาทิตย์โดยไม่ทราบล่วงหน้า</li>
+        <div class="grid-2">
+            <div class="card card-pain">
+                <span class="status-pill status-pain">🔴 Pain Point 1</span>
+                <div class="card-header">
+                    <div class="card-icon icon-red">📝</div>
+                    <h3>เอกสารกระดาษ & LINE Group กระจัดกระจาย</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li class="cross">คำขออนุมัติ การแจ้งลา หรือการมอบหมายงาน ตกหล่นในกลุ่ม LINE</li>
+                        <li class="cross">ค้นหาประวัติย้อนหลังยาก และไม่มีระบบแจ้งเตือนที่เป็นทางการ</li>
+                        <li class="cross"><strong>เป้าหมายการเปลี่ยน:</strong> ย้ายสู่ศูนย์กลางข้อมูลหนึ่งเดียว (Single
+                            Source of Truth) บนเว็บและ LINE</li>
                     </ul>
                 </div>
+            </div>
 
-                <div style="background: #f0fdf4; padding: 18px; border-radius: 14px; border-left: 4px solid var(--accent-green);">
-                    <strong style="color: #065f46; font-size: 1.05rem;">🟢 การยกระดับสู่อนาคต (To-Be Platform):</strong>
-                    <ul style="margin-top: 10px;">
-                        <li class="check">จัดตารางผ่านระบบดิจิทัล ดึงรายชื่อบุคลากรและศิษยาภิบาลจาก Database</li>
-                        <li class="check">ระบบตรวจสอบสถานะการลาและตารางชนให้อัตโนมัติล่วงหน้า 100%</li>
-                        <li class="check">แจ้งเตือนเตือนตารางรับใช้ตรงไปยัง LINE ของผู้รับใช้แต่ละท่านทันที</li>
+            <div class="card card-pain">
+                <span class="status-pill status-pain">🔴 Pain Point 2</span>
+                <div class="card-header">
+                    <div class="card-icon icon-amber">📦</div>
+                    <h3>อุปกรณ์ยืม-คืนไม่มีหลักฐาน & ช่างซ่อมช้า</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li class="cross">ไมโครโฟน โปรเจกเตอร์ ยืมไปใช้แล้วไม่รู้ว่าอยู่ที่ใคร ไม่มีคนรับผิดชอบ</li>
+                        <li class="cross">เมื่ออุปกรณ์ชำรุด ไม่มีใครแจ้งซ่อม ช่างซ่อมช้าเพราะไม่มีตัวนับเวลา (SLA)</li>
+                        <li class="cross"><strong>เป้าหมายการเปลี่ยน:</strong> สแกน QR Code + เซ็นชื่อดิจิทัลรับยืมคืน +
+                            แจ้งซ่อมตามเวลา SLA</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card card-pain">
+                <span class="status-pill status-pain">🔴 Pain Point 3</span>
+                <div class="card-header">
+                    <div class="card-icon icon-red">📅</div>
+                    <h3>ตารางปรนนิบัติ (Serving Roster) ชนกัน</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li class="cross">ผู้จัดตารางไม่รู้ว่าผู้รับใช้ติดภารกิจอื่นหรือแจ้งลาล่วงหน้าหรือไม่</li>
+                        <li class="cross">เกิดปัญหาขาดคนรับใช้หน้างานในวันอาทิตย์อย่างกะทันหัน</li>
+                        <li class="cross"><strong>เป้าหมายการเปลี่ยน:</strong> ระบบเช็กตารางชนอัตโนมัติ
+                            และเตือนผู้รับใช้ล่วงหน้า</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card card-pain">
+                <span class="status-pill status-pain">🔴 Pain Point 4</span>
+                <div class="card-header">
+                    <div class="card-icon icon-amber">🔒</div>
+                    <h3>ฐานข้อมูลทะเบียนคริสตจักรเสี่ยงไม่ปลอดภัย</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li class="cross">ข้อมูลสมาชิกและบุคลากรเก็บกระจายใน Excel ไม่มีการจำกัดสิทธิ์ (RBAC)</li>
+                        <li class="cross">เสี่ยงต่อข้อมูลรั่วไหล และไม่สอดคล้องกับมาตรฐานคุ้มครองข้อมูลส่วนบุคคล (PDPA)
+                        </li>
+                        <li class="cross"><strong>เป้าหมายการเปลี่ยน:</strong> จัดเก็บในตู้เซฟดิจิทัล
+                            ล็อกสิทธิ์ดูข้อมูลเฉพาะผู้มีหน้าที่</li>
                     </ul>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Section 2.5: Business Logic for Scheduler -->
-    <div class="section-title">
-        <span>⚙️</span> 3. Business Logic การจัดตารางปรนนิบัติ (Requirement for Scheduler .pdf)
-    </div>
+        <!-- Section 1.5: As-Is Roster Visual Comparison -->
+        <div class="section-title">
+            <span>📊</span> 2. ตารางรับใช้แบบเดิม (As-Is Process vs To-Be Platform)
+        </div>
 
-    <div class="card" style="margin-bottom: 30px; border-top: 5px solid var(--accent-purple);">
-        <div class="card-header">
-            <div class="card-icon icon-purple">📋</div>
-            <div>
-                <h3>เงื่อนไขการจัดตารางรับใช้ มน. x ศบ. (Conditional Arrangement Rules)</h3>
-                <p style="color: #64748b; font-size: 0.93rem;">อ้างอิงจากข้อกำหนดในเอกสาร Requirement for Scheduler .pdf (มัคนายก 15 คน / ศิษยาภิบาล 5 คน)</p>
+        <div class="card" style="margin-bottom: 30px; border-top: 5px solid var(--accent-amber);">
+            <div class="card-header">
+                <div class="card-icon icon-amber">📑</div>
+                <div>
+                    <h3>ภาพตารางรับใช้เดิมแบบกรอก Excel (As-Is Roster Sheet)</h3>
+                    <p style="color: #64748b; font-size: 0.93rem;">รูปแบบไฟล์ Excel spreadsheet
+                        ดั้งเดิมที่ใช้จัดผู้รับใช้ในปัจจุบัน</p>
+                </div>
+            </div>
+
+            <div
+                style="text-align: center; margin: 15px 0; background: #0f172a; padding: 16px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1);">
+                <img src="as_is_serving_roster.png" alt="As-Is Serving Roster Excel"
+                    style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: var(--shadow-lg);" />
+            </div>
+
+            <div class="card-body">
+                <div class="grid-2" style="margin-bottom: 0;">
+                    <div
+                        style="background: #fff1f2; padding: 18px; border-radius: 14px; border-left: 4px solid var(--accent-red);">
+                        <strong style="color: #991b1b; font-size: 1.05rem;">🔴 ข้อจำกัดของรูปแบบเดิม (As-Is
+                            Excel):</strong>
+                        <ul style="margin-top: 10px;">
+                            <li class="cross">จัดตารางใน Excel ไม่เชื่อมต่อกับสถานะการลาหรือภารกิจอื่นของผู้รับใช้</li>
+                            <li class="cross">เมื่อมีคนแจ้งเปลี่ยน/ติดงาน ต้องพิมพ์แก้ไขไฟล์ใหม่และส่งไฟล์เข้ากลุ่ม LINE
+                                ซ้ำๆ</li>
+                            <li class="cross">เกิดปัญหาตารางชนกัน และผู้รับใช้ขาดหน้างานในวันอาทิตย์โดยไม่ทราบล่วงหน้า
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div
+                        style="background: #f0fdf4; padding: 18px; border-radius: 14px; border-left: 4px solid var(--accent-green);">
+                        <strong style="color: #065f46; font-size: 1.05rem;">🟢 การยกระดับสู่อนาคต (To-Be
+                            Platform):</strong>
+                        <ul style="margin-top: 10px;">
+                            <li class="check">จัดตารางผ่านระบบดิจิทัล ดึงรายชื่อบุคลากรและศิษยาภิบาลจาก Database</li>
+                            <li class="check">ระบบตรวจสอบสถานะการลาและตารางชนให้อัตโนมัติล่วงหน้า 100%</li>
+                            <li class="check">แจ้งเตือนเตือนตารางรับใช้ตรงไปยัง LINE ของผู้รับใช้แต่ละท่านทันที</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="grid-2" style="margin-top: 15px;">
-            <div style="background: #f8fafc; padding: 18px; border-radius: 14px; border-left: 4px solid var(--primary-light);">
-                <strong style="color: #1e3a8a; font-size: 1.05rem;">🎯 4 กฎหลักในการจัดตาราง (Main & Minor Logics):</strong>
-                <ul style="margin-top: 10px;">
-                    <li class="check"><strong>Main Logic 1 (Mapping วันสำคัญ):</strong> มน. ประจำฝ่ายเป็นผู้นำนมัสการในวันของฝ่ายตนเอง (เช่น วันปีใหม่ -> ประธาน, วันถวายบุตร -> คริสเตียนศึกษา, วันอนุชน -> อนุชน)</li>
-                    <li class="check"><strong>Main Logic 2 (Priority สถานที่):</strong> จัด มน. รับใช้ไม่ซ้ำกันในแต่ละอาทิตย์ โดยเรียงลำดับ Priority 1: โบสถ์บน/ล่าง $\rightarrow$ Priority 2: ประตูโบสถ์ $\rightarrow$ Priority 3: อนุชน ทิโมธี</li>
-                    <li class="check"><strong>Main Logic 3 (โควตา):</strong> กำหนด มน. รับใช้ 2 อาทิตย์ต่อเดือน เพื่อกระจายภาระงานสม่ำเสมอ</li>
-                    <li class="check"><strong>Minor Logic (หลีกเลี่ยงตารางชน):</strong> เช็ก มน. ไม่ติดงานรับใช้อื่นๆ ในวันเดียวกัน</li>
-                </ul>
+        <!-- Section 2.5: Business Logic for Scheduler -->
+        <div class="section-title">
+            <span>⚙️</span> 3. Business Logic การจัดตารางปรนนิบัติ (Requirement for Scheduler .pdf)
+        </div>
+
+        <div class="card" style="margin-bottom: 30px; border-top: 5px solid var(--accent-purple);">
+            <div class="card-header">
+                <div class="card-icon icon-purple">📋</div>
+                <div>
+                    <h3>เงื่อนไขการจัดตารางรับใช้ มน. x ศบ. (Conditional Arrangement Rules)</h3>
+                    <p style="color: #64748b; font-size: 0.93rem;">อ้างอิงจากข้อกำหนดในเอกสาร Requirement for Scheduler
+                        .pdf (มัคนายก 15 คน / ศิษยาภิบาล 5 คน)</p>
+                </div>
             </div>
 
-            <div style="background: #f8fafc; padding: 18px; border-radius: 14px; border-left: 4px solid var(--accent-amber);">
-                <strong style="color: #92400e; font-size: 1.05rem;">🔔 ระบบแจ้งเตือนตามลำดับเวลา (Reminder Timeline):</strong>
-                <ul style="margin-top: 10px;">
-                    <li class="pending"><strong>2 อาทิตย์ก่อนหน้า:</strong> ส่ง Reminder ให้เตรียมตัวรับใช้</li>
-                    <li class="pending"><strong>1 อาทิตย์ก่อนหน้า:</strong> ส่ง Reminder ให้ส่ง Pre-work (ข้อมูลสูจิบัตร) ให้ทีมที่เกี่ยวข้อง</li>
-                    <li class="pending"><strong>1 วันก่อนหน้า:</strong> ส่ง Reminder "พรุ่งนี้เราร่วมรับใช้ด้วยกัน"</li>
-                    <li class="check"><strong>คืนหลังเสร็จงาน:</strong> ส่งข้อความขอบคุณและขอพระเจ้าเสริมกำลัง</li>
-                </ul>
+            <div class="grid-2" style="margin-top: 15px;">
+                <div
+                    style="background: #f8fafc; padding: 18px; border-radius: 14px; border-left: 4px solid var(--primary-light);">
+                    <strong style="color: #1e3a8a; font-size: 1.05rem;">🎯 4 กฎหลักในการจัดตาราง (Main & Minor
+                        Logics):</strong>
+                    <ul style="margin-top: 10px;">
+                        <li class="check"><strong>Main Logic 1 (Mapping วันสำคัญ):</strong> มน.
+                            ประจำฝ่ายเป็นผู้นำนมัสการในวันของฝ่ายตนเอง (เช่น วันปีใหม่ -> ประธาน, วันถวายบุตร ->
+                            คริสเตียนศึกษา, วันอนุชน -> อนุชน)</li>
+                        <li class="check"><strong>Main Logic 2 (Priority สถานที่):</strong> จัด มน.
+                            รับใช้ไม่ซ้ำกันในแต่ละอาทิตย์ โดยเรียงลำดับ Priority 1: โบสถ์บน/ล่าง $\rightarrow$ Priority
+                            2: ประตูโบสถ์ $\rightarrow$ Priority 3: อนุชน ทิโมธี</li>
+                        <li class="check"><strong>Main Logic 3 (โควตา):</strong> กำหนด มน. รับใช้ 2 อาทิตย์ต่อเดือน
+                            เพื่อกระจายภาระงานสม่ำเสมอ</li>
+                        <li class="check"><strong>Minor Logic (หลีกเลี่ยงตารางชน):</strong> เช็ก มน.
+                            ไม่ติดงานรับใช้อื่นๆ ในวันเดียวกัน</li>
+                    </ul>
+                </div>
+
+                <div
+                    style="background: #f8fafc; padding: 18px; border-radius: 14px; border-left: 4px solid var(--accent-amber);">
+                    <strong style="color: #92400e; font-size: 1.05rem;">🔔 ระบบแจ้งเตือนตามลำดับเวลา (Reminder
+                        Timeline):</strong>
+                    <ul style="margin-top: 10px;">
+                        <li class="pending"><strong>2 อาทิตย์ก่อนหน้า:</strong> ส่ง Reminder ให้เตรียมตัวรับใช้</li>
+                        <li class="pending"><strong>1 อาทิตย์ก่อนหน้า:</strong> ส่ง Reminder ให้ส่ง Pre-work
+                            (ข้อมูลสูจิบัตร) ให้ทีมที่เกี่ยวข้อง</li>
+                        <li class="pending"><strong>1 วันก่อนหน้า:</strong> ส่ง Reminder "พรุ่งนี้เราร่วมรับใช้ด้วยกัน"
+                        </li>
+                        <li class="check"><strong>คืนหลังเสร็จงาน:</strong> ส่งข้อความขอบคุณและขอพระเจ้าเสริมกำลัง</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div
+                style="margin-top: 20px; background: #eff6ff; padding: 16px; border-radius: 12px; border: 1px solid #bfdbfe;">
+                <strong style="color: #1e40af;">🔄 3 Scenarios กระบวนการตอบรับและการขอเปลี่ยนตาราง:</strong>
+                <ol style="margin-top: 8px; padding-left: 20px; color: #1e3a8a;">
+                    <li><strong>ตอบรับปกติ:</strong> มน. กดตอบรับผ่าน LINE -> ระบบตอบรับ -> เข้าสู่ระบบแจ้งเตือน
+                        Reminder ตามลำดับเวลา</li>
+                    <li><strong>ขอเปลี่ยนตาราง (ก่อนวันงาน):</strong> กดไม่สะดวก -> ระบบค้นหาคนที่ว่างเป็น Option ->
+                        ติดต่อคนว่าง -> เมื่อตอบตกลง -> ระบบส่ง Confirm ให้ผู้เกี่ยวข้อง (เช่น คนลงสูจิบัตร) ->
+                        เข้าสู่ระบบ Reminder</li>
+                    <li><strong>เปลี่ยนฉุกเฉิน (หลังรับงานแล้ว):</strong> กด Request ขอเปลี่ยนแปลง -> ระบบหาคนว่างแทน ->
+                        เมื่อตอบตกลง -> ส่ง Confirm ผู้เกี่ยวข้อง -> เข้าสู่ระบบ Reminder</li>
+                </ol>
             </div>
         </div>
 
-        <div style="margin-top: 20px; background: #eff6ff; padding: 16px; border-radius: 12px; border: 1px solid #bfdbfe;">
-            <strong style="color: #1e40af;">🔄 3 Scenarios กระบวนการตอบรับและการขอเปลี่ยนตาราง:</strong>
-            <ol style="margin-top: 8px; padding-left: 20px; color: #1e3a8a;">
-                <li><strong>ตอบรับปกติ:</strong> มน. กดตอบรับผ่าน LINE -> ระบบตอบรับ -> เข้าสู่ระบบแจ้งเตือน Reminder ตามลำดับเวลา</li>
-                <li><strong>ขอเปลี่ยนตาราง (ก่อนวันงาน):</strong> กดไม่สะดวก -> ระบบค้นหาคนที่ว่างเป็น Option -> ติดต่อคนว่าง -> เมื่อตอบตกลง -> ระบบส่ง Confirm ให้ผู้เกี่ยวข้อง (เช่น คนลงสูจิบัตร) -> เข้าสู่ระบบ Reminder</li>
-                <li><strong>เปลี่ยนฉุกเฉิน (หลังรับงานแล้ว):</strong> กด Request ขอเปลี่ยนแปลง -> ระบบหาคนว่างแทน -> เมื่อตอบตกลง -> ส่ง Confirm ผู้เกี่ยวข้อง -> เข้าสู่ระบบ Reminder</li>
-            </ol>
+        <!-- Section 3: System Architecture & Data Flow (ARCHITECTURE.md) -->
+        <div class="section-title">
+            <span>🏗️</span> 4. สถาปัตยกรรมระบบ และการรับส่งข้อมูล (ARCHITECTURE.md)
         </div>
-    </div>
 
-    <!-- Section 3: System Architecture & Data Flow (ARCHITECTURE.md) -->
-    <div class="section-title">
-        <span>🏗️</span> 4. สถาปัตยกรรมระบบ และการรับส่งข้อมูล (ARCHITECTURE.md)
-    </div>
+        <div class="card" style="margin-bottom: 30px; border-top: 5px solid var(--primary-light);">
+            <div class="card-header">
+                <div class="card-icon icon-blue">🌐</div>
+                <div>
+                    <h3>โครงสร้างสถาปัตยกรรมไร้รอยต่อ (End-to-End Logical Architecture)</h3>
+                    <p style="color: #0952b7; font-size: 0.93rem;">การเชื่อมต่อระหว่าง LINE LIFF -> Next.js Fullstack ->
+                        Supabase PostgreSQL -> LINE Messaging Bot</p>
+                </div>
+            </div>
 
-    <div class="card" style="margin-bottom: 30px; border-top: 5px solid var(--primary-light);">
-        <div class="card-header">
-            <div class="card-icon icon-blue">🌐</div>
-            <div>
-                <h3>โครงสร้างสถาปัตยกรรมไร้รอยต่อ (End-to-End Logical Architecture)</h3>
-                <p style="color: #64748b; font-size: 0.93rem;">การเชื่อมต่อระหว่าง LINE LIFF -> Next.js Fullstack -> Supabase PostgreSQL -> LINE Messaging Bot</p>
+            <div class="process-flow" style="margin-top: 15px;">
+                <div class="process-step">
+                    <div class="step-num">1</div>
+                    <h4>LINE LIFF Gateway</h4>
+                    <p>ผู้ใช้เปิดผ่าน LINE ได้ทันที ไม่ต้องล็อกอินซ้ำ ไม่ต้องโหลดแชทอื่นเพิ่ม</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">2</div>
+                    <h4>Next.js 15 Fullstack</h4>
+                    <p>รันทั้งหน้าตาเว็บ และ REST API อยู่ในโปรเจกต์เดียวกันบน Vercel Cloud</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">3</div>
+                    <h4>Supabase PostgreSQL</h4>
+                    <p>ตู้เซฟจัดเก็บข้อมูลนิรภัย สำรองข้อมูลอัตโนมัติ และสืบค้นได้ real-time</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">4</div>
+                    <h4>LINE Messaging Bot</h4>
+                    <p>ส่งข้อความพุชแจ้งเตือนเตือนตารางรับใช้ คำขออนุมัติ และติดตามช่างซ่อม</p>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div class="metaphor-box">
+                    <strong>ความปลอดภัย & Non-Functional Requirements:</strong>
+                    ระบบบังคับใช้ HTTPS การตรวจสอบลายเซ็นดิจิทัลของ LINE Webhook (Signature Verification)
+                    ป้องกันการปลอมแปลงข้อมูล และมีระบบ Serverless Scaling อัตโนมัติ รองรับ Uptime 99.9%
+                </div>
             </div>
         </div>
 
-        <div class="process-flow" style="margin-top: 15px;">
+        <!-- Section 4: Technical Decisions Rationale (DECISION.md) -->
+        <div class="section-title">
+            <span>🛠️</span> 5. สรุปเหตุผลการตัดสินใจเลือกเทคโนโลยี (DECISION.md)
+        </div>
+
+        <table class="tech-table">
+            <thead>
+                <tr>
+                    <th>การตัดสินใจหลัก</th>
+                    <th>เทคโนโลยีที่เลือก</th>
+                    <th>เหตุผลทางเทคนิค (Technical Rationale)</th>
+                    <th>ประโยชน์ต่อคริสตจักร</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>1. รวมศูนย์พัฒนา</strong></td>
+                    <td>Next.js 15 (Fullstack)</td>
+                    <td>ใช้ภาษา JavaScript/TypeScript ทั้งหน้าบ้านและหลังบ้าน ลดความซับซ้อน</td>
+                    <td>ประหยัดงบประมาณ ส่งต่อโค้ดให้ทีมงานรุ่นถัดไปได้ง่าย</td>
+                </tr>
+                <tr>
+                    <td><strong>2. ฐานข้อมูลคลาวด์</strong></td>
+                    <td>Supabase (PostgreSQL)</td>
+                    <td>Managed Database มีระบบสิทธิ์ Auth/Storage และ Security Built-in</td>
+                    <td>คริสตจักรไม่ต้องซื้อตู้เซฟ Server มาดูแลเอง ไม่มีค่าไฟเปลือง</td>
+                </tr>
+                <tr>
+                    <td><strong>3. ช่องทางใช้งาน</strong></td>
+                    <td>LINE LIFF & Messaging SDK</td>
+                    <td>เข้าถึงแอปผ่าน LINE Ecosystem ที่ทุกคนมีใช้อยู่อยู่แล้วในชีวิตประจำวัน</td>
+                    <td>ผู้รับใช้ไม่ต้องจดจำรหัสผ่านเพิ่ม และไม่ต้องโหลดแอปอื่น</td>
+                </tr>
+                <tr>
+                    <td><strong>4. ระบบคลาวด์ & CI/CD</strong></td>
+                    <td>Vercel + GitHub Auto-deploy</td>
+                    <td>อัปเดตระบบและตรวจเช็กโค้ดอัตโนมัติทุกครั้งที่มีการปรับปรุงโปรเจกต์</td>
+                    <td>ระบบเสถียร 99.9% อัปเดตฟีเจอร์ใหม่ได้ทันทีโดยไม่หยุดชะงัก</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Section 5: PoC Scope & Deliverables (PoC_Scope.md) -->
+        <div class="section-title">
+            <span>🎯</span> 6. ขอบเขตและเกณฑ์ความสำเร็จการทดสอบ PoC (PoC_Scope.md)
+        </div>
+
+        <div class="grid-2">
+            <div class="card card-logic-done">
+                <span class="status-pill status-done">✓ เกณฑ์ความสำเร็จ (PoC Success Criteria)</span>
+                <div class="card-header">
+                    <div class="card-icon icon-green">🏆</div>
+                    <h3>สิ่งที่ PoC พิสูจน์ว่าทำได้จริง 100%</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li class="check">เปิดแอปพลิเคชันเว็บผ่าน LINE LIFF ได้ราบรื่น</li>
+                        <li class="check">หน้าเว็บสามารถเรียก API บันทึกและดึงข้อมูลจาก Supabase PostgreSQL ได้จริง</li>
+                        <li class="check">ระบบยืม-คืน อุปกรณ์สแกน QR Code พร้อมเซ็นชื่อดิจิทัลทำงานได้สำเร็จ</li>
+                        <li class="check">LINE Bot สามารถรับ Webhook Event และตอบกลับข้อความอัตโนมัติได้</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card card-logic-done">
+                <span class="status-pill status-done">📦 สิ่งส่งมอบหลัก (PoC Deliverables)</span>
+                <div class="card-header">
+                    <div class="card-icon icon-purple">📁</div>
+                    <h3>ผลงานและเอกสารที่ส่งมอบเรียบร้อย</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li class="check"><strong>GitHub Repository:</strong> โครงสร้างโค้ดโปรเจกต์มาตรฐานสากล</li>
+                        <li class="check"><strong>Working Vercel Environment:</strong> ระบบ Demo ที่เปิดใช้งานได้บน
+                            Cloud</li>
+                        <li class="check"><strong>Architecture Docs:</strong> เอกสาร ARCHITECTURE.md, DECISION.md,
+                            PoC_Scope.md</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 6: Honest System Status -->
+        <div class="section-title">
+            <span>🔍</span> 7. รายงานความคืบหน้าระบบตามความเป็นจริง (Honest System Status)
+        </div>
+
+        <!-- Sub-section 6.1: Logic Bound & DB Complete -->
+        <h3 style="color: #10b981; margin: 20px 0 15px 0; font-size: 1.3rem;">🟢 หมวดที่ 1: เสร็จสมบูรณ์ และผูก Backend
+            / Database / Logic จริงแล้ว (100% Implemented)</h3>
+
+        <div class="grid-2">
+            <div class="card card-logic-done">
+                <span class="status-pill status-done">✓ ผูก DB & Logic จริงแล้ว</span>
+                <div class="card-header">
+                    <div class="card-icon icon-green">📦</div>
+                    <h3>คลังอุปกรณ์ & สแกน QR Code (Equipment API)</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li class="check">สร้าง Database Schema รองรับหมวดหมู่และซีเรียลนัมเบอร์เรียบร้อย</li>
+                        <li class="check">สแกน QR Code ประจำอุปกรณ์ ดึงข้อมูลจริงจาก Supabase PostgreSQL</li>
+                        <li class="check">ตรวจสอบสถานะอุปกรณ์ (พร้อมใช้ / กำลังซ่อม / ถูกยืม) ได้ real-time</li>
+                    </ul>
+                    <div class="metaphor-box">
+                        <strong>สถานะจริง:</strong> เขียนโค้ด API และผูก Logic บันทึกข้อมูลลง Database เรียบร้อยแล้ว
+                    </div>
+                </div>
+            </div>
+
+            <div class="card card-logic-done">
+                <span class="status-pill status-done">✓ ผูก DB & Logic จริงแล้ว</span>
+                <div class="card-header">
+                    <div class="card-icon icon-green">✍️</div>
+                    <h3>ยืม-คืน อุปกรณ์พร้อมลายเซ็นดิจิทัล (Digital Handover API)</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li class="check">บันทึกภาพถ่ายและ **ลายเซ็นดิจิทัลจริง (Base64 Signature)** ลง Database</li>
+                        <li class="check">บันทึกชื่อผู้รับมอบ ผู้คืน วันเวลาจริง ป้องกันการปฏิเสธความรับผิดชอบ</li>
+                        <li class="check">มีสถานะติดตามการรับมอบ (pending_handover -> active -> returned)</li>
+                    </ul>
+                    <div class="metaphor-box">
+                        <strong>สถานะจริง:</strong> ระบบลายเซ็นและ API บันทึกการยืม-คืนผูก Logic ทำงานได้จริง
+                    </div>
+                </div>
+            </div>
+
+            <div class="card card-logic-done">
+                <span class="status-pill status-done">✓ ผูก DB & Logic จริงแล้ว</span>
+                <div class="card-header">
+                    <div class="card-icon icon-green">🔧</div>
+                    <h3>แจ้งซ่อม & ติดตามช่างซ่อม (Repair Ticket SLA API)</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li class="check">สร้างใบแจ้งซ่อมอุปกรณ์ชำรุด พร้อมคำนวณวันหมดเขตซ่อม (SLA Deadline) อัตโนมัติ
+                        </li>
+                        <li class="check">บันทึกเวลาช่างรับงาน (Responded At) และเวลาซ่อมเสร็จ (Resolved At)</li>
+                        <li class="check">แนบรูปถ่ายหลักฐานก่อน-หลังซ่อมเสร็จจริง</li>
+                    </ul>
+                    <div class="metaphor-box">
+                        <strong>สถานะจริง:</strong> มี API และ Logic คำนวณ SLA ทำงานเชื่อมกับ Database แล้ว
+                    </div>
+                </div>
+            </div>
+
+            <div class="card card-logic-done">
+                <span class="status-pill status-done">✓ ผูก DB & Logic จริงแล้ว</span>
+                <div class="card-header">
+                    <div class="card-icon icon-green">🗄️</div>
+                    <h3>โครงสร้างฐานข้อมูลทะเบียน (Prisma Database Schema)</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li class="check">ออกแบบ Schema รองรับข้อมูลบุคลากร อุปกรณ์ คำขอลา และใบแจ้งซ่อม</li>
+                        <li class="check">รองรับการเชื่อมโยงกับฐานข้อมูลทะเบียนคริสตจักรเดิม (Backward Compatible)</li>
+                    </ul>
+                    <div class="metaphor-box">
+                        <strong>สถานะจริง:</strong> โครงสร้างตู้เซฟเก็บข้อมูลถูกสร้างขึ้นและทำงานบน Cloud Supabase แล้ว
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sub-section 6.2: UI Prototype & Pending Logic -->
+        <h3 style="color: #f59e0b; margin: 30px 0 15px 0; font-size: 1.3rem;">🟡 หมวดที่ 2: หน้า UI Prototype เสร็จแล้ว
+            แต่กำลังอยู่ในช่วงเขียน Logic ผูกหลังบ้าน (Pending Backend Logic)</h3>
+
+        <div class="grid-2">
+            <div class="card card-logic-pending">
+                <span class="status-pill status-pending">⏳ อยู่ระหว่างผูก Logic หลังบ้าน</span>
+                <div class="card-header">
+                    <div class="card-icon icon-amber">📅</div>
+                    <h3>ตารางปรนนิบัติ (Serving Roster & Scheduler Logic)</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li class="pending"><strong>สถานะปัจจุบัน:</strong> หน้าจอ UI ออกแบบครบถ้วนสวยงามแล้ว แต่
+                            **ยังใช้ Mock Data ในการแสดงผล**</li>
+                        <li class="pending"><strong>สิ่งที่กำลังทำ:</strong> ทีม Dev กำลังนำ Scheduler Business Logic
+                            (ข้อกำหนด มน. x ศบ.) มาเขียนผูกสายไฟเข้ากับฐานข้อมูลจริง</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card card-logic-pending">
+                <span class="status-pill status-pending">⏳ อยู่ระหว่างผูก Webhook Bot</span>
+                <div class="card-header">
+                    <div class="card-icon icon-amber">💬</div>
+                    <h3>การเชื่อมต่อ LINE App (LIFF & LINE Bot Notifications)</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li class="pending"><strong>สถานะปัจจุบัน:</strong> วางโครงสร้างสถาปัตยกรรม (Architecture & PoC
+                            Scope) เรียบร้อยแล้ว</li>
+                        <li class="pending"><strong>สิ่งที่กำลังทำ:</strong> กำลังพัฒนา LINE Webhook
+                            เพื่อส่งข้อความแจ้งเตือน Reminder ตามลำดับเวลาเข้า LINE</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card card-logic-pending">
+                <span class="status-pill status-pending">⏳ อยู่ระหว่างพัฒนาระบบสิทธิ์</span>
+                <div class="card-header">
+                    <div class="card-icon icon-amber">🔐</div>
+                    <h3>ระบบจัดการสิทธิ์ผู้ใช้งาน (Full RBAC Authentication)</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li class="pending"><strong>สถานะปัจจุบัน:</strong> ออกแบบสิทธิ์ Admin / ศิษยาภิบาล / ผู้รับใช้
+                            ใน Schema ไว้แล้ว</li>
+                        <li class="pending"><strong>สิ่งที่กำลังทำ:</strong>
+                            กำลังพัฒนาระบบยืนยันตัวตนเพื่อล็อกสิทธิ์การเข้าถึงหน้าจอและข้อมูลทะเบียน</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card card-logic-pending">
+                <span class="status-pill status-pending">⏳ อยู่ระหว่างเชื่อมโยงปฏิทิน</span>
+                <div class="card-header">
+                    <div class="card-icon icon-amber">📆</div>
+                    <h3>ระบบปฏิทินกิจกรรม & การลา (Events & Leave Management)</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li class="pending"><strong>สถานะปัจจุบัน:</strong> หน้า UI
+                            แสดงปฏิทินกิจกรรมและการลาออกแบบเสร็จแล้ว</li>
+                        <li class="pending"><strong>สิ่งที่กำลังทำ:</strong> กำลังย้ายจากการใช้ Mock Data
+                            มาเป็นการดึงข้อมูลคำขอลาจริงจาก Database</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 7: Development Process & Roadmap -->
+        <div class="section-title">
+            <span>🚀</span> 8. ขั้นตอนการทำงาน และแผนการดำเนินงานถัดไป (Roadmap)
+        </div>
+
+        <div class="process-flow">
             <div class="process-step">
                 <div class="step-num">1</div>
-                <h4>LINE LIFF Gateway</h4>
-                <p>ผู้ใช้เปิดผ่าน LINE ได้ทันที ไม่ต้องล็อกอินซ้ำ ไม่ต้องโหลดแชทอื่นเพิ่ม</p>
+                <h4>Phase 1: ผูก Logic ที่เหลือ</h4>
+                <p>เร่งเขียน Scheduler Business Logic ผูกหน้า UI ตารางปรนนิบัติ มน. x ศบ. เข้ากับ Database จริง</p>
             </div>
             <div class="process-step">
                 <div class="step-num">2</div>
-                <h4>Next.js 15 Fullstack</h4>
-                <p>รันทั้งหน้าตาเว็บ และ REST API อยู่ในโปรเจกต์เดียวกันบน Vercel Cloud</p>
+                <h4>Phase 2: เชื่อม LINE Bot</h4>
+                <p>พัฒนา LINE Webhook และ Push Notification แจ้งเตือน Reminder ล่วงหน้า 2 อาทิตย์ / 1 อาทิตย์ / 1 วัน
+                </p>
             </div>
             <div class="process-step">
                 <div class="step-num">3</div>
-                <h4>Supabase PostgreSQL</h4>
-                <p>ตู้เซฟจัดเก็บข้อมูลนิรภัย สำรองข้อมูลอัตโนมัติ และสืบค้นได้ real-time</p>
+                <h4>Phase 3: Pilot Test</h4>
+                <p>เปิดทดสอบใช้งานจริงร่วมกับคณะอนุกรรมการ ศิษยาภิบาล และเจ้าหน้าที่หน้างาน</p>
             </div>
             <div class="process-step">
                 <div class="step-num">4</div>
-                <h4>LINE Messaging Bot</h4>
-                <p>ส่งข้อความพุชแจ้งเตือนเตือนตารางรับใช้ คำขออนุมัติ และติดตามช่างซ่อม</p>
+                <h4>Phase 4: Training & Go-Live</h4>
+                <p>จัดอบรมการใช้งานสั้นๆ แบบจับมือทำ และเปิดใช้งานเต็มรูปแบบทั่วทั้งคริสตจักร</p>
             </div>
         </div>
 
-        <div class="card-body">
-            <div class="metaphor-box">
-                <strong>ความปลอดภัย & Non-Functional Requirements:</strong> 
-                ระบบบังคับใช้ HTTPS การตรวจสอบลายเซ็นดิจิทัลของ LINE Webhook (Signature Verification) ป้องกันการปลอมแปลงข้อมูล และมีระบบ Serverless Scaling อัตโนมัติ รองรับ Uptime 99.9%
-            </div>
+        <!-- Section 8: Executive Q&A -->
+        <div class="section-title">
+            <span>❓</span> 9. คู่มือตอบคำถามคณะอนุกรรมการ (Executive Q&A Cheat Sheet)
         </div>
+
+        <div class="qa-card">
+            <div class="qa-q">❓ 1. ทำไมระบบบางหน้าถึงดูมีหน้าจอสวยงามแล้ว แต่แจ้งว่ากำลังผูก Logic หลังบ้าน?</div>
+            <div class="qa-a">💡 <strong>คำตอบ:</strong> เป็นแนวทางการพัฒนาซอฟต์แวร์สมัยใหม่ (Agile Design) ครับ
+                เราสร้างหน้าตา UI ออกมาให้ทีมงานและอนุกรรมการเห็นภาพตรงกันก่อน เพื่อปรับแก้หน้าจอให้อ่านง่าย ปุ่มกดสะดวก
+                จากนั้นทีม Dev จึงทยอยผูกสายไฟหรือ Logic หลังบ้านเข้ากับฐานข้อมูลทีละส่วนครับ
+                ซึ่งตอนนี้ส่วนอุปกรณ์และแจ้งซ่อมผูกสำเร็จ 100% แล้ว และส่วนตารางรับใช้กำลังผูกเป็นลำดับถัดไปครับ</div>
+        </div>
+
+        <div class="qa-card">
+            <div class="qa-q">❓ 2. คนที่ไม่เก่งคอมพิวเตอร์ หรือผู้สูงอายุจะใช้งานได้จริงไหม?</div>
+            <div class="qa-a">💡 <strong>คำตอบ:</strong> ใช้งานได้แน่นอนครับ เพราะผู้รับใช้กดเข้าใช้งานผ่าน LINE
+                บนมือถือเครื่องเดิม ปุ่มกดขนาดใหญ่ ตัวหนังสืออ่านง่าย เพียงแค่ยกมือถือสแกน QR Code
+                ก็ยืมอุปกรณ์ได้แล้วครับ และเราจะมีทีมงานจัดอบรมจับมือทำสั้นๆ ให้ทุกคนครับ</div>
+        </div>
+
+        <div class="qa-card">
+            <div class="qa-q">❓ 3. ข้อมูลส่วนตัวและทะเบียนคริสตจักรจะหลุดออกไปข้างนอกหรือไม่?</div>
+            <div class="qa-a">💡 <strong>คำตอบ:</strong> ปลอดภัยสูงสุดครับ
+                เราใช้โครงสร้างความปลอดภัยระดับเดียวกับธนาคารดิจิทัล (Supabase HTTPS + LINE Webhook Signature
+                Verification) มีการเข้ารหัสข้อมูลทุกขั้นตอน และถูกจำกัดสิทธิ์ตามบทบาท (Role-Based Access)
+                คนภายนอกที่ไม่ได้รับสิทธิ์จะไม่สามารถมองเห็นข้อมูลได้เลยครับ</div>
+        </div>
+
+        <div class="qa-card">
+            <div class="qa-q">❓ 4. คริสตจักรต้องเสียค่าดูแลรักษาระบบ (Maintenance) แพงไหมในระยะยาว?</div>
+            <div class="qa-a">💡 <strong>คำตอบ:</strong> ค่าใช้จ่ายต่ำมากครับ เพราะเราเลือกใช้ระบบ Cloud
+                สากลที่คริสตจักรไม่ต้องซื้อคอมพิวเตอร์เซิร์ฟเวอร์มาตั้งเองให้เปลืองค่าไฟ
+                และโครงสร้างโปรเจกต์ถูกเขียนด้วยมาตรฐานสากล ทำให้ทีม Dev รุ่นถัดๆ ไปมาสานต่อได้ง่ายดายครับ</div>
+        </div>
+
+        <footer>
+            <p>Verified & Maintained by MTC Tech Development Team | Maitrichit Church 2026</p>
+        </footer>
+
     </div>
-
-    <!-- Section 4: Technical Decisions Rationale (DECISION.md) -->
-    <div class="section-title">
-        <span>🛠️</span> 5. สรุปเหตุผลการตัดสินใจเลือกเทคโนโลยี (DECISION.md)
-    </div>
-
-    <table class="tech-table">
-        <thead>
-            <tr>
-                <th>การตัดสินใจหลัก</th>
-                <th>เทคโนโลยีที่เลือก</th>
-                <th>เหตุผลทางเทคนิค (Technical Rationale)</th>
-                <th>ประโยชน์ต่อคริสตจักร</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>1. รวมศูนย์พัฒนา</strong></td>
-                <td>Next.js 15 (Fullstack)</td>
-                <td>ใช้ภาษา JavaScript/TypeScript ทั้งหน้าบ้านและหลังบ้าน ลดความซับซ้อน</td>
-                <td>ประหยัดงบประมาณ ส่งต่อโค้ดให้ทีมงานรุ่นถัดไปได้ง่าย</td>
-            </tr>
-            <tr>
-                <td><strong>2. ฐานข้อมูลคลาวด์</strong></td>
-                <td>Supabase (PostgreSQL)</td>
-                <td>Managed Database มีระบบสิทธิ์ Auth/Storage และ Security Built-in</td>
-                <td>คริสตจักรไม่ต้องซื้อตู้เซฟ Server มาดูแลเอง ไม่มีค่าไฟเปลือง</td>
-            </tr>
-            <tr>
-                <td><strong>3. ช่องทางใช้งาน</strong></td>
-                <td>LINE LIFF & Messaging SDK</td>
-                <td>เข้าถึงแอปผ่าน LINE Ecosystem ที่ทุกคนมีใช้อยู่อยู่แล้วในชีวิตประจำวัน</td>
-                <td>ผู้รับใช้ไม่ต้องจดจำรหัสผ่านเพิ่ม และไม่ต้องโหลดแอปอื่น</td>
-            </tr>
-            <tr>
-                <td><strong>4. ระบบคลาวด์ & CI/CD</strong></td>
-                <td>Vercel + GitHub Auto-deploy</td>
-                <td>อัปเดตระบบและตรวจเช็กโค้ดอัตโนมัติทุกครั้งที่มีการปรับปรุงโปรเจกต์</td>
-                <td>ระบบเสถียร 99.9% อัปเดตฟีเจอร์ใหม่ได้ทันทีโดยไม่หยุดชะงัก</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <!-- Section 5: PoC Scope & Deliverables (PoC_Scope.md) -->
-    <div class="section-title">
-        <span>🎯</span> 6. ขอบเขตและเกณฑ์ความสำเร็จการทดสอบ PoC (PoC_Scope.md)
-    </div>
-
-    <div class="grid-2">
-        <div class="card card-logic-done">
-            <span class="status-pill status-done">✓ เกณฑ์ความสำเร็จ (PoC Success Criteria)</span>
-            <div class="card-header">
-                <div class="card-icon icon-green">🏆</div>
-                <h3>สิ่งที่ PoC พิสูจน์ว่าทำได้จริง 100%</h3>
-            </div>
-            <div class="card-body">
-                <ul>
-                    <li class="check">เปิดแอปพลิเคชันเว็บผ่าน LINE LIFF ได้ราบรื่น</li>
-                    <li class="check">หน้าเว็บสามารถเรียก API บันทึกและดึงข้อมูลจาก Supabase PostgreSQL ได้จริง</li>
-                    <li class="check">ระบบยืม-คืน อุปกรณ์สแกน QR Code พร้อมเซ็นชื่อดิจิทัลทำงานได้สำเร็จ</li>
-                    <li class="check">LINE Bot สามารถรับ Webhook Event และตอบกลับข้อความอัตโนมัติได้</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="card card-logic-done">
-            <span class="status-pill status-done">📦 สิ่งส่งมอบหลัก (PoC Deliverables)</span>
-            <div class="card-header">
-                <div class="card-icon icon-purple">📁</div>
-                <h3>ผลงานและเอกสารที่ส่งมอบเรียบร้อย</h3>
-            </div>
-            <div class="card-body">
-                <ul>
-                    <li class="check"><strong>GitHub Repository:</strong> โครงสร้างโค้ดโปรเจกต์มาตรฐานสากล</li>
-                    <li class="check"><strong>Working Vercel Environment:</strong> ระบบ Demo ที่เปิดใช้งานได้บน Cloud</li>
-                    <li class="check"><strong>Architecture Docs:</strong> เอกสาร ARCHITECTURE.md, DECISION.md, PoC_Scope.md</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <!-- Section 6: Honest System Status -->
-    <div class="section-title">
-        <span>🔍</span> 7. รายงานความคืบหน้าระบบตามความเป็นจริง (Honest System Status)
-    </div>
-
-    <!-- Sub-section 6.1: Logic Bound & DB Complete -->
-    <h3 style="color: #10b981; margin: 20px 0 15px 0; font-size: 1.3rem;">🟢 หมวดที่ 1: เสร็จสมบูรณ์ และผูก Backend / Database / Logic จริงแล้ว (100% Implemented)</h3>
-
-    <div class="grid-2">
-        <div class="card card-logic-done">
-            <span class="status-pill status-done">✓ ผูก DB & Logic จริงแล้ว</span>
-            <div class="card-header">
-                <div class="card-icon icon-green">📦</div>
-                <h3>คลังอุปกรณ์ & สแกน QR Code (Equipment API)</h3>
-            </div>
-            <div class="card-body">
-                <ul>
-                    <li class="check">สร้าง Database Schema รองรับหมวดหมู่และซีเรียลนัมเบอร์เรียบร้อย</li>
-                    <li class="check">สแกน QR Code ประจำอุปกรณ์ ดึงข้อมูลจริงจาก Supabase PostgreSQL</li>
-                    <li class="check">ตรวจสอบสถานะอุปกรณ์ (พร้อมใช้ / กำลังซ่อม / ถูกยืม) ได้ real-time</li>
-                </ul>
-                <div class="metaphor-box">
-                    <strong>สถานะจริง:</strong> เขียนโค้ด API และผูก Logic บันทึกข้อมูลลง Database เรียบร้อยแล้ว
-                </div>
-            </div>
-        </div>
-
-        <div class="card card-logic-done">
-            <span class="status-pill status-done">✓ ผูก DB & Logic จริงแล้ว</span>
-            <div class="card-header">
-                <div class="card-icon icon-green">✍️</div>
-                <h3>ยืม-คืน อุปกรณ์พร้อมลายเซ็นดิจิทัล (Digital Handover API)</h3>
-            </div>
-            <div class="card-body">
-                <ul>
-                    <li class="check">บันทึกภาพถ่ายและ **ลายเซ็นดิจิทัลจริง (Base64 Signature)** ลง Database</li>
-                    <li class="check">บันทึกชื่อผู้รับมอบ ผู้คืน วันเวลาจริง ป้องกันการปฏิเสธความรับผิดชอบ</li>
-                    <li class="check">มีสถานะติดตามการรับมอบ (pending_handover -> active -> returned)</li>
-                </ul>
-                <div class="metaphor-box">
-                    <strong>สถานะจริง:</strong> ระบบลายเซ็นและ API บันทึกการยืม-คืนผูก Logic ทำงานได้จริง
-                </div>
-            </div>
-        </div>
-
-        <div class="card card-logic-done">
-            <span class="status-pill status-done">✓ ผูก DB & Logic จริงแล้ว</span>
-            <div class="card-header">
-                <div class="card-icon icon-green">🔧</div>
-                <h3>แจ้งซ่อม & ติดตามช่างซ่อม (Repair Ticket SLA API)</h3>
-            </div>
-            <div class="card-body">
-                <ul>
-                    <li class="check">สร้างใบแจ้งซ่อมอุปกรณ์ชำรุด พร้อมคำนวณวันหมดเขตซ่อม (SLA Deadline) อัตโนมัติ</li>
-                    <li class="check">บันทึกเวลาช่างรับงาน (Responded At) และเวลาซ่อมเสร็จ (Resolved At)</li>
-                    <li class="check">แนบรูปถ่ายหลักฐานก่อน-หลังซ่อมเสร็จจริง</li>
-                </ul>
-                <div class="metaphor-box">
-                    <strong>สถานะจริง:</strong> มี API และ Logic คำนวณ SLA ทำงานเชื่อมกับ Database แล้ว
-                </div>
-            </div>
-        </div>
-
-        <div class="card card-logic-done">
-            <span class="status-pill status-done">✓ ผูก DB & Logic จริงแล้ว</span>
-            <div class="card-header">
-                <div class="card-icon icon-green">🗄️</div>
-                <h3>โครงสร้างฐานข้อมูลทะเบียน (Prisma Database Schema)</h3>
-            </div>
-            <div class="card-body">
-                <ul>
-                    <li class="check">ออกแบบ Schema รองรับข้อมูลบุคลากร อุปกรณ์ คำขอลา และใบแจ้งซ่อม</li>
-                    <li class="check">รองรับการเชื่อมโยงกับฐานข้อมูลทะเบียนคริสตจักรเดิม (Backward Compatible)</li>
-                </ul>
-                <div class="metaphor-box">
-                    <strong>สถานะจริง:</strong> โครงสร้างตู้เซฟเก็บข้อมูลถูกสร้างขึ้นและทำงานบน Cloud Supabase แล้ว
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Sub-section 6.2: UI Prototype & Pending Logic -->
-    <h3 style="color: #f59e0b; margin: 30px 0 15px 0; font-size: 1.3rem;">🟡 หมวดที่ 2: หน้า UI Prototype เสร็จแล้ว แต่กำลังอยู่ในช่วงเขียน Logic ผูกหลังบ้าน (Pending Backend Logic)</h3>
-
-    <div class="grid-2">
-        <div class="card card-logic-pending">
-            <span class="status-pill status-pending">⏳ อยู่ระหว่างผูก Logic หลังบ้าน</span>
-            <div class="card-header">
-                <div class="card-icon icon-amber">📅</div>
-                <h3>ตารางปรนนิบัติ (Serving Roster & Scheduler Logic)</h3>
-            </div>
-            <div class="card-body">
-                <ul>
-                    <li class="pending"><strong>สถานะปัจจุบัน:</strong> หน้าจอ UI ออกแบบครบถ้วนสวยงามแล้ว แต่ **ยังใช้ Mock Data ในการแสดงผล**</li>
-                    <li class="pending"><strong>สิ่งที่กำลังทำ:</strong> ทีม Dev กำลังนำ Scheduler Business Logic (ข้อกำหนด มน. x ศบ.) มาเขียนผูกสายไฟเข้ากับฐานข้อมูลจริง</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="card card-logic-pending">
-            <span class="status-pill status-pending">⏳ อยู่ระหว่างผูก Webhook Bot</span>
-            <div class="card-header">
-                <div class="card-icon icon-amber">💬</div>
-                <h3>การเชื่อมต่อ LINE App (LIFF & LINE Bot Notifications)</h3>
-            </div>
-            <div class="card-body">
-                <ul>
-                    <li class="pending"><strong>สถานะปัจจุบัน:</strong> วางโครงสร้างสถาปัตยกรรม (Architecture & PoC Scope) เรียบร้อยแล้ว</li>
-                    <li class="pending"><strong>สิ่งที่กำลังทำ:</strong> กำลังพัฒนา LINE Webhook เพื่อส่งข้อความแจ้งเตือน Reminder ตามลำดับเวลาเข้า LINE</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="card card-logic-pending">
-            <span class="status-pill status-pending">⏳ อยู่ระหว่างพัฒนาระบบสิทธิ์</span>
-            <div class="card-header">
-                <div class="card-icon icon-amber">🔐</div>
-                <h3>ระบบจัดการสิทธิ์ผู้ใช้งาน (Full RBAC Authentication)</h3>
-            </div>
-            <div class="card-body">
-                <ul>
-                    <li class="pending"><strong>สถานะปัจจุบัน:</strong> ออกแบบสิทธิ์ Admin / ศิษยาภิบาล / ผู้รับใช้ ใน Schema ไว้แล้ว</li>
-                    <li class="pending"><strong>สิ่งที่กำลังทำ:</strong> กำลังพัฒนาระบบยืนยันตัวตนเพื่อล็อกสิทธิ์การเข้าถึงหน้าจอและข้อมูลทะเบียน</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="card card-logic-pending">
-            <span class="status-pill status-pending">⏳ อยู่ระหว่างเชื่อมโยงปฏิทิน</span>
-            <div class="card-header">
-                <div class="card-icon icon-amber">📆</div>
-                <h3>ระบบปฏิทินกิจกรรม & การลา (Events & Leave Management)</h3>
-            </div>
-            <div class="card-body">
-                <ul>
-                    <li class="pending"><strong>สถานะปัจจุบัน:</strong> หน้า UI แสดงปฏิทินกิจกรรมและการลาออกแบบเสร็จแล้ว</li>
-                    <li class="pending"><strong>สิ่งที่กำลังทำ:</strong> กำลังย้ายจากการใช้ Mock Data มาเป็นการดึงข้อมูลคำขอลาจริงจาก Database</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <!-- Section 7: Development Process & Roadmap -->
-    <div class="section-title">
-        <span>🚀</span> 8. ขั้นตอนการทำงาน และแผนการดำเนินงานถัดไป (Roadmap)
-    </div>
-
-    <div class="process-flow">
-        <div class="process-step">
-            <div class="step-num">1</div>
-            <h4>Phase 1: ผูก Logic ที่เหลือ</h4>
-            <p>เร่งเขียน Scheduler Business Logic ผูกหน้า UI ตารางปรนนิบัติ มน. x ศบ. เข้ากับ Database จริง</p>
-        </div>
-        <div class="process-step">
-            <div class="step-num">2</div>
-            <h4>Phase 2: เชื่อม LINE Bot</h4>
-            <p>พัฒนา LINE Webhook และ Push Notification แจ้งเตือน Reminder ล่วงหน้า 2 อาทิตย์ / 1 อาทิตย์ / 1 วัน</p>
-        </div>
-        <div class="process-step">
-            <div class="step-num">3</div>
-            <h4>Phase 3: Pilot Test</h4>
-            <p>เปิดทดสอบใช้งานจริงร่วมกับคณะอนุกรรมการ ศิษยาภิบาล และเจ้าหน้าที่หน้างาน</p>
-        </div>
-        <div class="process-step">
-            <div class="step-num">4</div>
-            <h4>Phase 4: Training & Go-Live</h4>
-            <p>จัดอบรมการใช้งานสั้นๆ แบบจับมือทำ และเปิดใช้งานเต็มรูปแบบทั่วทั้งคริสตจักร</p>
-        </div>
-    </div>
-
-    <!-- Section 8: Executive Q&A -->
-    <div class="section-title">
-        <span>❓</span> 9. คู่มือตอบคำถามคณะอนุกรรมการ (Executive Q&A Cheat Sheet)
-    </div>
-
-    <div class="qa-card">
-        <div class="qa-q">❓ 1. ทำไมระบบบางหน้าถึงดูมีหน้าจอสวยงามแล้ว แต่แจ้งว่ากำลังผูก Logic หลังบ้าน?</div>
-        <div class="qa-a">💡 <strong>คำตอบ:</strong> เป็นแนวทางการพัฒนาซอฟต์แวร์สมัยใหม่ (Agile Design) ครับ เราสร้างหน้าตา UI ออกมาให้ทีมงานและอนุกรรมการเห็นภาพตรงกันก่อน เพื่อปรับแก้หน้าจอให้อ่านง่าย ปุ่มกดสะดวก จากนั้นทีม Dev จึงทยอยผูกสายไฟหรือ Logic หลังบ้านเข้ากับฐานข้อมูลทีละส่วนครับ ซึ่งตอนนี้ส่วนอุปกรณ์และแจ้งซ่อมผูกสำเร็จ 100% แล้ว และส่วนตารางรับใช้กำลังผูกเป็นลำดับถัดไปครับ</div>
-    </div>
-
-    <div class="qa-card">
-        <div class="qa-q">❓ 2. คนที่ไม่เก่งคอมพิวเตอร์ หรือผู้สูงอายุจะใช้งานได้จริงไหม?</div>
-        <div class="qa-a">💡 <strong>คำตอบ:</strong> ใช้งานได้แน่นอนครับ เพราะผู้รับใช้กดเข้าใช้งานผ่าน LINE บนมือถือเครื่องเดิม ปุ่มกดขนาดใหญ่ ตัวหนังสืออ่านง่าย เพียงแค่ยกมือถือสแกน QR Code ก็ยืมอุปกรณ์ได้แล้วครับ และเราจะมีทีมงานจัดอบรมจับมือทำสั้นๆ ให้ทุกคนครับ</div>
-    </div>
-
-    <div class="qa-card">
-        <div class="qa-q">❓ 3. ข้อมูลส่วนตัวและทะเบียนคริสตจักรจะหลุดออกไปข้างนอกหรือไม่?</div>
-        <div class="qa-a">💡 <strong>คำตอบ:</strong> ปลอดภัยสูงสุดครับ เราใช้โครงสร้างความปลอดภัยระดับเดียวกับธนาคารดิจิทัล (Supabase HTTPS + LINE Webhook Signature Verification) มีการเข้ารหัสข้อมูลทุกขั้นตอน และถูกจำกัดสิทธิ์ตามบทบาท (Role-Based Access) คนภายนอกที่ไม่ได้รับสิทธิ์จะไม่สามารถมองเห็นข้อมูลได้เลยครับ</div>
-    </div>
-
-    <div class="qa-card">
-        <div class="qa-q">❓ 4. คริสตจักรต้องเสียค่าดูแลรักษาระบบ (Maintenance) แพงไหมในระยะยาว?</div>
-        <div class="qa-a">💡 <strong>คำตอบ:</strong> ค่าใช้จ่ายต่ำมากครับ เพราะเราเลือกใช้ระบบ Cloud สากลที่คริสตจักรไม่ต้องซื้อคอมพิวเตอร์เซิร์ฟเวอร์มาตั้งเองให้เปลืองค่าไฟ และโครงสร้างโปรเจกต์ถูกเขียนด้วยมาตรฐานสากล ทำให้ทีม Dev รุ่นถัดๆ ไปมาสานต่อได้ง่ายดายครับ</div>
-    </div>
-
-    <footer>
-        <p>Verified & Maintained by MTC Tech Development Team | Maitrichit Church 2026</p>
-    </footer>
-
-</div>
 
 </body>
+
 </html>
