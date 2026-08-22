@@ -1,0 +1,549 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1600" width="2400" height="1600">
+  <style>
+    text { font-family: "Prompt", "TH Sarabun New", "Segoe UI", Roboto, Arial, sans-serif; }
+  </style>
+  <defs>
+    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="14" cy="14" r="1.4" fill="#c7d2e0"/>
+    </pattern>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00b4d8"/>
+      <stop offset="100%" stop-color="#0077b6"/>
+    </linearGradient>
+    <linearGradient id="fr1Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0096c7"/>
+      <stop offset="100%" stop-color="#00b4d8"/>
+    </linearGradient>
+    <linearGradient id="fr2Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#a78bfa"/>
+    </linearGradient>
+    <linearGradient id="fr3Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+    <linearGradient id="fr4Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#dc2626"/>
+      <stop offset="100%" stop-color="#f87171"/>
+    </linearGradient>
+    <linearGradient id="fr5Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#fbbf24"/>
+    </linearGradient>
+    <linearGradient id="fr6Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#be185d"/>
+      <stop offset="100%" stop-color="#f472b6"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.10"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="2400" height="1600" fill="#f8fafc"/>
+  <rect width="2400" height="1600" fill="url(#dots)"/>
+
+  <!-- ===== LEFT SIDEBAR ===== -->
+  <rect x="30" y="30" width="310" height="1540" rx="18" fill="#e9eef5" stroke="#c7d2e0" stroke-width="1.5" filter="url(#shadow)"/>
+
+  <!-- Sidebar Header -->
+  <rect x="50" y="50" width="270" height="54" rx="12" fill="#475569"/>
+  <text x="185" y="84" font-size="20" font-weight="700" fill="#fff" text-anchor="middle">Functional Requirements</text>
+
+  <!-- FR Index -->
+  <text x="65" y="135" font-size="16" font-weight="700" fill="#1e293b">FR Index</text>
+  <rect x="65" y="148" width="255" height="1" fill="#cbd5e1"/>
+
+  <!-- FR01 -->
+  <rect x="65" y="162" width="14" height="14" rx="3" fill="#00b4d8"/>
+  <text x="88" y="174" font-size="13.5" fill="#0f172a" font-weight="600">FR01 — ทะเบียนบุคลากร</text>
+
+  <!-- FR02 -->
+  <rect x="65" y="190" width="14" height="14" rx="3" fill="#7c3aed"/>
+  <text x="88" y="202" font-size="13.5" fill="#0f172a" font-weight="600">FR02 — ตารางรับใช้</text>
+
+  <!-- FR03 -->
+  <rect x="65" y="218" width="14" height="14" rx="3" fill="#059669"/>
+  <text x="88" y="230" font-size="13.5" fill="#0f172a" font-weight="600">FR03 — อุปกรณ์ &amp; ยืม-คืน</text>
+
+  <!-- FR04 -->
+  <rect x="65" y="246" width="14" height="14" rx="3" fill="#dc2626"/>
+  <text x="88" y="258" font-size="13.5" fill="#0f172a" font-weight="600">FR04 — แจ้งซ่อม &amp; SLA</text>
+
+  <!-- FR05 -->
+  <rect x="65" y="274" width="14" height="14" rx="3" fill="#d97706"/>
+  <text x="88" y="286" font-size="13.5" fill="#0f172a" font-weight="600">FR05 — LINE Notification</text>
+
+  <!-- FR06 -->
+  <rect x="65" y="302" width="14" height="14" rx="3" fill="#be185d"/>
+  <text x="88" y="314" font-size="13.5" fill="#0f172a" font-weight="600">FR06 — Backoffice CRM</text>
+
+  <rect x="65" y="332" width="255" height="1" fill="#cbd5e1"/>
+
+  <!-- Priority Legend -->
+  <text x="65" y="360" font-size="15" font-weight="700" fill="#1e293b">ระดับความสำคัญ</text>
+  <rect x="65" y="375" width="10" height="10" rx="2" fill="#dc2626"/>
+  <text x="82" y="385" font-size="12" fill="#475569">Must Have — จำเป็นต้องมี</text>
+  <rect x="65" y="397" width="10" height="10" rx="2" fill="#d97706"/>
+  <text x="82" y="407" font-size="12" fill="#475569">Should Have — ควรมี</text>
+  <rect x="65" y="419" width="10" height="10" rx="2" fill="#059669"/>
+  <text x="82" y="429" font-size="12" fill="#475569">Nice to Have — มีก็ดี</text>
+
+  <rect x="65" y="445" width="255" height="1" fill="#cbd5e1"/>
+
+  <!-- Status Legend -->
+  <text x="65" y="473" font-size="15" font-weight="700" fill="#1e293b">สถานะพัฒนา</text>
+  <circle cx="74" cy="492" r="7" fill="#10b981"/>
+  <text x="88" y="497" font-size="12" fill="#475569">Done — เสร็จสมบูรณ์ 100%</text>
+  <circle cx="74" cy="515" r="7" fill="#f59e0b"/>
+  <text x="88" y="520" font-size="12" fill="#475569">In Progress — กำลังพัฒนา</text>
+  <circle cx="74" cy="538" r="7" fill="#94a3b8"/>
+  <text x="88" y="543" font-size="12" fill="#475569">Planned — อยู่ในแผน</text>
+
+  <rect x="65" y="558" width="255" height="1" fill="#cbd5e1"/>
+
+  <!-- Project Info -->
+  <text x="65" y="585" font-size="15" font-weight="700" fill="#0077b6">MTC Staff Management v1</text>
+  <text x="65" y="606" font-size="12" fill="#475569">Maitrichit Church | คริสตจักรพันธกิจไมตรีจิต</text>
+
+  <rect x="65" y="618" width="255" height="1" fill="#cbd5e1"/>
+
+  <!-- Requirements count summary -->
+  <text x="65" y="645" font-size="13" font-weight="700" fill="#1e293b">FR Summary</text>
+  <text x="65" y="665" font-size="12" fill="#475569">• FR Categories: 6 หมวดหลัก</text>
+  <text x="65" y="683" font-size="12" fill="#475569">• Requirements: 24 ข้อย่อย</text>
+  <text x="65" y="701" font-size="12" fill="#475569">• Stakeholders: ผู้รับใช้, ศิษยาภิบาล</text>
+  <text x="65" y="719" font-size="12" fill="#475569">• Target Users: 342 คน</text>
+  <text x="65" y="737" font-size="12" fill="#475569">• Tech Stack: Next.js 15 + Supabase</text>
+  <text x="65" y="755" font-size="12" fill="#475569">• Channel: LINE LIFF + Web App</text>
+
+  <!-- Bottom badge -->
+  <rect x="65" y="780" width="255" height="50" rx="10" fill="#e0f2fe" stroke="#7dd3fc" stroke-width="1"/>
+  <text x="192" y="800" font-size="12" font-weight="700" fill="#0284c7" text-anchor="middle">Canva Template Ready</text>
+  <text x="192" y="818" font-size="11" fill="#0369a1" text-anchor="middle">SVG / PDF / PNG — แก้ไขได้ 100%</text>
+
+  <!-- ===== MAIN CONTENT ===== -->
+
+  <!-- Header Pill Banner -->
+  <rect x="370" y="30" width="2000" height="120" rx="60" fill="url(#headerGrad)" filter="url(#shadow)"/>
+  <text x="1370" y="85" font-size="42" font-weight="900" fill="#fff" text-anchor="middle">สรุป Functional Requirements — MTC Staff Management System v1</text>
+  <text x="1370" y="118" font-size="18" font-weight="500" fill="#e0f2fe" text-anchor="middle">ข้อกำหนดความสามารถของระบบบริหารจัดการบุคลากรและพันธกิจคริสตจักรพันธกิจไมตรีจิต (Maitrichit Church) | ปี 2569</text>
+
+  <!-- Root Node -->
+  <rect x="1085" y="185" width="570" height="60" rx="30" fill="#fff" stroke="#0f172a" stroke-width="2.5" filter="url(#shadow)"/>
+  <text x="1370" y="222" font-size="19" font-weight="700" fill="#0f172a" text-anchor="middle">ระบบ MTC Staff Management v1 — Single Source of Truth</text>
+
+  <!-- Root to trunk line -->
+  <path d="M 1370 245 L 1370 290" stroke="#64748b" stroke-width="2.5" fill="none"/>
+
+  <!-- Horizontal trunk -->
+  <path d="M 495 290 L 2245 290" stroke="#64748b" stroke-width="2.5" fill="none"/>
+
+  <!-- 6 drop lines -->
+  <path d="M 495 290 L 495 330" stroke="#64748b" stroke-width="2.5"/>
+  <path d="M 870 290 L 870 330" stroke="#64748b" stroke-width="2.5"/>
+  <path d="M 1245 290 L 1245 330" stroke="#64748b" stroke-width="2.5"/>
+  <path d="M 1620 290 L 1620 330" stroke="#64748b" stroke-width="2.5"/>
+  <path d="M 1995 290 L 1995 330" stroke="#64748b" stroke-width="2.5"/>
+  <path d="M 2245 290 L 2245 330" stroke="#64748b" stroke-width="2.5"/>
+
+  <!-- ===== 6 FR CATEGORY NODES ===== -->
+
+  <!-- FR01 Node -->
+  <rect x="345" y="330" width="300" height="58" rx="29" fill="url(#fr1Grad)" filter="url(#shadow)"/>
+  <text x="495" y="358" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">FR01</text>
+  <text x="495" y="376" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">ทะเบียนบุคลากร</text>
+
+  <!-- FR02 Node -->
+  <rect x="720" y="330" width="300" height="58" rx="29" fill="url(#fr2Grad)" filter="url(#shadow)"/>
+  <text x="870" y="358" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">FR02</text>
+  <text x="870" y="376" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">ตารางรับใช้</text>
+
+  <!-- FR03 Node -->
+  <rect x="1095" y="330" width="300" height="58" rx="29" fill="url(#fr3Grad)" filter="url(#shadow)"/>
+  <text x="1245" y="358" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">FR03</text>
+  <text x="1245" y="376" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">อุปกรณ์ &amp; ยืม-คืน</text>
+
+  <!-- FR04 Node -->
+  <rect x="1470" y="330" width="300" height="58" rx="29" fill="url(#fr4Grad)" filter="url(#shadow)"/>
+  <text x="1620" y="358" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">FR04</text>
+  <text x="1620" y="376" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">แจ้งซ่อม &amp; SLA</text>
+
+  <!-- FR05 Node -->
+  <rect x="1845" y="330" width="300" height="58" rx="29" fill="url(#fr5Grad)" filter="url(#shadow)"/>
+  <text x="1995" y="358" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">FR05</text>
+  <text x="1995" y="376" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">LINE Notifications</text>
+
+  <!-- FR06 Node -->
+  <rect x="2095" y="330" width="300" height="58" rx="29" fill="url(#fr6Grad)" filter="url(#shadow)"/>
+  <text x="2245" y="358" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">FR06</text>
+  <text x="2245" y="376" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Backoffice CRM</text>
+
+  <!-- Drop lines from nodes to stacks -->
+  <path d="M 495 388 L 495 430" stroke="#94a3b8" stroke-width="2"/>
+  <path d="M 870 388 L 870 430" stroke="#94a3b8" stroke-width="2"/>
+  <path d="M 1245 388 L 1245 430" stroke="#94a3b8" stroke-width="2"/>
+  <path d="M 1620 388 L 1620 430" stroke="#94a3b8" stroke-width="2"/>
+  <path d="M 1995 388 L 1995 430" stroke="#94a3b8" stroke-width="2"/>
+  <path d="M 2245 388 L 2245 430" stroke="#94a3b8" stroke-width="2"/>
+
+  <!-- ===== FR01 STACK — ทะเบียนบุคลากร (BLUE) ===== -->
+  <!-- FR01.1 -->
+  <rect x="355" y="430" width="280" height="220" rx="22" fill="#fff" stroke="#00b4d8" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="355" y="430" width="280" height="44" rx="22" fill="#e0f7fa"/>
+  <path d="M 355 452 L 635 452 L 635 452 L 635 452" fill="#e0f7fa"/>
+  <circle cx="380" cy="452" r="14" fill="#00b4d8"/>
+  <text x="380" y="458" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+  <text x="495" y="456" font-size="14" font-weight="700" fill="#006d88" text-anchor="middle">ลงทะเบียนบุคลากรใหม่</text>
+  <circle cx="370" cy="486" r="5" fill="#00b4d8"/>
+  <text x="383" y="491" font-size="12.5" fill="#334155">กรอกข้อมูลส่วนตัว ตำแหน่ง ฝ่าย</text>
+  <circle cx="370" cy="513" r="5" fill="#00b4d8"/>
+  <text x="383" y="518" font-size="12.5" fill="#334155">กำหนด Registration Code ประจำตัว</text>
+  <circle cx="370" cy="540" r="5" fill="#00b4d8"/>
+  <text x="383" y="545" font-size="12.5" fill="#334155">ผูก LINE User ID กับทะเบียน</text>
+  <circle cx="370" cy="567" r="5" fill="#00b4d8"/>
+  <text x="383" y="572" font-size="12.5" fill="#334155">ตรวจสอบข้อมูลซ้ำ (Duplicate Check)</text>
+  <rect x="590" y="600" width="40" height="24" rx="6" fill="#dcfce7"/>
+  <text x="610" y="617" font-size="11" font-weight="700" fill="#166534" text-anchor="middle">Done</text>
+
+  <!-- FR01.2 -->
+  <rect x="355" y="665" width="280" height="220" rx="22" fill="#fff" stroke="#00b4d8" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="355" y="665" width="280" height="44" rx="22" fill="#e0f7fa"/>
+  <circle cx="380" cy="687" r="14" fill="#00b4d8"/>
+  <text x="380" y="693" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+  <text x="495" y="691" font-size="14" font-weight="700" fill="#006d88" text-anchor="middle">บริหารสิทธิ์การเข้าถึง</text>
+  <circle cx="370" cy="721" r="5" fill="#00b4d8"/>
+  <text x="383" y="726" font-size="12.5" fill="#334155">กำหนด Role: Admin / ศบ. / ผู้รับใช้</text>
+  <circle cx="370" cy="748" r="5" fill="#00b4d8"/>
+  <text x="383" y="753" font-size="12.5" fill="#334155">ล็อกสิทธิ์การดูข้อมูลตาม Role (RBAC)</text>
+  <circle cx="370" cy="775" r="5" fill="#00b4d8"/>
+  <text x="383" y="780" font-size="12.5" fill="#334155">ระงับ/เปิดใช้งานบัญชีผู้ใช้</text>
+  <circle cx="370" cy="802" r="5" fill="#00b4d8"/>
+  <text x="383" y="807" font-size="12.5" fill="#334155">บันทึก Log การเข้าถึงระบบ</text>
+  <rect x="590" y="835" width="40" height="24" rx="6" fill="#dcfce7"/>
+  <text x="610" y="852" font-size="11" font-weight="700" fill="#166534" text-anchor="middle">Done</text>
+
+  <!-- FR01.3 -->
+  <rect x="355" y="900" width="280" height="180" rx="22" fill="#fff" stroke="#00b4d8" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="355" y="900" width="280" height="44" rx="22" fill="#e0f7fa"/>
+  <circle cx="380" cy="922" r="14" fill="#00b4d8"/>
+  <text x="380" y="928" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+  <text x="495" y="926" font-size="14" font-weight="700" fill="#006d88" text-anchor="middle">นำเข้าข้อมูลจาก Excel</text>
+  <circle cx="370" cy="956" r="5" fill="#00b4d8"/>
+  <text x="383" y="961" font-size="12.5" fill="#334155">Bulk Import จากไฟล์ .xlsx</text>
+  <circle cx="370" cy="983" r="5" fill="#00b4d8"/>
+  <text x="383" y="988" font-size="12.5" fill="#334155">Validate ข้อมูลก่อน Import</text>
+  <circle cx="370" cy="1010" r="5" fill="#00b4d8"/>
+  <text x="383" y="1015" font-size="12.5" fill="#334155">รายงานข้อผิดพลาดแถวที่ Error</text>
+  <rect x="590" y="1040" width="40" height="24" rx="6" fill="#fef9c3"/>
+  <text x="610" y="1057" font-size="10" font-weight="700" fill="#713f12" text-anchor="middle">In Prog</text>
+
+  <!-- FR01.4 -->
+  <rect x="355" y="1095" width="280" height="160" rx="22" fill="#fff" stroke="#00b4d8" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="355" y="1095" width="280" height="44" rx="22" fill="#e0f7fa"/>
+  <circle cx="380" cy="1117" r="14" fill="#00b4d8"/>
+  <text x="380" y="1123" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">4</text>
+  <text x="495" y="1121" font-size="14" font-weight="700" fill="#006d88" text-anchor="middle">ดูประวัติการรับใช้</text>
+  <circle cx="370" cy="1151" r="5" fill="#00b4d8"/>
+  <text x="383" y="1156" font-size="12.5" fill="#334155">สืบค้นประวัติย้อนหลังรายบุคคล</text>
+  <circle cx="370" cy="1178" r="5" fill="#00b4d8"/>
+  <text x="383" y="1183" font-size="12.5" fill="#334155">Export รายงาน PDF/Excel</text>
+  <rect x="590" y="1215" width="40" height="24" rx="6" fill="#f1f5f9"/>
+  <text x="610" y="1232" font-size="10" font-weight="700" fill="#475569" text-anchor="middle">Planned</text>
+
+  <!-- ===== FR02 STACK — ตารางรับใช้ (PURPLE) ===== -->
+  <!-- FR02.1 -->
+  <rect x="730" y="430" width="280" height="220" rx="22" fill="#fff" stroke="#7c3aed" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="730" y="430" width="280" height="44" rx="22" fill="#f5f3ff"/>
+  <circle cx="755" cy="452" r="14" fill="#7c3aed"/>
+  <text x="755" y="458" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+  <text x="870" y="456" font-size="14" font-weight="700" fill="#5b21b6" text-anchor="middle">จัดตารางรับใช้อัตโนมัติ</text>
+  <circle cx="745" cy="486" r="5" fill="#7c3aed"/>
+  <text x="758" y="491" font-size="12.5" fill="#334155">แมปวันสำคัญประจำปีกับประธานฝ่าย</text>
+  <circle cx="745" cy="513" r="5" fill="#7c3aed"/>
+  <text x="758" y="518" font-size="12.5" fill="#334155">จัดลำดับ Priority สถานที่ 1-2-3</text>
+  <circle cx="745" cy="540" r="5" fill="#7c3aed"/>
+  <text x="758" y="545" font-size="12.5" fill="#334155">ตรวจสอบโควตา ≤ 2 สัปดาห์/เดือน</text>
+  <circle cx="745" cy="567" r="5" fill="#7c3aed"/>
+  <text x="758" y="572" font-size="12.5" fill="#334155">ตรวจสอบวันลา/ความขัดแย้ง</text>
+  <rect x="965" y="600" width="40" height="24" rx="6" fill="#fef9c3"/>
+  <text x="985" y="617" font-size="10" font-weight="700" fill="#713f12" text-anchor="middle">In Prog</text>
+
+  <!-- FR02.2 -->
+  <rect x="730" y="665" width="280" height="220" rx="22" fill="#fff" stroke="#7c3aed" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="730" y="665" width="280" height="44" rx="22" fill="#f5f3ff"/>
+  <circle cx="755" cy="687" r="14" fill="#7c3aed"/>
+  <text x="755" y="693" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+  <text x="870" y="691" font-size="14" font-weight="700" fill="#5b21b6" text-anchor="middle">ยืนยัน/ขอเปลี่ยนตาราง</text>
+  <circle cx="745" cy="721" r="5" fill="#7c3aed"/>
+  <text x="758" y="726" font-size="12.5" fill="#334155">กดยืนยันรับงาน (Confirm)</text>
+  <circle cx="745" cy="748" r="5" fill="#7c3aed"/>
+  <text x="758" y="753" font-size="12.5" fill="#334155">ส่งคำขอเปลี่ยนคนล่วงหน้า (Swap)</text>
+  <circle cx="745" cy="775" r="5" fill="#7c3aed"/>
+  <text x="758" y="780" font-size="12.5" fill="#334155">ระบบหาคนว่างแทน (Substitute)</text>
+  <circle cx="745" cy="802" r="5" fill="#7c3aed"/>
+  <text x="758" y="807" font-size="12.5" fill="#334155">แจ้งผู้ที่เกี่ยวข้องทั้งหมดผ่าน LINE</text>
+  <rect x="965" y="835" width="40" height="24" rx="6" fill="#fef9c3"/>
+  <text x="985" y="852" font-size="10" font-weight="700" fill="#713f12" text-anchor="middle">In Prog</text>
+
+  <!-- FR02.3 -->
+  <rect x="730" y="900" width="280" height="180" rx="22" fill="#fff" stroke="#7c3aed" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="730" y="900" width="280" height="44" rx="22" fill="#f5f3ff"/>
+  <circle cx="755" cy="922" r="14" fill="#7c3aed"/>
+  <text x="755" y="928" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+  <text x="870" y="926" font-size="14" font-weight="700" fill="#5b21b6" text-anchor="middle">ดูตารางรับใช้ส่วนตัว</text>
+  <circle cx="745" cy="956" r="5" fill="#7c3aed"/>
+  <text x="758" y="961" font-size="12.5" fill="#334155">ดูตารางรายเดือน/รายสัปดาห์</text>
+  <circle cx="745" cy="983" r="5" fill="#7c3aed"/>
+  <text x="758" y="988" font-size="12.5" fill="#334155">แสดงรายชื่อผู้รับใช้ร่วมในทีม</text>
+  <circle cx="745" cy="1010" r="5" fill="#7c3aed"/>
+  <text x="758" y="1015" font-size="12.5" fill="#334155">กรองตามสถานที่และประเภทงาน</text>
+  <rect x="965" y="1040" width="40" height="24" rx="6" fill="#dcfce7"/>
+  <text x="985" y="1057" font-size="11" font-weight="700" fill="#166534" text-anchor="middle">Done</text>
+
+  <!-- FR02.4 -->
+  <rect x="730" y="1095" width="280" height="160" rx="22" fill="#fff" stroke="#7c3aed" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="730" y="1095" width="280" height="44" rx="22" fill="#f5f3ff"/>
+  <circle cx="755" cy="1117" r="14" fill="#7c3aed"/>
+  <text x="755" y="1123" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">4</text>
+  <text x="870" y="1121" font-size="14" font-weight="700" fill="#5b21b6" text-anchor="middle">ปรับตารางแบบ Drag &amp; Drop</text>
+  <circle cx="745" cy="1151" r="5" fill="#7c3aed"/>
+  <text x="758" y="1156" font-size="12.5" fill="#334155">ลากวางชื่อใน Master Calendar (Admin)</text>
+  <circle cx="745" cy="1178" r="5" fill="#7c3aed"/>
+  <text x="758" y="1183" font-size="12.5" fill="#334155">แสดง Conflict Alert ทันทีเมื่อชน</text>
+  <rect x="965" y="1215" width="40" height="24" rx="6" fill="#fef9c3"/>
+  <text x="985" y="1232" font-size="10" font-weight="700" fill="#713f12" text-anchor="middle">In Prog</text>
+
+  <!-- ===== FR03 STACK — อุปกรณ์ (GREEN) ===== -->
+  <!-- FR03.1 -->
+  <rect x="1105" y="430" width="280" height="220" rx="22" fill="#fff" stroke="#059669" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="1105" y="430" width="280" height="44" rx="22" fill="#f0fdf4"/>
+  <circle cx="1130" cy="452" r="14" fill="#059669"/>
+  <text x="1130" y="458" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+  <text x="1245" y="456" font-size="14" font-weight="700" fill="#065f46" text-anchor="middle">ลงทะเบียนอุปกรณ์</text>
+  <circle cx="1120" cy="486" r="5" fill="#059669"/>
+  <text x="1133" y="491" font-size="12.5" fill="#334155">เพิ่มอุปกรณ์ + ระบุ Serial Number</text>
+  <circle cx="1120" cy="513" r="5" fill="#059669"/>
+  <text x="1133" y="518" font-size="12.5" fill="#334155">สร้าง QR Code ประจำอุปกรณ์อัตโนมัติ</text>
+  <circle cx="1120" cy="540" r="5" fill="#059669"/>
+  <text x="1133" y="545" font-size="12.5" fill="#334155">กำหนดหมวดหมู่ (เครื่องเสียง/AV/อื่นๆ)</text>
+  <circle cx="1120" cy="567" r="5" fill="#059669"/>
+  <text x="1133" y="572" font-size="12.5" fill="#334155">ติดตามสถานะ: พร้อมใช้/ยืม/ซ่อม</text>
+  <rect x="1340" y="600" width="40" height="24" rx="6" fill="#dcfce7"/>
+  <text x="1360" y="617" font-size="11" font-weight="700" fill="#166534" text-anchor="middle">Done</text>
+
+  <!-- FR03.2 -->
+  <rect x="1105" y="665" width="280" height="220" rx="22" fill="#fff" stroke="#059669" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="1105" y="665" width="280" height="44" rx="22" fill="#f0fdf4"/>
+  <circle cx="1130" cy="687" r="14" fill="#059669"/>
+  <text x="1130" y="693" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+  <text x="1245" y="691" font-size="14" font-weight="700" fill="#065f46" text-anchor="middle">ยืม-คืนอุปกรณ์</text>
+  <circle cx="1120" cy="721" r="5" fill="#059669"/>
+  <text x="1133" y="726" font-size="12.5" fill="#334155">สแกน QR Code เปิดฟอร์มยืมอุปกรณ์</text>
+  <circle cx="1120" cy="748" r="5" fill="#059669"/>
+  <text x="1133" y="753" font-size="12.5" fill="#334155">เซ็นลายเซ็นดิจิทัล Canvas (Base64)</text>
+  <circle cx="1120" cy="775" r="5" fill="#059669"/>
+  <text x="1133" y="780" font-size="12.5" fill="#334155">บันทึก: ผู้ยืม วันที่ วัตถุประสงค์</text>
+  <circle cx="1120" cy="802" r="5" fill="#059669"/>
+  <text x="1133" y="807" font-size="12.5" fill="#334155">บันทึกการคืนพร้อมลายเซ็นดิจิทัล</text>
+  <rect x="1340" y="835" width="40" height="24" rx="6" fill="#dcfce7"/>
+  <text x="1360" y="852" font-size="11" font-weight="700" fill="#166534" text-anchor="middle">Done</text>
+
+  <!-- FR03.3 -->
+  <rect x="1105" y="900" width="280" height="180" rx="22" fill="#fff" stroke="#059669" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="1105" y="900" width="280" height="44" rx="22" fill="#f0fdf4"/>
+  <circle cx="1130" cy="922" r="14" fill="#059669"/>
+  <text x="1130" y="928" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+  <text x="1245" y="926" font-size="14" font-weight="700" fill="#065f46" text-anchor="middle">ตรวจสอบคลังอุปกรณ์</text>
+  <circle cx="1120" cy="956" r="5" fill="#059669"/>
+  <text x="1133" y="961" font-size="12.5" fill="#334155">แสดงรายการอุปกรณ์ทั้งหมด (Inventory)</text>
+  <circle cx="1120" cy="983" r="5" fill="#059669"/>
+  <text x="1133" y="988" font-size="12.5" fill="#334155">ค้นหาและกรองตามสถานะ/หมวดหมู่</text>
+  <circle cx="1120" cy="1010" r="5" fill="#059669"/>
+  <text x="1133" y="1015" font-size="12.5" fill="#334155">ดูประวัติการยืม-คืนย้อนหลัง</text>
+  <rect x="1340" y="1040" width="40" height="24" rx="6" fill="#dcfce7"/>
+  <text x="1360" y="1057" font-size="11" font-weight="700" fill="#166534" text-anchor="middle">Done</text>
+
+  <!-- FR03.4 -->
+  <rect x="1105" y="1095" width="280" height="160" rx="22" fill="#fff" stroke="#059669" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="1105" y="1095" width="280" height="44" rx="22" fill="#f0fdf4"/>
+  <circle cx="1130" cy="1117" r="14" fill="#059669"/>
+  <text x="1130" y="1123" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">4</text>
+  <text x="1245" y="1121" font-size="14" font-weight="700" fill="#065f46" text-anchor="middle">พิมพ์ QR Code Label</text>
+  <circle cx="1120" cy="1151" r="5" fill="#059669"/>
+  <text x="1133" y="1156" font-size="12.5" fill="#334155">Export QR Code เป็น PNG/PDF</text>
+  <circle cx="1120" cy="1178" r="5" fill="#059669"/>
+  <text x="1133" y="1183" font-size="12.5" fill="#334155">พิมพ์ Label ติดอุปกรณ์จากระบบ</text>
+  <rect x="1340" y="1215" width="40" height="24" rx="6" fill="#dcfce7"/>
+  <text x="1360" y="1232" font-size="11" font-weight="700" fill="#166534" text-anchor="middle">Done</text>
+
+  <!-- ===== FR04 STACK — แจ้งซ่อม SLA (RED) ===== -->
+  <!-- FR04.1 -->
+  <rect x="1480" y="430" width="280" height="220" rx="22" fill="#fff" stroke="#dc2626" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="1480" y="430" width="280" height="44" rx="22" fill="#fff1f2"/>
+  <circle cx="1505" cy="452" r="14" fill="#dc2626"/>
+  <text x="1505" y="458" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+  <text x="1620" y="456" font-size="14" font-weight="700" fill="#991b1b" text-anchor="middle">แจ้งซ่อมอุปกรณ์</text>
+  <circle cx="1495" cy="486" r="5" fill="#dc2626"/>
+  <text x="1508" y="491" font-size="12.5" fill="#334155">แจ้งซ่อมพร้อมระบุระดับความเร่งด่วน</text>
+  <circle cx="1495" cy="513" r="5" fill="#dc2626"/>
+  <text x="1508" y="518" font-size="12.5" fill="#334155">แนบรูปถ่ายหลักฐานความเสียหาย</text>
+  <circle cx="1495" cy="540" r="5" fill="#dc2626"/>
+  <text x="1508" y="545" font-size="12.5" fill="#334155">คำนวณ SLA Deadline อัตโนมัติ</text>
+  <circle cx="1495" cy="567" r="5" fill="#dc2626"/>
+  <text x="1508" y="572" font-size="12.5" fill="#334155">Assign ช่างซ่อมประจำ</text>
+  <rect x="1715" y="600" width="40" height="24" rx="6" fill="#dcfce7"/>
+  <text x="1735" y="617" font-size="11" font-weight="700" fill="#166534" text-anchor="middle">Done</text>
+
+  <!-- FR04.2 -->
+  <rect x="1480" y="665" width="280" height="220" rx="22" fill="#fff" stroke="#dc2626" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="1480" y="665" width="280" height="44" rx="22" fill="#fff1f2"/>
+  <circle cx="1505" cy="687" r="14" fill="#dc2626"/>
+  <text x="1505" y="693" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+  <text x="1620" y="691" font-size="14" font-weight="700" fill="#991b1b" text-anchor="middle">ติดตาม SLA Countdown</text>
+  <circle cx="1495" cy="721" r="5" fill="#dc2626"/>
+  <text x="1508" y="726" font-size="12.5" fill="#334155">Low: 72h / Med: 48h / High: 24h</text>
+  <circle cx="1495" cy="748" r="5" fill="#dc2626"/>
+  <text x="1508" y="753" font-size="12.5" fill="#334155">Critical: 4h — แจ้งเตือนฉุกเฉิน</text>
+  <circle cx="1495" cy="775" r="5" fill="#dc2626"/>
+  <text x="1508" y="780" font-size="12.5" fill="#334155">Cron Job ตรวจสอบทุก 15 นาที</text>
+  <circle cx="1495" cy="802" r="5" fill="#dc2626"/>
+  <text x="1508" y="807" font-size="12.5" fill="#334155">บันทึกเวลารับงาน/ซ่อมเสร็จ</text>
+  <rect x="1715" y="835" width="40" height="24" rx="6" fill="#dcfce7"/>
+  <text x="1735" y="852" font-size="11" font-weight="700" fill="#166534" text-anchor="middle">Done</text>
+
+  <!-- FR04.3 -->
+  <rect x="1480" y="900" width="280" height="180" rx="22" fill="#fff" stroke="#dc2626" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="1480" y="900" width="280" height="44" rx="22" fill="#fff1f2"/>
+  <circle cx="1505" cy="922" r="14" fill="#dc2626"/>
+  <text x="1505" y="928" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+  <text x="1620" y="926" font-size="14" font-weight="700" fill="#991b1b" text-anchor="middle">อัปเดตสถานะซ่อม</text>
+  <circle cx="1495" cy="956" r="5" fill="#dc2626"/>
+  <text x="1508" y="961" font-size="12.5" fill="#334155">เปลี่ยนสถานะ: Open → In Progress → Done</text>
+  <circle cx="1495" cy="983" r="5" fill="#dc2626"/>
+  <text x="1508" y="988" font-size="12.5" fill="#334155">แนบรูปถ่ายหลักฐานหลังซ่อมเสร็จ</text>
+  <circle cx="1495" cy="1010" r="5" fill="#dc2626"/>
+  <text x="1508" y="1015" font-size="12.5" fill="#334155">ผู้แจ้งรับการแจ้งเตือนเมื่อซ่อมเสร็จ</text>
+  <rect x="1715" y="1040" width="40" height="24" rx="6" fill="#dcfce7"/>
+  <text x="1735" y="1057" font-size="11" font-weight="700" fill="#166534" text-anchor="middle">Done</text>
+
+  <!-- ===== FR05 STACK — LINE Notification (AMBER) ===== -->
+  <!-- FR05.1 -->
+  <rect x="1855" y="430" width="280" height="220" rx="22" fill="#fff" stroke="#d97706" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="1855" y="430" width="280" height="44" rx="22" fill="#fffbeb"/>
+  <circle cx="1880" cy="452" r="14" fill="#d97706"/>
+  <text x="1880" y="458" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+  <text x="1995" y="456" font-size="14" font-weight="700" fill="#92400e" text-anchor="middle">แจ้งเตือนตารางรับใช้</text>
+  <circle cx="1870" cy="486" r="5" fill="#d97706"/>
+  <text x="1883" y="491" font-size="12.5" fill="#334155">ส่งเตือนล่วงหน้า 14 วัน (Reminder 1)</text>
+  <circle cx="1870" cy="513" r="5" fill="#d97706"/>
+  <text x="1883" y="518" font-size="12.5" fill="#334155">ส่งเตือนล่วงหน้า 7 วัน (Reminder 2)</text>
+  <circle cx="1870" cy="540" r="5" fill="#d97706"/>
+  <text x="1883" y="545" font-size="12.5" fill="#334155">ส่งเตือนก่อน 1 วัน (Final Reminder)</text>
+  <circle cx="1870" cy="567" r="5" fill="#d97706"/>
+  <text x="1883" y="572" font-size="12.5" fill="#334155">ส่งผ่าน LINE Messaging Push API</text>
+  <rect x="2090" y="600" width="40" height="24" rx="6" fill="#fef9c3"/>
+  <text x="2110" y="617" font-size="10" font-weight="700" fill="#713f12" text-anchor="middle">In Prog</text>
+
+  <!-- FR05.2 -->
+  <rect x="1855" y="665" width="280" height="220" rx="22" fill="#fff" stroke="#d97706" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="1855" y="665" width="280" height="44" rx="22" fill="#fffbeb"/>
+  <circle cx="1880" cy="687" r="14" fill="#d97706"/>
+  <text x="1880" y="693" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+  <text x="1995" y="691" font-size="14" font-weight="700" fill="#92400e" text-anchor="middle">Flex Message — รับงาน/ปฏิเสธ</text>
+  <circle cx="1870" cy="721" r="5" fill="#d97706"/>
+  <text x="1883" y="726" font-size="12.5" fill="#334155">การ์ด Flex Message แสดงรายละเอียดงาน</text>
+  <circle cx="1870" cy="748" r="5" fill="#d97706"/>
+  <text x="1883" y="753" font-size="12.5" fill="#334155">ปุ่ม "รับงาน" / "ขอเปลี่ยน" ใน LINE</text>
+  <circle cx="1870" cy="775" r="5" fill="#d97706"/>
+  <text x="1883" y="780" font-size="12.5" fill="#334155">บันทึกการตอบกลับเข้า DB ทันที</text>
+  <circle cx="1870" cy="802" r="5" fill="#d97706"/>
+  <text x="1883" y="807" font-size="12.5" fill="#334155">แจ้งผู้จัดตารางเมื่อมีการเปลี่ยนแปลง</text>
+  <rect x="2090" y="835" width="40" height="24" rx="6" fill="#fef9c3"/>
+  <text x="2110" y="852" font-size="10" font-weight="700" fill="#713f12" text-anchor="middle">In Prog</text>
+
+  <!-- FR05.3 -->
+  <rect x="1855" y="900" width="280" height="180" rx="22" fill="#fff" stroke="#d97706" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="1855" y="900" width="280" height="44" rx="22" fill="#fffbeb"/>
+  <circle cx="1880" cy="922" r="14" fill="#d97706"/>
+  <text x="1880" y="928" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+  <text x="1995" y="926" font-size="14" font-weight="700" fill="#92400e" text-anchor="middle">แจ้งเตือน SLA ช่างซ่อม</text>
+  <circle cx="1870" cy="956" r="5" fill="#d97706"/>
+  <text x="1883" y="961" font-size="12.5" fill="#334155">แจ้งช่างเมื่อได้รับ Ticket ใหม่</text>
+  <circle cx="1870" cy="983" r="5" fill="#d97706"/>
+  <text x="1883" y="988" font-size="12.5" fill="#334155">แจ้งเตือน SLA ใกล้หมดเวลา</text>
+  <circle cx="1870" cy="1010" r="5" fill="#d97706"/>
+  <text x="1883" y="1015" font-size="12.5" fill="#334155">แจ้งผู้แจ้งซ่อมเมื่อซ่อมเสร็จ</text>
+  <rect x="2090" y="1040" width="40" height="24" rx="6" fill="#fef9c3"/>
+  <text x="2110" y="1057" font-size="10" font-weight="700" fill="#713f12" text-anchor="middle">In Prog</text>
+
+  <!-- ===== FR06 STACK — Backoffice CRM (PINK) ===== -->
+  <!-- FR06.1 -->
+  <rect x="2105" y="430" width="280" height="220" rx="22" fill="#fff" stroke="#be185d" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="2105" y="430" width="280" height="44" rx="22" fill="#fdf2f8"/>
+  <circle cx="2130" cy="452" r="14" fill="#be185d"/>
+  <text x="2130" y="458" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+  <text x="2245" y="456" font-size="14" font-weight="700" fill="#9d174d" text-anchor="middle">Executive Dashboard</text>
+  <circle cx="2120" cy="486" r="5" fill="#be185d"/>
+  <text x="2133" y="491" font-size="12.5" fill="#334155">แสดง KPI: จำนวนบุคลากร อัตราการรับใช้</text>
+  <circle cx="2120" cy="513" r="5" fill="#be185d"/>
+  <text x="2133" y="518" font-size="12.5" fill="#334155">กราฟสถิติรายเดือน/รายปี</text>
+  <circle cx="2120" cy="540" r="5" fill="#be185d"/>
+  <text x="2133" y="545" font-size="12.5" fill="#334155">สรุป SLA Ticket Status ภาพรวม</text>
+  <circle cx="2120" cy="567" r="5" fill="#be185d"/>
+  <text x="2133" y="572" font-size="12.5" fill="#334155">สรุปสถานะอุปกรณ์รายงวด</text>
+  <rect x="2340" y="600" width="40" height="24" rx="6" fill="#fef9c3"/>
+  <text x="2360" y="617" font-size="10" font-weight="700" fill="#713f12" text-anchor="middle">In Prog</text>
+
+  <!-- FR06.2 -->
+  <rect x="2105" y="665" width="280" height="220" rx="22" fill="#fff" stroke="#be185d" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="2105" y="665" width="280" height="44" rx="22" fill="#fdf2f8"/>
+  <circle cx="2130" cy="687" r="14" fill="#be185d"/>
+  <text x="2130" y="693" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+  <text x="2245" y="691" font-size="14" font-weight="700" fill="#9d174d" text-anchor="middle">Roster Master Admin</text>
+  <circle cx="2120" cy="721" r="5" fill="#be185d"/>
+  <text x="2133" y="726" font-size="12.5" fill="#334155">ดู/แก้ไขตารางรับใช้ทั้งหมด</text>
+  <circle cx="2120" cy="748" r="5" fill="#be185d"/>
+  <text x="2133" y="753" font-size="12.5" fill="#334155">เผยแพร่ตารางประจำเดือน (Publish)</text>
+  <circle cx="2120" cy="775" r="5" fill="#be185d"/>
+  <text x="2133" y="780" font-size="12.5" fill="#334155">อนุมัติคำขอเปลี่ยนตาราง</text>
+  <circle cx="2120" cy="802" r="5" fill="#be185d"/>
+  <text x="2133" y="807" font-size="12.5" fill="#334155">Export ตารางเป็น PDF/Excel</text>
+  <rect x="2340" y="835" width="40" height="24" rx="6" fill="#fef9c3"/>
+  <text x="2360" y="852" font-size="10" font-weight="700" fill="#713f12" text-anchor="middle">In Prog</text>
+
+  <!-- FR06.3 -->
+  <rect x="2105" y="900" width="280" height="180" rx="22" fill="#fff" stroke="#be185d" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="2105" y="900" width="280" height="44" rx="22" fill="#fdf2f8"/>
+  <circle cx="2130" cy="922" r="14" fill="#be185d"/>
+  <text x="2130" y="928" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+  <text x="2245" y="926" font-size="14" font-weight="700" fill="#9d174d" text-anchor="middle">จัดการ Audit Trail</text>
+  <circle cx="2120" cy="956" r="5" fill="#be185d"/>
+  <text x="2133" y="961" font-size="12.5" fill="#334155">บันทึก Who/What/When/Device</text>
+  <circle cx="2120" cy="983" r="5" fill="#be185d"/>
+  <text x="2133" y="988" font-size="12.5" fill="#334155">ค้นหา Log ย้อนหลัง 90 วัน</text>
+  <circle cx="2120" cy="1010" r="5" fill="#be185d"/>
+  <text x="2133" y="1015" font-size="12.5" fill="#334155">Export Audit Log รายงาน PDF</text>
+  <rect x="2340" y="1040" width="40" height="24" rx="6" fill="#f1f5f9"/>
+  <text x="2360" y="1057" font-size="10" font-weight="700" fill="#475569" text-anchor="middle">Planned</text>
+
+  <!-- FR06.4 -->
+  <rect x="2105" y="1095" width="280" height="160" rx="22" fill="#fff" stroke="#be185d" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="2105" y="1095" width="280" height="44" rx="22" fill="#fdf2f8"/>
+  <circle cx="2130" cy="1117" r="14" fill="#be185d"/>
+  <text x="2130" y="1123" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">4</text>
+  <text x="2245" y="1121" font-size="14" font-weight="700" fill="#9d174d" text-anchor="middle">System Config &amp; Governance</text>
+  <circle cx="2120" cy="1151" r="5" fill="#be185d"/>
+  <text x="2133" y="1156" font-size="12.5" fill="#334155">ตั้งค่า SLA Matrix ระดับความเร่งด่วน</text>
+  <circle cx="2120" cy="1178" r="5" fill="#be185d"/>
+  <text x="2133" y="1183" font-size="12.5" fill="#334155">ตั้งค่ากฎ Roster Business Logic</text>
+  <rect x="2340" y="1215" width="40" height="24" rx="6" fill="#f1f5f9"/>
+  <text x="2360" y="1232" font-size="10" font-weight="700" fill="#475569" text-anchor="middle">Planned</text>
+
+  <!-- ===== FOOTER ===== -->
+  <rect x="370" y="1530" width="2000" height="50" rx="12" fill="#1e293b"/>
+  <text x="860" y="1561" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">🟢 Done: FR01 (ทะเบียน), FR03 (อุปกรณ์), FR04 (SLA)</text>
+  <text x="1600" y="1561" font-size="15" font-weight="700" fill="#fbbf24" text-anchor="middle">🟡 In Progress: FR02 (Roster), FR05 (LINE), FR06 (CRM)</text>
+  <text x="2260" y="1561" font-size="13" fill="#94a3b8" text-anchor="middle">salmon76/MTC-Staff-Management-v1</text>
+
+</svg>
