@@ -1,0 +1,379 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1280" width="1920" height="1280" style="background-color: #f3f4f6; font-family: -apple-system, BlinkMacSystemFont, "TH Sarabun New", "Prompt", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <!-- Background Dot Pattern (Matching Canva Dot Grid) -->
+    <pattern id="dotGrid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="12" r="1.5" fill="#cbd5e1"/>
+    </pattern>
+
+    <!-- Header Gradient Cyan/Teal (Matching Canva Header Banner) -->
+    <linearGradient id="canvaHeaderGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00b4d8"/>
+      <stop offset="50%" stop-color="#0096c7"/>
+      <stop offset="100%" stop-color="#03045e"/>
+    </linearGradient>
+
+    <!-- Top Main Header Pill Gradient -->
+    <linearGradient id="mainPillGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00b4d8"/>
+      <stop offset="100%" stop-color="#0077b6"/>
+    </linearGradient>
+
+    <!-- Sub Brand Header Pill Gradient -->
+    <linearGradient id="subPillGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00b4d8"/>
+      <stop offset="100%" stop-color="#0096c7"/>
+    </linearGradient>
+
+    <!-- Drop Shadows -->
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+    
+    <filter id="pillShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0284c7" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="1920" height="1280" fill="#f8fafc"/>
+  <rect width="1920" height="1280" fill="url(#dotGrid)"/>
+
+  <!-- ==================== LEFT SIDEBAR (เคล็ดลับ CANVA / LEGEND) ==================== -->
+  <g transform="translate(40, 40)" filter="url(#cardShadow)">
+    <!-- Sidebar Main Outer Box -->
+    <rect x="0" y="0" width="340" height="1200" rx="20" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1.5"/>
+    
+    <!-- Sidebar Header Pill -->
+    <rect x="20" y="25" width="300" height="60" rx="14" fill="#64748b"/>
+    <text x="170" y="63" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">เคล็ดลับ Canva</text>
+
+    <!-- Section 1: ปุ่มลัดที่สำคัญ -->
+    <text x="25" y="125" font-size="20" font-weight="bold" fill="#1e293b">ปุ่มลัดที่สำคัญ</text>
+
+    <!-- Shortcut Box 1: สติกเกอร์ -->
+    <g transform="translate(20, 140)">
+      <rect x="0" y="0" width="142" height="130" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+      <text x="15" y="28" font-size="15" font-weight="bold" fill="#0f172a">สติ๊กเกอร์</text>
+      <text x="15" y="50" font-size="12" fill="#64748b">กด <tspan font-weight="bold" fill="#0f172a">"S"</tspan> เพื่อสร้างสติ๊กเกอร์</text>
+      <rect x="15" y="80" width="35" height="35" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
+      <text x="32.5" y="103" font-size="18" font-weight="bold" fill="#0f172a" text-anchor="middle">S</text>
+    </g>
+
+    <!-- Shortcut Box 2: เส้น -->
+    <g transform="translate(178, 140)">
+      <rect x="0" y="0" width="142" height="130" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+      <text x="15" y="28" font-size="15" font-weight="bold" fill="#0f172a">เส้น</text>
+      <text x="15" y="50" font-size="12" fill="#64748b">กด <tspan font-weight="bold" fill="#0f172a">"L"</tspan> เพื่อสร้างเส้น</text>
+      <path d="M 25 75 L 115 75" stroke="#475569" stroke-width="2.5" stroke-dasharray="4,4"/>
+      <circle cx="25" cy="75" r="4" fill="#0284c7"/>
+      <circle cx="115" cy="75" r="4" fill="#0284c7"/>
+      <rect x="15" y="85" width="35" height="35" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
+      <text x="32.5" y="108" font-size="18" font-weight="bold" fill="#0f172a" text-anchor="middle">L</text>
+    </g>
+
+    <!-- Shortcut Box 3: รูปทรง -->
+    <g transform="translate(20, 285)">
+      <rect x="0" y="0" width="142" height="130" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+      <text x="15" y="28" font-size="15" font-weight="bold" fill="#0f172a">รูปทรง</text>
+      <text x="15" y="50" font-size="12" fill="#64748b">กด <tspan font-weight="bold" fill="#0f172a">"C"</tspan> เพื่อสร้างวงกลม</text>
+      <text x="15" y="68" font-size="12" fill="#64748b">กด <tspan font-weight="bold" fill="#0f172a">"R"</tspan> เพื่อสร้างสี่เหลี่ยม</text>
+      <rect x="15" y="82" width="30" height="30" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
+      <text x="30" y="103" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">C</text>
+      <rect x="52" y="82" width="30" height="30" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
+      <text x="67" y="103" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">R</text>
+    </g>
+
+    <!-- Shortcut Box 4: คำสั่ง Magic -->
+    <g transform="translate(178, 285)">
+      <rect x="0" y="0" width="142" height="130" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+      <text x="15" y="28" font-size="15" font-weight="bold" fill="#0f172a">คำสั่ง Magic</text>
+      <text x="15" y="50" font-size="12" fill="#64748b">กด <tspan font-weight="bold" fill="#0f172a">"/"</tspan> เพื่อเปิดคำสั่ง</text>
+      <rect x="15" y="82" width="35" height="35" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
+      <text x="32.5" y="105" font-size="18" font-weight="bold" fill="#0f172a" text-anchor="middle">/</text>
+    </g>
+
+    <!-- Section 2: ฟีเจอร์ที่เป็นประโยชน์ -->
+    <text x="25" y="450" font-size="20" font-weight="bold" fill="#1e293b">ฟีเจอร์ที่เป็นประโยชน์</text>
+
+    <!-- Feature Box 1: แท็บองค์ประกอบ -->
+    <g transform="translate(20, 465)">
+      <rect x="0" y="0" width="142" height="150" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+      <text x="12" y="24" font-size="14" font-weight="bold" fill="#0f172a">แท็บองค์ประกอบ</text>
+      <text x="12" y="44" font-size="11" fill="#64748b">ค้นหากราฟิก ลายเส้น และไอคอนเพื่อตกแต่งแผนผังระบบ</text>
+      <rect x="12" y="95" width="40" height="40" rx="8" fill="#e0f2fe"/>
+      <text x="32" y="121" font-size="20" fill="#0284c7" text-anchor="middle">🎨</text>
+    </g>
+
+    <!-- Feature Box 2: เครื่องมือวาด -->
+    <g transform="translate(178, 465)">
+      <rect x="0" y="0" width="142" height="150" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+      <text x="12" y="24" font-size="14" font-weight="bold" fill="#0f172a">เครื่องมือวาด</text>
+      <text x="12" y="44" font-size="11" fill="#64748b">เชื่อมโยงสายสัมพันธ์ระหว่างโมดูลด้วยเครื่องมือวาด</text>
+      <rect x="12" y="95" width="40" height="40" rx="8" fill="#f0fdf4"/>
+      <text x="32" y="121" font-size="20" fill="#16a34a" text-anchor="middle">✏️</text>
+    </g>
+
+    <!-- Feature Box 3: เนื้อหาที่ส่ง -->
+    <g transform="translate(20, 630)">
+      <rect x="0" y="0" width="142" height="150" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+      <text x="12" y="24" font-size="14" font-weight="bold" fill="#0f172a">นำเข้า Canva</text>
+      <text x="12" y="44" font-size="11" fill="#64748b">ลากไฟล์ SVG/PDF วางเพื่อแยกชิ้นส่วนแก้ไขใน Canva</text>
+      <rect x="12" y="100" width="55" height="30" rx="6" fill="#f1f5f9" stroke="#94a3b8"/>
+      <text x="39.5" y="120" font-size="13" font-weight="bold" fill="#0f172a" text-anchor="middle">&lt;/&gt; SVG</text>
+    </g>
+
+    <!-- Feature Box 4: การทำงานร่วมกัน -->
+    <g transform="translate(178, 630)">
+      <rect x="0" y="0" width="142" height="150" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+      <text x="12" y="24" font-size="14" font-weight="bold" fill="#0f172a">การทำงานร่วมกัน</text>
+      <text x="12" y="44" font-size="11" fill="#64748b">แชร์สไลด์ให้ทีมอนุกรรมการและศิษยาภิบาลแก้ไขร่วมกัน</text>
+      <circle cx="35" cy="115" r="16" fill="#0284c7"/>
+      <text x="35" y="121" font-size="13" font-weight="bold" fill="#ffffff" text-anchor="middle">MTC</text>
+      <circle cx="60" cy="115" r="16" fill="#7e22ce"/>
+      <text x="60" y="121" font-size="13" font-weight="bold" fill="#ffffff" text-anchor="middle">DEV</text>
+    </g>
+
+    <!-- Feature Summary Note -->
+    <g transform="translate(20, 795)">
+      <rect x="0" y="0" width="300" height="375" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+      <text x="20" y="32" font-size="16" font-weight="bold" fill="#0284c7">🏛️ MTC Staff Management v1</text>
+      <text x="20" y="58" font-size="13" font-weight="bold" fill="#0f172a">สถาปัตยกรรมระบบคริสตจักรพันธกิจไมตรีจิต</text>
+      <rect x="20" y="70" width="260" height="1" fill="#e2e8f0"/>
+      <text x="20" y="95" font-size="12" fill="#475569">• Single Source of Truth ฐานข้อมูลหนึ่งเดียว</text>
+      <text x="20" y="120" font-size="12" fill="#475569">• LINE LIFF Gateway ใช้งานง่ายไม่ต้องโหลดแอป</text>
+      <text x="20" y="145" font-size="12" fill="#475569">• Serving Roster Mor.Nor. x Pastoral Rules</text>
+      <text x="20" y="170" font-size="12" fill="#475569">• Equipment Handover Digital Signature</text>
+      <text x="20" y="195" font-size="12" fill="#475569">• Repair SLA Cron Automated Countdown</text>
+      <text x="20" y="220" font-size="12" fill="#475569">• Executive Backoffice CRM Dashboard</text>
+      <text x="20" y="245" font-size="12" fill="#475569">• Supabase PostgreSQL Vault (342 Members)</text>
+      <text x="20" y="270" font-size="12" fill="#475569">• Next.js 15 Serverless Vercel Cloud 99.9%</text>
+
+      <rect x="20" y="295" width="260" height="60" rx="10" fill="#f0fdf4" stroke="#86efac"/>
+      <text x="150" y="320" font-size="13" font-weight="bold" fill="#166534" text-anchor="middle">✓ Canva Template Ready</text>
+      <text x="150" y="342" font-size="11" fill="#15803d" text-anchor="middle">นำเข้าแก้ไขข้อความและสีได้ 100%</text>
+    </g>
+  </g>
+
+
+  <!-- ==================== MAIN CANVAS CONTENT (RIGHT AREA) ==================== -->
+  
+  <!-- 1. Header Banner Pill (เลียนแบบแถบพาดหัวสีฟ้าทรงแคปซูลแบบในรูป Canva) -->
+  <g transform="translate(420, 40)" filter="url( #pillShadow )">
+    <rect x="0" y="0" width="1460" height="150" rx="75" fill="url(#mainPillGrad)"/>
+    <text x="730" y="75" font-size="46" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="1">ไดอะแกรมสถาปัตยกรรมระบบ MTC Staff</text>
+    <text x="730" y="118" font-size="20" font-weight="500" fill="#e0f2fe" text-anchor="middle">สร้างภาพจำให้โครงสร้างระบบของคริสตจักร เพื่อความชัดเจน ความเข้าใจที่ตรงกัน และประสิทธิภาพในการทำงาน</text>
+  </g>
+
+  <!-- 2. Subtitle Section (ภูมิภาคหรือตลาด | 2569) -->
+  <g transform="translate(420, 220)">
+    <text x="730" y="30" font-size="24" font-weight="bold" fill="#0f172a" text-anchor="middle">ระบบบริหารจัดการบุคลากรและพันธกิจคริสตจักร | 2569</text>
+  </g>
+
+  <!-- 3. MAIN ROOT NODE (ระบบหลัก MTC Staff Management System) -->
+  <g transform="translate(1000, 280)">
+    <rect x="-180" y="0" width="360" height="64" rx="32" fill="#ffffff" stroke="#0f172a" stroke-width="2.5" filter="url(#cardShadow)"/>
+    <text x="0" y="40" font-size="20" font-weight="bold" fill="#0f172a" text-anchor="middle">ระบบหลัก MTC Staff Management System</text>
+  </g>
+
+
+  <!-- ==================== HIERARCHICAL CONNECTING LINES ==================== -->
+  <!-- Line from Root down to Main Trunk -->
+  <path d="M 1150 344 L 1150 385" stroke="#64748b" stroke-width="3" fill="none"/>
+  
+  <!-- Horizontal Trunk Line across 3 Branches -->
+  <path d="M 640 385 L 1660 385" stroke="#64748b" stroke-width="3" fill="none"/>
+  
+  <!-- Vertical Drops from Trunk to Branch 1, Branch 2, Branch 3 -->
+  <path d="M 640 385 L 640 420" stroke="#64748b" stroke-width="3" fill="none"/>
+  <path d="M 1150 385 L 1150 420" stroke="#64748b" stroke-width="3" fill="none"/>
+  <path d="M 1660 385 L 1660 420" stroke="#64748b" stroke-width="3" fill="none"/>
+
+
+  <!-- ==================== LEVEL 1: BRANCH NODES (3 สายหลัก) ==================== -->
+
+  <!-- Branch 1: ฝั่งผู้ใช้งาน & LINE Gateway -->
+  <g transform="translate(640, 420)">
+    <rect x="-140" y="0" width="280" height="54" rx="27" fill="#00b4d8" filter="url(#pillShadow)"/>
+    <text x="0" y="34" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle">1. User Gateways &amp; LINE</text>
+  </g>
+
+  <!-- Branch 2: โมดูลประมวลผลหลัก (Core Logic Engine) -->
+  <g transform="translate(1150, 420)">
+    <rect x="-140" y="0" width="280" height="54" rx="27" fill="#00b4d8" filter="url(#pillShadow)"/>
+    <text x="0" y="34" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle">2. Core Logic Engine</text>
+  </g>
+
+  <!-- Branch 3: ระบบคลาวด์ & ฐานข้อมูล (Cloud & DB Vault) -->
+  <g transform="translate(1660, 420)">
+    <rect x="-140" y="0" width="280" height="54" rx="27" fill="#00b4d8" filter="url(#pillShadow)"/>
+    <text x="0" y="34" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle">3. Cloud &amp; DB Infrastructure</text>
+  </g>
+
+
+  <!-- Sub-Branch Connecting Lines (From Branch to Sub-Branches) -->
+  <!-- Branch 1 Drops to Sub 1.1 and Sub 1.2 -->
+  <path d="M 640 474 L 640 500" stroke="#64748b" stroke-width="2.5" fill="none"/>
+  <path d="M 500 500 L 780 500" stroke="#64748b" stroke-width="2.5" fill="none"/>
+  <path d="M 500 500 L 500 530" stroke="#64748b" stroke-width="2.5" fill="none"/>
+  <path d="M 780 500 L 780 530" stroke="#64748b" stroke-width="2.5" fill="none"/>
+
+  <!-- Branch 2 Drops to Sub 2.1 and Sub 2.2 -->
+  <path d="M 1150 474 L 1150 500" stroke="#64748b" stroke-width="2.5" fill="none"/>
+  <path d="M 1010 500 L 1290 500" stroke="#64748b" stroke-width="2.5" fill="none"/>
+  <path d="M 1010 500 L 1010 530" stroke="#64748b" stroke-width="2.5" fill="none"/>
+  <path d="M 1290 500 L 1290 530" stroke="#64748b" stroke-width="2.5" fill="none"/>
+
+  <!-- Branch 3 Drops to Sub 3.1 and Sub 3.2 -->
+  <path d="M 1660 474 L 1660 500" stroke="#64748b" stroke-width="2.5" fill="none"/>
+  <path d="M 1520 500 L 1800 500" stroke="#64748b" stroke-width="2.5" fill="none"/>
+  <path d="M 1520 500 L 1520 530" stroke="#64748b" stroke-width="2.5" fill="none"/>
+  <path d="M 1800 500 L 1800 530" stroke="#64748b" stroke-width="2.5" fill="none"/>
+
+
+  <!-- ==================== LEVEL 2: SUB-BRANCH NODES (6 สายย่อย) ==================== -->
+
+  <!-- Sub 1.1: LINE LIFF & Bot -->
+  <g transform="translate(500, 530)">
+    <rect x="-95" y="0" width="190" height="46" rx="23" fill="#00b4d8" filter="url(#pillShadow)"/>
+    <text x="0" y="29" font-size="15" font-weight="bold" fill="#ffffff" text-anchor="middle">LINE LIFF &amp; Bot</text>
+  </g>
+
+  <!-- Sub 1.2: Mobile Staff App -->
+  <g transform="translate(780, 530)">
+    <rect x="-95" y="0" width="190" height="46" rx="23" fill="#00b4d8" filter="url(#pillShadow)"/>
+    <text x="0" y="29" font-size="15" font-weight="bold" fill="#ffffff" text-anchor="middle">Mobile Staff App</text>
+  </g>
+
+  <!-- Sub 2.1: Roster Scheduler -->
+  <g transform="translate(1010, 530)">
+    <rect x="-95" y="0" width="190" height="46" rx="23" fill="#00b4d8" filter="url(#pillShadow)"/>
+    <text x="0" y="29" font-size="15" font-weight="bold" fill="#ffffff" text-anchor="middle">Roster Scheduler</text>
+  </g>
+
+  <!-- Sub 2.2: Equipment & SLA -->
+  <g transform="translate(1290, 530)">
+    <rect x="-95" y="0" width="190" height="46" rx="23" fill="#00b4d8" filter="url(#pillShadow)"/>
+    <text x="0" y="29" font-size="15" font-weight="bold" fill="#ffffff" text-anchor="middle">Equipment &amp; SLA</text>
+  </g>
+
+  <!-- Sub 3.1: Supabase DB Vault -->
+  <g transform="translate(1520, 530)">
+    <rect x="-95" y="0" width="190" height="46" rx="23" fill="#00b4d8" filter="url(#pillShadow)"/>
+    <text x="0" y="29" font-size="15" font-weight="bold" fill="#ffffff" text-anchor="middle">Supabase DB Vault</text>
+  </g>
+
+  <!-- Sub 3.2: Next.js & Vercel -->
+  <g transform="translate(1800, 530)">
+    <rect x="-95" y="0" width="190" height="46" rx="23" fill="#00b4d8" filter="url(#pillShadow)"/>
+    <text x="0" y="29" font-size="15" font-weight="bold" fill="#ffffff" text-anchor="middle">Next.js &amp; Vercel</text>
+  </g>
+
+
+  <!-- Vertical Spine Lines for Stack Columns -->
+  <path d="M 500 576 L 500 1200" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4,4" fill="none"/>
+  <path d="M 780 576 L 780 1200" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4,4" fill="none"/>
+  <path d="M 1010 576 L 1010 1200" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4,4" fill="none"/>
+  <path d="M 1290 576 L 1290 1200" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4,4" fill="none"/>
+  <path d="M 1520 576 L 1520 1200" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4,4" fill="none"/>
+  <path d="M 1800 576 L 1800 1200" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4,4" fill="none"/>
+
+
+  <!-- ==================== LEVEL 3: VERTICAL FEATURE STACKS (ทรงแคปซูลซ้อนกัน 4 ชั้นแบบแม่แบบ Canva) ==================== -->
+
+  <!-- STACK 1: Under LINE LIFF & Bot (x: 500) -->
+  <g transform="translate(500, 610)">
+    <!-- Pill 1 -->
+    <rect x="-90" y="0" width="180" height="120" rx="24" fill="#ffffff" stroke="#00b4d8" stroke-width="2" filter="url(#cardShadow)"/>
+    <text x="0" y="65" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">LINE Rich Menu</text>
+    <!-- Pill 2 -->
+    <rect x="-90" y="140" width="180" height="120" rx="24" fill="#ffffff" stroke="#00b4d8" stroke-width="2" filter="url(#cardShadow)"/>
+    <text x="0" y="205" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">Single Sign-On</text>
+    <!-- Pill 3 -->
+    <rect x="-90" y="280" width="180" height="120" rx="24" fill="#ffffff" stroke="#00b4d8" stroke-width="2" filter="url(#cardShadow)"/>
+    <text x="0" y="345" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">Push Notifications</text>
+    <!-- Pill 4 -->
+    <rect x="-90" y="420" width="180" height="120" rx="24" fill="#ffffff" stroke="#00b4d8" stroke-width="2" filter="url(#cardShadow)"/>
+    <text x="0" y="485" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">Flex Messages</text>
+  </g>
+
+  <!-- STACK 2: Under Mobile Staff App (x: 780) -->
+  <g transform="translate(780, 610)">
+    <!-- Pill 1 -->
+    <rect x="-90" y="0" width="180" height="120" rx="24" fill="#ffffff" stroke="#00b4d8" stroke-width="2" filter="url(#cardShadow)"/>
+    <text x="0" y="65" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">My Schedule</text>
+    <!-- Pill 2 -->
+    <rect x="-90" y="140" width="180" height="120" rx="24" fill="#ffffff" stroke="#00b4d8" stroke-width="2" filter="url(#cardShadow)"/>
+    <text x="0" y="205" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">Staff Directory</text>
+    <!-- Pill 3 -->
+    <rect x="-90" y="280" width="180" height="120" rx="24" fill="#ffffff" stroke="#00b4d8" stroke-width="2" filter="url(#cardShadow)"/>
+    <text x="0" y="345" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">QR Code Scanner</text>
+    <!-- Pill 4 -->
+    <rect x="-90" y="420" width="180" height="120" rx="24" fill="#ffffff" stroke="#00b4d8" stroke-width="2" filter="url(#cardShadow)"/>
+    <text x="0" y="485" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">Leave Request</text>
+  </g>
+
+  <!-- STACK 3: Under Roster Scheduler (x: 1010) -->
+  <g transform="translate(1010, 610)">
+    <!-- Pill 1 -->
+    <rect x="-90" y="0" width="180" height="120" rx="24" fill="#ffffff" stroke="#00b4d8" stroke-width="2" filter="url(#cardShadow)"/>
+    <text x="0" y="65" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">วันสำคัญประจำปี</text>
+    <!-- Pill 2 -->
+    <rect x="-90" y="140" width="180" height="120" rx="24" fill="#ffffff" stroke="#00b4d8" stroke-width="2" filter="url(#cardShadow)"/>
+    <text x="0" y="205" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">Priority 1-3 โบสถ์ใหญ่</text>
+    <!-- Pill 3 -->
+    <rect x="-90" y="280" width="180" height="120" rx="24" fill="#ffffff" stroke="#00b4d8" stroke-width="2" filter="url(#cardShadow)"/>
+    <text x="0" y="345" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">โควตา 2 สัปดาห์/เดือน</text>
+    <!-- Pill 4 -->
+    <rect x="-90" y="420" width="180" height="120" rx="24" fill="#ffffff" stroke="#00b4d8" stroke-width="2" filter="url(#cardShadow)"/>
+    <text x="0" y="485" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">สลับคนฉุกเฉิน</text>
+  </g>
+
+  <!-- STACK 4: Under Equipment & SLA (x: 1290) -->
+  <g transform="translate(1290, 610)">
+    <!-- Pill 1 -->
+    <rect x="-90" y="0" width="180" height="120" rx="24" fill="#ffffff" stroke="#00b4d8" stroke-width="2" filter="url(#cardShadow)"/>
+    <text x="0" y="65" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">คลังอุปกรณ์ QR</text>
+    <!-- Pill 2 -->
+    <rect x="-90" y="140" width="180" height="120" rx="24" fill="#ffffff" stroke="#00b4d8" stroke-width="2" filter="url(#cardShadow)"/>
+    <text x="0" y="205" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">ลายเซ็นดิจิทัล</text>
+    <!-- Pill 3 -->
+    <rect x="-90" y="280" width="180" height="120" rx="24" fill="#ffffff" stroke="#00b4d8" stroke-width="2" filter="url(#cardShadow)"/>
+    <text x="0" y="345" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">SLA Countdown</text>
+    <!-- Pill 4 -->
+    <rect x="-90" y="420" width="180" height="120" rx="24" fill="#ffffff" stroke="#00b4d8" stroke-width="2" filter="url(#cardShadow)"/>
+    <text x="0" y="485" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">หลักฐานรูปถ่าย</text>
+  </g>
+
+  <!-- STACK 5: Under Supabase DB Vault (x: 1520) -->
+  <g transform="translate(1520, 610)">
+    <!-- Pill 1 -->
+    <rect x="-90" y="0" width="180" height="120" rx="24" fill="#ffffff" stroke="#00b4d8" stroke-width="2" filter="url(#cardShadow)"/>
+    <text x="0" y="65" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">ทะเบียน 342 คน</text>
+    <!-- Pill 2 -->
+    <rect x="-90" y="140" width="180" height="120" rx="24" fill="#ffffff" stroke="#00b4d8" stroke-width="2" filter="url(#cardShadow)"/>
+    <text x="0" y="205" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">RBAC สิทธิ์ผู้ใช้</text>
+    <!-- Pill 3 -->
+    <rect x="-90" y="280" width="180" height="120" rx="24" fill="#ffffff" stroke="#00b4d8" stroke-width="2" filter="url(#cardShadow)"/>
+    <text x="0" y="345" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">Base64 Bucket</text>
+    <!-- Pill 4 -->
+    <rect x="-90" y="420" width="180" height="120" rx="24" fill="#ffffff" stroke="#00b4d8" stroke-width="2" filter="url(#cardShadow)"/>
+    <text x="0" y="485" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">PDPA Security</text>
+  </g>
+
+  <!-- STACK 6: Under Next.js & Vercel (x: 1800) -->
+  <g transform="translate(1800, 610)">
+    <!-- Pill 1 -->
+    <rect x="-90" y="0" width="180" height="120" rx="24" fill="#ffffff" stroke="#00b4d8" stroke-width="2" filter="url(#cardShadow)"/>
+    <text x="0" y="65" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">Fullstack API</text>
+    <!-- Pill 2 -->
+    <rect x="-90" y="140" width="180" height="120" rx="24" fill="#ffffff" stroke="#00b4d8" stroke-width="2" filter="url(#cardShadow)"/>
+    <text x="0" y="205" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">Prisma ORM</text>
+    <!-- Pill 3 -->
+    <rect x="-90" y="280" width="180" height="120" rx="24" fill="#ffffff" stroke="#00b4d8" stroke-width="2" filter="url(#cardShadow)"/>
+    <text x="0" y="345" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">GitHub Deploy</text>
+    <!-- Pill 4 -->
+    <rect x="-90" y="420" width="180" height="120" rx="24" fill="#ffffff" stroke="#00b4d8" stroke-width="2" filter="url(#cardShadow)"/>
+    <text x="0" y="485" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">Serverless Edge</text>
+  </g>
+
+</svg>
