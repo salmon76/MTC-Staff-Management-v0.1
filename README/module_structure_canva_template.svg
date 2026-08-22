@@ -1,4 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1280" width="1920" height="1280" style="background-color: #f3f4f6; font-family: -apple-system, BlinkMacSystemFont, "TH Sarabun New", "Prompt", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1280" width="1920" height="1280">
+  <style>
+    text { font-family: "Prompt", "TH Sarabun New", "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  </style>
   <defs>
     <!-- Background Dot Pattern (Matching Canva Dot Grid) -->
     <pattern id="dotGrid" width="24" height="24" patternUnits="userSpaceOnUse">
@@ -158,7 +161,7 @@
   <!-- ==================== MAIN CANVAS CONTENT (RIGHT AREA) ==================== -->
   
   <!-- 1. Header Banner Pill (เลียนแบบแถบพาดหัวสีฟ้าทรงแคปซูลแบบในรูป Canva) -->
-  <g transform="translate(420, 40)" filter="url( #pillShadow )">
+  <g transform="translate(420, 40)" filter="url(#pillShadow)">
     <rect x="0" y="0" width="1460" height="150" rx="75" fill="url(#mainPillGrad)"/>
     <text x="730" y="75" font-size="46" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="1">ไดอะแกรมสถาปัตยกรรมระบบ MTC Staff</text>
     <text x="730" y="118" font-size="20" font-weight="500" fill="#e0f2fe" text-anchor="middle">สร้างภาพจำให้โครงสร้างระบบของคริสตจักร เพื่อความชัดเจน ความเข้าใจที่ตรงกัน และประสิทธิภาพในการทำงาน</text>
