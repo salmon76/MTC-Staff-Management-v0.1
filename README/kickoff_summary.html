@@ -412,6 +412,113 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Architecture & Use Case Diagram Custom Styles */
+        .arch-container {
+            background: #0f172a;
+            border-radius: 20px;
+            padding: 28px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: var(--shadow-xl);
+            margin-bottom: 30px;
+            color: #f8fafc;
+        }
+
+        .arch-layer {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px dashed rgba(96, 165, 250, 0.4);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 18px;
+            position: relative;
+        }
+
+        .arch-layer-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .arch-node-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
+        }
+
+        .arch-node {
+            background: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 14px 16px;
+            transition: all 0.2s ease;
+        }
+
+        .arch-node:hover {
+            border-color: #60a5fa;
+            transform: translateY(-2px);
+        }
+
+        .arch-node-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-size: 0.98rem;
+            margin-bottom: 6px;
+            color: #ffffff;
+        }
+
+        .arch-node-desc {
+            font-size: 0.84rem;
+            color: #94a3b8;
+            line-height: 1.4;
+        }
+
+        .arch-arrow-connector {
+            text-align: center;
+            color: #60a5fa;
+            font-size: 1.4rem;
+            margin: -6px 0 12px 0;
+            opacity: 0.8;
+        }
+
+        .usecase-actor-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 24px;
+            box-shadow: var(--shadow-lg);
+            border-top: 4px solid var(--primary-light);
+            margin-bottom: 20px;
+        }
+
+        .usecase-tag {
+            display: inline-block;
+            background: #e0f2fe;
+            color: #0369a1;
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-right: 6px;
+            margin-bottom: 6px;
+        }
+
+        .usecase-tag {
+            display: inline-block;
+            background: #e0f2fe;
+            color: #0369a1;
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-right: 6px;
+            margin-bottom: 6px;
+        }
     </style>
 </head>
 
@@ -426,6 +533,145 @@
             <p>เจาะลึกตั้งแต่จุดเริ่มต้น, ปัญหาดั้งเดิม (Pain Points), สถาปัตยกรรมระบบ (ARCHITECTURE.md),
                 การตัดสินใจเลือก Stack (DECISION.md), ขอบเขต PoC (PoC_Scope.md), Business Logic การจัดตาราง (Requirement
                 for Scheduler .pdf) และรายงานสถานะระบบตามความเป็นจริง</p>
+        </div>
+
+        <!-- Section 0: Executive Solution Overview & Introduction -->
+        <div class="section-title">
+            <span>🚀</span> ภาพรวมการทำงานของระบบและคุณค่าทางธุรกิจ (Solution Overview & Business Value)
+        </div>
+
+        <div class="card" style="margin-bottom: 35px; border-top: 5px solid var(--primary-light);">
+            <!-- Sub-section 1: Tier 1 User Presentation & Client Channels Image & Explanation -->
+            <div style="text-align: center; margin-bottom: 20px;">
+                <span class="badge-kickoff" style="background: linear-gradient(90deg, #0284c7, #3b82f6);">📱 Tier 1 User Channels</span>
+                <h3 style="font-size: 1.5rem; color: var(--primary-dark); margin-top: 6px;">1. ช่องทางการใช้งานฝั่งผู้ใช้งาน (Tier 1: User Presentation & Client Channels)</h3>
+                <p style="color: #64748b; font-size: 0.95rem;">สรุป 3 ช่องทางหลักในการเข้าถึงระบบ MTC Staff Management สำหรับผู้รับใช้ ศิษยาภิบาล และผู้ดูแลระบบ</p>
+            </div>
+
+            <!-- Embedded Image 1: Tier 1 User Presentation Channels -->
+            <div style="text-align: center; margin: 18px 0; background: #0f172a; padding: 20px; border-radius: 18px; border: 1px solid rgba(255,255,255,0.1);">
+                <img src="tier1_user_presentation_channels.png" alt="Tier 1: User Presentation and Client Channels" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: var(--shadow-xl);" />
+            </div>
+
+            <!-- Detailed Explanation Card for Tier 1 Channels -->
+            <div style="background: #f8fafc; border-radius: 16px; padding: 24px; border: 1px solid #e2e8f0; margin-bottom: 30px;">
+                <h4 style="color: #1e3a8a; font-size: 1.1rem; margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
+                    <span>💡</span> คำอธิบายรายละเอียด 3 ช่องทางผู้ใช้งาน (Client Channels Breakdown)
+                </h4>
+                <div class="grid-3" style="margin-bottom: 0; gap: 18px;">
+                    <div style="background: #ffffff; padding: 18px; border-radius: 14px; border: 1px solid #e2e8f0; border-left: 4px solid #38bdf8; box-shadow: 0 4px 10px rgba(0,0,0,0.02);">
+                        <strong style="color: #0284c7; font-size: 1.02rem;">💬 LINE App (LIFF Gateway)</strong>
+                        <p style="font-size: 0.9rem; color: #334155; margin-top: 6px; line-height: 1.55;">
+                            เข้าผ่าน LINE Official Account ไม่ต้องโหลดแอป รองรับ SSO & Quick Rich Menu สะดวกต่อผู้รับใช้ในการเช็กตารางและรับแจ้งเตือน
+                        </p>
+                    </div>
+
+                    <div style="background: #ffffff; padding: 18px; border-radius: 14px; border: 1px solid #e2e8f0; border-left: 4px solid #818cf8; box-shadow: 0 4px 10px rgba(0,0,0,0.02);">
+                        <strong style="color: #4f46e5; font-size: 1.02rem;">💻 Web Browser (Mobile & Desktop)</strong>
+                        <p style="font-size: 0.9rem; color: #334155; margin-top: 6px; line-height: 1.55;">
+                            หน้าเว็บ PWA/Responsive UI สำหรับบุคลากร และศิษยาภิบาลเข้าดูข้อมูล จัดการตาราง และยื่นคำขออนุมัติต่างๆ ได้ทุกอุปกรณ์
+                        </p>
+                    </div>
+
+                    <div style="background: #ffffff; padding: 18px; border-radius: 14px; border: 1px solid #e2e8f0; border-left: 4px solid #34d399; box-shadow: 0 4px 10px rgba(0,0,0,0.02);">
+                        <strong style="color: #059669; font-size: 1.02rem;">🖥️ Backoffice CRM Admin Portal</strong>
+                        <p style="font-size: 0.9rem; color: #334155; margin-top: 6px; line-height: 1.55;">
+                            แผงควบคุมระบบหลังบ้านสำหรับเจ้าหน้าที่คริสตจักร บริหารทะเบียนบุคลากร คลังอุปกรณ์ ใบแจ้งซ่อม และกำหนดสิทธิ์ใช้งาน (RBAC)
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <hr style="border: 0; border-top: 1px dashed #cbd5e1; margin: 32px 0;">
+
+            <!-- Sub-section 2: Solution Overview (3 Zones Diagram & Image) -->
+            <div style="text-align: center; margin-bottom: 20px;">
+                <span class="badge-kickoff" style="background: linear-gradient(90deg, #10b981, #0284c7);">⚡ Solution Overview Architecture</span>
+                <h3 style="font-size: 1.5rem; color: var(--primary-dark); margin-top: 6px;">2. ภาพรวมสถาปัตยกรรมและการทำงานของระบบ (System Overview 3 Zones)</h3>
+                <p style="color: #64748b; font-size: 0.95rem;">โครงสร้างการเชื่อมโยงไร้รอยต่อแบ่งตาม 3 Zones การทำงานหลัก</p>
+            </div>
+
+            <!-- Embedded Image 2: Solution Overview -->
+            <div style="text-align: center; margin: 18px 0; background: #0f172a; padding: 20px; border-radius: 18px; border: 1px solid rgba(255,255,255,0.1);">
+                <img src="solution_overview_architecture.png" alt="Solution Overview: ภาพรวมการทำงานของระบบ 3 Zones" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: var(--shadow-xl);" />
+            </div>
+
+            <!-- Detailed Explanation Card for Solution Overview -->
+            <div style="background: #f8fafc; border-radius: 16px; padding: 24px; border: 1px solid #e2e8f0; margin-bottom: 30px;">
+                <h4 style="color: #1e3a8a; font-size: 1.1rem; margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
+                    <span>💡</span> คำอธิบายภาพรวมการทำงานของระบบ 3 Zones (Detailed Breakdown)
+                </h4>
+                <div class="grid-3" style="margin-bottom: 0; gap: 18px;">
+                    <div style="background: #ffffff; padding: 18px; border-radius: 14px; border: 1px solid #e2e8f0; border-left: 4px solid #06c755; box-shadow: 0 4px 10px rgba(0,0,0,0.02);">
+                        <strong style="color: #06c755; font-size: 1.02rem;">Zone 1: User Gateway</strong>
+                        <p style="font-size: 0.9rem; color: #334155; margin-top: 6px; line-height: 1.55;">
+                            <strong>Front-end:</strong> เข้าถึงง่ายผ่าน Line Official Account โดยใช้ Rich Menu เป็นทางเข้าหลัก ผู้รับใช้และบุคลากรเข้าใช้งานผ่านมือถือได้ทันทีโดยไม่ต้องติดตั้งแอปพลิเคชันเพิ่มเติม
+                        </p>
+                    </div>
+
+                    <div style="background: #ffffff; padding: 18px; border-radius: 14px; border: 1px solid #e2e8f0; border-left: 4px solid #0284c7; box-shadow: 0 4px 10px rgba(0,0,0,0.02);">
+                        <strong style="color: #0284c7; font-size: 1.02rem;">Zone 2: Processing Engine</strong>
+                        <p style="font-size: 0.9rem; color: #334155; margin-top: 6px; line-height: 1.55;">
+                            <strong>System Engine:</strong> Web App MTC Staff ทำหน้าที่เป็น Interface สำหรับกรอกข้อมูล, แสดงผลรายงาน และเชื่อมต่อ Line Messaging API เพื่อส่งการแจ้งเตือนอัตโนมัติ
+                        </p>
+                    </div>
+
+                    <div style="background: #ffffff; padding: 18px; border-radius: 14px; border: 1px solid #e2e8f0; border-left: 4px solid #059669; box-shadow: 0 4px 10px rgba(0,0,0,0.02);">
+                        <strong style="color: #059669; font-size: 1.02rem;">Zone 3: Database</strong>
+                        <p style="font-size: 0.9rem; color: #334155; margin-top: 6px; line-height: 1.55;">
+                            <strong>Data Storage:</strong> บันทึกข้อมูลลง Supabase / PostgreSQL ปลอดภัยบน Cloud พร้อมรองรับการ Sync ข้อมูลสู่ Central Server ในอนาคต
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <hr style="border: 0; border-top: 1px dashed #cbd5e1; margin: 32px 0;">
+
+            <!-- Sub-section 3: User Experience & Business Value Image & Explanation -->
+            <div style="text-align: center; margin-bottom: 20px;">
+                <span class="badge-kickoff" style="background: linear-gradient(90deg, #8b5cf6, #ec4899);">📊 Business Impact & UX</span>
+                <h3 style="font-size: 1.5rem; color: var(--primary-dark); margin-top: 6px;">3. ประสบการณ์ผู้ใช้งาน และคุณค่าทางธุรกิจ (User Experience & Business Value)</h3>
+                <p style="color: #64748b; font-size: 0.95rem;">เปรียบเทียบรูปแบบการแจ้งเตือนทาง LINE และผลลัพธ์เชิงบริหารของคริสตจักร</p>
+            </div>
+
+            <!-- Embedded Image 3: User Experience & Business Value -->
+            <div style="text-align: center; margin: 18px 0; background: #0f172a; padding: 20px; border-radius: 18px; border: 1px solid rgba(255,255,255,0.1);">
+                <img src="user_experience_business_value.png" alt="User Experience and Business Value Overview" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: var(--shadow-xl);" />
+            </div>
+
+            <!-- Detailed Explanation Card for UX & Business Value -->
+            <div class="grid-2" style="margin-top: 24px; margin-bottom: 0;">
+                <div style="background: #f0f7ff; padding: 22px; border-radius: 16px; border: 1px solid #bfdbfe; border-left: 4px solid #3b82f6;">
+                    <h4 style="color: #1e3a8a; font-size: 1.1rem; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+                        <span>📱</span> คำอธิบายประสบการณ์ผู้ใช้ (User Experience Breakdown)
+                    </h4>
+                    <ul style="list-style: none; padding-left: 0; font-size: 0.92rem; color: #334155;">
+                        <li class="check" style="margin-bottom: 8px;">
+                            <strong>LINE Push Alert Notification:</strong> ระบบส่งข้อความแจ้งเตือนเตือนตารางเวรรับใช้ล่วงหน้าอัตโนมัติเข้าสู่ LINE ของผู้รับใช้แต่ละท่าน เช่น <em>"แจ้งเตือน: ท่านมีเวรรับใช้ในวันพรุ่งนี้ (09:00 - 12:00) กรุณาเตรียมตัว"</em>
+                        </li>
+                        <li class="check">
+                            <strong>User Action:</strong> ผู้รับใช้รับ Notification และกดสลับดูตารางงานส่วนตัวและตารางเพื่อนร่วมรับใช้ได้ทันที ลดขั้นตอนการสอบถามในกลุ่ม LINE
+                        </li>
+                    </ul>
+                </div>
+
+                <div style="background: #f0fdf4; padding: 22px; border-radius: 16px; border: 1px solid #bbf7d0; border-left: 4px solid #10b981;">
+                    <h4 style="color: #065f46; font-size: 1.1rem; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+                        <span>🏆</span> คำอธิบายคุณค่าทางธุรกิจ (Business Value Breakdown)
+                    </h4>
+                    <ul style="list-style: none; padding-left: 0; font-size: 0.92rem; color: #334155;">
+                        <li class="check" style="margin-bottom: 8px;">
+                            <strong>Core Function:</strong> จัดทำตารางเวรรับใช้รายสัปดาห์แบบอัตโนมัติ ช่วยลดเวลาและภาระงานของผู้จัดตารางลงอย่างมีนัยสำคัญ
+                        </li>
+                        <li class="check" style="margin-bottom: 8px;">
+                            <strong>Usage Pattern:</strong> สมาชิกและผู้รับใช้สามารถตรวจสอบตารางเวรย้อนหลังและล่วงหน้าได้ด้วยตนเองตลอด 24 ชั่วโมง
+                        </li>
+                        <li class="check">
+                            <strong>Business Benefit:</strong> ลดความสับสน (Confusion) ในการจัดตาราง และป้องกันการลืมหน้าที่ของมัคนายกและทีมรับใช้ได้อย่างยั่งยืน
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
         <!-- Section 1: Background & Pain Points -->
@@ -763,6 +1009,272 @@
                 </div>
             </div>
 
+        <!-- Section 5: System Architecture Diagram -->
+        <div class="section-title">
+            <span>🏗️</span> 5. แผนผังสถาปัตยกรรมระบบแบบเจาะลึก (System Architecture Diagram)
+        </div>
+
+        <!-- Module Architecture Diagram Showcase (Canva Ready) -->
+        <div class="card" style="margin-bottom: 30px; border-top: 5px solid var(--accent-purple);">
+            <div class="card-header">
+                <div class="card-icon icon-purple">🗺️</div>
+                <div>
+                    <h3>แผนผังโครงสร้างระบบและโมดูลการทำงาน (Module Structure Architecture Diagram)</h3>
+                    <p style="color: #64748b; font-size: 0.93rem;">แผนผังสรุป 3 ชั้นระบบ (Layer 1: Frontend Gateways ➔ Layer 2: Core Logic Services ➔ Layer 3: Cloud Database) พร้อมไฟล์สำหรับนำเข้า Canva</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin: 18px 0; background: #0f172a; padding: 20px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.1);">
+                <img src="module_structure.png" alt="MTC Staff Management Module Structure Diagram" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: var(--shadow-xl);" />
+            </div>
+
+            <div class="card-body">
+                <h4 style="color: var(--primary); font-size: 1.05rem; margin-bottom: 12px;">📁 ไฟล์สำเร็จรูปสำหรับนำเข้า Canva (Canva Ready Export Files):</h4>
+                <div class="grid-3" style="margin-bottom: 0;">
+                    <div style="background: #f8fafc; padding: 16px; border-radius: 12px; border-left: 4px solid #6d28d9;">
+                        <strong style="color: #6d28d9;">1. SVG Vector (`module_structure.svg`)</strong>
+                        <p style="font-size: 0.88rem; color: #475569; margin-top: 4px;">นำเข้า Canva แบบ Vector แยกชิ้นส่วน แก้ไขข้อความ สี และย้ายตำแหน่งได้ 100%</p>
+                    </div>
+                    <div style="background: #f8fafc; padding: 16px; border-radius: 12px; border-left: 4px solid #0284c7;">
+                        <strong style="color: #0284c7;">2. Vector PDF (`module_structure.pdf`)</strong>
+                        <p style="font-size: 0.88rem; color: #475569; margin-top: 4px;">นำเข้า Canva แบบ PDF Document แปลงทุกเลเยอร์เป็นอิลิเมนต์แก้ไขได้ในสไลด์</p>
+                    </div>
+                    <div style="background: #f8fafc; padding: 16px; border-radius: 12px; border-left: 4px solid #059669;">
+                        <strong style="color: #059669;">3. High-Res PNG (`module_structure.png`)</strong>
+                        <p style="font-size: 0.88rem; color: #475569; margin-top: 4px;">ภาพความละเอียดสูง 1920x1080 พร้อมลากวาง (Drag & Drop) ลงงานนำเสนอทันที</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="arch-container">
+            <div style="text-align: center; margin-bottom: 24px;">
+                <span class="badge-kickoff" style="background: linear-gradient(90deg, #0284c7, #3b82f6);">🌐 High-Level Logical Architecture Overview</span>
+                <h3 style="font-size: 1.5rem; color: #ffffff; margin-top: 6px;">สถาปัตยกรรมระบบ MTC Staff Management System (4-Tier Cloud Architecture)</h3>
+                <p style="color: #94a3b8; font-size: 0.95rem;">โครงสร้างการเชื่อมต่อตั้งแต่ช่องทางผู้ใช้งาน (LINE & Web) ผ่าน Edge Gateway เข้าสู่ Core API Serverless และ Supabase PostgreSQL</p>
+            </div>
+
+            <!-- Tier 1: User Channels & Frontend UI -->
+            <div class="arch-layer" style="border-color: #38bdf8;">
+                <div class="arch-layer-title" style="color: #38bdf8;">
+                    <span>📱 Tier 1: User Presentation & Client Channels (ช่องทางผู้ใช้งาน)</span>
+                </div>
+                <div class="arch-node-grid">
+                    <div class="arch-node">
+                        <div class="arch-node-header">💬 LINE App (LIFF Gateway)</div>
+                        <div class="arch-node-desc">เข้าผ่าน LINE Official Account ไม่ต้องโหลดแอป รองรับ SSO & Quick Rich Menu</div>
+                    </div>
+                    <div class="arch-node">
+                        <div class="arch-node-header">💻 Web Browser (Mobile & Desktop)</div>
+                        <div class="arch-node-desc">หน้าเว็บ PWA/Responsive UI สำหรับบุคลากร และศิษยาภิบาลเข้าดูข้อมูล</div>
+                    </div>
+                    <div class="arch-node">
+                        <div class="arch-node-header">🖥️ Backoffice CRM Admin Portal</div>
+                        <div class="arch-node-desc">แผงควบคุมระบบหลังบ้านสำหรับเจ้าหน้าที่คริสตจักร บริหารทะเบียน & อุปกรณ์</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="arch-arrow-connector">⬇️ (HTTPS / REST API / LIFF SDK / LINE Webhook Events) ⬇️</div>
+
+            <!-- Tier 2: Cloud Gateway & Integration Layer -->
+            <div class="arch-layer" style="border-color: #818cf8;">
+                <div class="arch-layer-title" style="color: #818cf8;">
+                    <span>⚡ Tier 2: Cloud Gateway & Messaging Integration (ระบบเกตเวย์ & การสื่อสาร)</span>
+                </div>
+                <div class="arch-node-grid">
+                    <div class="arch-node">
+                        <div class="arch-node-header">🛡️ Vercel Edge CDN & Firewall</div>
+                        <div class="arch-node-desc">SSL/TLS 256-bit Encryption, Auto-scaling Serverless Endpoint, Rate Limiting</div>
+                    </div>
+                    <div class="arch-node">
+                        <div class="arch-node-header">🤖 LINE Messaging API Webhooks</div>
+                        <div class="arch-node-desc">รับ-ส่งข้อความอัตโนมัติ Verified Signature (`x-line-signature`) ส่ง Push Notifications</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="arch-arrow-connector">⬇️ (Serverless Function Route Execution) ⬇️</div>
+
+            <!-- Tier 3: Core Next.js 15 Application & Engine Layer -->
+            <div class="arch-layer" style="border-color: #34d399;">
+                <div class="arch-layer-title" style="color: #34d399;">
+                    <span>⚙️ Tier 3: Next.js 15 Application Core & Business Engines (ประมวลผล Business Logic)</span>
+                </div>
+                <div class="arch-node-grid">
+                    <div class="arch-node" style="border-left: 3px solid #34d399;">
+                        <div class="arch-node-header">📅 Roster Scheduler Engine</div>
+                        <div class="arch-node-desc"><code>/api/roster</code> - จัดตาราง มน. x ศบ. ตามกฎ 4 ข้อ + Auto-Substitute Finder เมื่อมีการสลับวัน</div>
+                    </div>
+                    <div class="arch-node" style="border-left: 3px solid #34d399;">
+                        <div class="arch-node-header">📦 QR Equipment & Handover</div>
+                        <div class="arch-node-desc"><code>/api/bookings/equipment/*</code> - สแกน QR Code + บันทึกลายเซ็นดิจิทัล Base64 Signature Canvas</div>
+                    </div>
+                    <div class="arch-node" style="border-left: 3px solid #34d399;">
+                        <div class="arch-node-header">🔧 Repair SLA Ticket Engine</div>
+                        <div class="arch-node-desc"><code>/api/tickets</code> & <code>/api/cron/sla-check</code> - คำนวณเวลา SLA (4h-72h) & Cron Monitoring</div>
+                    </div>
+                    <div class="arch-node" style="border-left: 3px solid #34d399;">
+                        <div class="arch-node-header">🔐 Auth & Member Registry</div>
+                        <div class="arch-node-desc"><code>/api/staff</code> & <code>/api/profile</code> - ตรวจสอบสิทธิ์ RBAC & ข้อมูลทะเบียนบุคลากรปลอดภัย</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="arch-arrow-connector">⬇️ (Prisma ORM / Connection Pooling) ⬇️</div>
+
+            <!-- Tier 4: Database & Infrastructure Layer -->
+            <div class="arch-layer" style="border-color: #f472b6; margin-bottom: 0;">
+                <div class="arch-layer-title" style="color: #f472b6;">
+                    <span>🗄️ Tier 4: Managed Cloud Database & Storage (ฐานข้อมูลนิรภัย)</span>
+                </div>
+                <div class="arch-node-grid">
+                    <div class="arch-node">
+                        <div class="arch-node-header">🐘 Supabase PostgreSQL DB</div>
+                        <div class="arch-node-desc">เก็บข้อมูล Staff, Roster, Equipment, Signatures, SLA Tickets (Prisma Schema)</div>
+                    </div>
+                    <div class="arch-node">
+                        <div class="arch-node-header">🔒 Storage & Audit History</div>
+                        <div class="arch-node-desc">จัดเก็บไฟล์รูปภาพอุปกรณ์ หลักฐานการแจ้งซ่อม และบันทึก Audit Logs</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-2" style="margin-bottom: 30px;">
+            <div class="card card-logic-done">
+                <span class="status-pill status-done">💡 จุดเด่นด้านสถาปัตยกรรม (Key Arch Highlights)</span>
+                <div class="card-body">
+                    <ul>
+                        <li class="check"><strong>Fullstack Integration:</strong> ใช้ Next.js 15 รวมหน้าบ้านและหลังบ้านไว้ในโปรเจกต์เดียว ดูแลง่าย</li>
+                        <li class="check"><strong>Zero Infrastructure Overhead:</strong> ไม่ต้องซื้อ Server มาตั้งที่คริสตจักร รันบน Vercel + Supabase 100%</li>
+                        <li class="check"><strong>LINE Native Experience:</strong> ผู้รับใช้ใช้งานผ่าน LINE ที่คุ้นเคย โดยไม่ต้องลงแอปพลิเคชันใหม่</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card card-logic-done">
+                <span class="status-pill status-done">🛡️ ความปลอดภัย & PDPA Compliance</span>
+                <div class="card-body">
+                    <ul>
+                        <li class="check"><strong>Data Encryption:</strong> เข้ารหัสข้อมูลการสื่อสารด้วย HTTPS TLS 1.3 สองทางตลอดเวลา</li>
+                        <li class="check"><strong>Role-Based Access Control:</strong> จำกัดสิทธิ์ดูข้อมูลตามบทบาท (ศิษยาภิบาล / มัคนายก / ช่าง)</li>
+                        <li class="check"><strong>Non-Repudiation Audit:</strong> มีระบบบันทึกลายเซ็นดิจิทัลพร้อม Timestamp ป้องกันการปฏิเสธความรับผิดชอบ</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 6: Use Case Diagram & User Journeys -->
+        <div class="section-title">
+            <span>🎯</span> 6. แผนผังกรณีการใช้งานตามสิทธิ์ผู้ใช้ (Use Case Diagram & User Journeys)
+        </div>
+
+        <div class="card" style="margin-bottom: 30px; border-top: 5px solid #3b82f6;">
+            <div class="card-header">
+                <div class="card-icon icon-blue">🗺️</div>
+                <div>
+                    <h3>แผนผัง Use Case สรุปหน้าที่ตามบทบาทผู้ใช้งาน (Role-Based Use Case Matrix)</h3>
+                    <p style="color: #64748b; font-size: 0.93rem;">แบ่งขอบเขตการใช้งานตาม 4 กลุ่มผู้มีส่วนร่วมหลัก (Stakeholders) ในระบบบริหารจัดการบุคลากรคริสตจักร</p>
+                </div>
+            </div>
+
+            <div class="grid-2" style="margin-bottom: 20px;">
+                <!-- Actor 1: Church Staff & Deacons -->
+                <div class="usecase-actor-card">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                        <span style="font-size: 1.8rem;">👨‍💼</span>
+                        <div>
+                            <h4 style="font-size: 1.15rem; color: #1e3a8a;">1. ผู้รับใช้ / มัคนายก (Staff & Deacons)</h4>
+                            <span class="usecase-tag">LINE LIFF</span><span class="usecase-tag">Mobile Web</span>
+                        </div>
+                    </div>
+                    <ul style="list-style: none; padding-left: 0;" class="card-body">
+                        <li class="check" style="margin-bottom: 8px;"><strong>UC-01: Login ผ่าน LINE SSO:</strong> เข้าใช้งานระบบอัตโนมัติผ่านบัญชี LINE</li>
+                        <li class="check" style="margin-bottom: 8px;"><strong>UC-02: ดูตารางรับใช้ส่วนตัว:</strong> ตรวจสอบวัน/เวลา/ตำแหน่งหน้าที่รับใช้ประจำเดือน</li>
+                        <li class="check" style="margin-bottom: 8px;"><strong>UC-03: ส่งคำขอสลับวัน / ลา:</strong> แจ้งสลับตารางรับใช้พร้อมเลือกผู้รับใช้แทน</li>
+                        <li class="check" style="margin-bottom: 8px;"><strong>UC-04: ยืม-คืนอุปกรณ์ด้วย QR:</strong> สแกน QR Code + เซ็นชื่อดิจิทัลรับมอบอุปกรณ์</li>
+                        <li class="check" style="margin-bottom: 8px;"><strong>UC-05: แจ้งซ่อมอุปกรณ์ชำรุด:</strong> เปิด Ticket แจ้งซ่อมพร้อมแนบภาพถ่าย</li>
+                    </ul>
+                </div>
+
+                <!-- Actor 2: Pastors & Ministry Leaders -->
+                <div class="usecase-actor-card" style="border-top-color: #8b5cf6;">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                        <span style="font-size: 1.8rem;">⛪</span>
+                        <div>
+                            <h4 style="font-size: 1.15rem; color: #5b21b6;">2. ศิษยาภิบาล & หัวหน้าฝ่าย (Pastors & Leaders)</h4>
+                            <span class="usecase-tag" style="background: #f3e8ff; color: #6b21a8;">Scheduler Engine</span><span class="usecase-tag" style="background: #f3e8ff; color: #6b21a8;">Approval</span>
+                        </div>
+                    </div>
+                    <ul style="list-style: none; padding-left: 0;" class="card-body">
+                        <li class="check" style="margin-bottom: 8px;"><strong>UC-06: จัดตารางรับใช้อัตโนมัติ:</strong> ประมวลผล Scheduler Engine ตามกฎ 4 ข้อ</li>
+                        <li class="check" style="margin-bottom: 8px;"><strong>UC-07: พิจารณาคำขอสลับตาราง / ลา:</strong> กดอนุมัติหรือปฏิเสธคำขอสลับวันรับใช้</li>
+                        <li class="check" style="margin-bottom: 8px;"><strong>UC-08: ประกาศตารางรับใช้ประจำเดือน:</strong> เผยแพร่ตารางพร้อมส่ง LINE Notification</li>
+                        <li class="check" style="margin-bottom: 8px;"><strong>UC-09: ดูรายงานสรุปพันธกิจ:</strong> ตรวจสอบสถิติจำนวนชั่วโมงและโควตาการรับใช้</li>
+                    </ul>
+                </div>
+
+                <!-- Actor 3: Technicians & Maintenance Team -->
+                <div class="usecase-actor-card" style="border-top-color: #10b981;">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                        <span style="font-size: 1.8rem;">🔧</span>
+                        <div>
+                            <h4 style="font-size: 1.15rem; color: #065f46;">3. ทีมงานเทคนิค & ช่างซ่อม (Technicians)</h4>
+                            <span class="usecase-tag" style="background: #d1fae5; color: #065f46;">SLA Tracker</span><span class="usecase-tag" style="background: #d1fae5; color: #065f46;">QR Inventory</span>
+                        </div>
+                    </div>
+                    <ul style="list-style: none; padding-left: 0;" class="card-body">
+                        <li class="check" style="margin-bottom: 8px;"><strong>UC-10: รับงานใบแจ้งซ่อม (SLA Ticket):</strong> กดรับ Ticket และเริ่มนับเวลา SLA Response</li>
+                        <li class="check" style="margin-bottom: 8px;"><strong>UC-11: อัปเดตสถานะซ่อม & แนบรูป:</strong> บันทึกความคืบหน้า แนบรูปหลังซ่อม และกดปุ่ม Resolve</li>
+                        <li class="check" style="margin-bottom: 8px;"><strong>UC-12: จัดการคลังอุปกรณ์ & QR:</strong> ลงทะเบียนอุปกรณ์ใหม่ พิมพ์ QR Code ติดเครื่อง</li>
+                        <li class="check" style="margin-bottom: 8px;"><strong>UC-13: ตรวจสอบประวัติการส่งซ่อม:</strong> ค้นหาประวัติซ่อมย้อนหลังตามรหัสอุปกรณ์</li>
+                    </ul>
+                </div>
+
+                <!-- Actor 4: System Administrator -->
+                <div class="usecase-actor-card" style="border-top-color: #f59e0b;">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                        <span style="font-size: 1.8rem;">🛠️</span>
+                        <div>
+                            <h4 style="font-size: 1.15rem; color: #92400e;">4. ผู้ดูแลระบบ (System Administrator)</h4>
+                            <span class="usecase-tag" style="background: #fef3c7; color: #92400e;">RBAC Security</span><span class="usecase-tag" style="background: #fef3c7; color: #92400e;">Audit Logs</span>
+                        </div>
+                    </div>
+                    <ul style="list-style: none; padding-left: 0;" class="card-body">
+                        <li class="check" style="margin-bottom: 8px;"><strong>UC-14: จัดการทำเนียบบุคลากร:</strong> เพิ่ม/แก้ไข/ลบ ข้อมูล และนำเข้า Excel ทะเบียน</li>
+                        <li class="check" style="margin-bottom: 8px;"><strong>UC-15: กำหนดสิทธิ์ใช้งาน (RBAC):</strong> กำหนดบทบาทสิทธิ์ Admin, Pastor, Deacon, User</li>
+                        <li class="check" style="margin-bottom: 8px;"><strong>UC-16: ตรวจสอบ Audit Log:</strong> เรียกดูบันทึกประวัติการใช้งานและลายเซ็นดิจิทัล</li>
+                        <li class="check" style="margin-bottom: 8px;"><strong>UC-17: ตั้งค่าระบบ & Cron Jobs:</strong> ตั้งค่า LINE Webhook และรอบตรวจเช็ก SLA</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Sequence / User Journey Flow Chart -->
+            <div style="background: #f8fafc; border-radius: 16px; padding: 22px; border: 1px solid #e2e8f0;">
+                <h4 style="color: #1e3a8a; font-size: 1.1rem; margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
+                    <span>🔄</span> ตัวอย่างขั้นตอนการทำงานจริง (Core User Journey Workflows)
+                </h4>
+                <div class="process-flow" style="margin-top: 0; margin-bottom: 0;">
+                    <div class="process-step" style="background: #ffffff;">
+                        <div class="step-num" style="background: #3b82f6;">1</div>
+                        <h4 style="color: #1d4ed8; font-size: 1rem;">ยืมอุปกรณ์ด้วย QR</h4>
+                        <p style="font-size: 0.85rem; color: #475569;">ผู้ยืมสแกน QR อุปกรณ์ ➔ ระบบดึงข้อมูล ➔ เซ็นชื่อบนหน้าจอ ➔ บันทึก Base64 ลง DB</p>
+                    </div>
+                    <div class="process-step" style="background: #ffffff;">
+                        <div class="step-num" style="background: #8b5cf6;">2</div>
+                        <h4 style="color: #6d28d9; font-size: 1rem;">แจ้งสลับวันรับใช้</h4>
+                        <p style="font-size: 0.85rem; color: #475569;">มัคนายกแจ้งติดงาน ➔ เลือกรายชื่อผู้แทน ➔ ศิษยาภิบาลกดอนุมัติ ➔ อัปเดตตารางเข้า LINE</p>
+                    </div>
+                    <div class="process-step" style="background: #ffffff;">
+                        <div class="step-num" style="background: #10b981;">3</div>
+                        <h4 style="color: #047857; font-size: 1rem;">แจ้งซ่อม & นับ SLA</h4>
+                        <p style="font-size: 0.85rem; color: #475569;">เปิด Ticket แจ้งซ่อม ➔ ระบบคำนวณ SLA Deadline ➔ ช่างกดรับงาน ➔ ซ่อมเสร็จอัปโหลดรูป</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Section 7: Technical Decisions Rationale (DECISION.md) -->
         <div class="section-title">
             <span>🛠️</span> 7. สรุปเหตุผลการตัดสินใจเลือกเทคโนโลยี (DECISION.md)
@@ -1014,200 +1526,6 @@
                 <h4>Phase 2: เชื่อม LINE Bot</h4>
                 <p>พัฒนา LINE Webhook และ Push Notification แจ้งเตือน Reminder ล่วงหน้า 2 อาทิตย์ / 1 อาทิตย์ / 1 วัน
                 </p>
-            </div>
-            <div class="process-step">
-                <div class="step-num">3</div>
-                <h4>Phase 3: Pilot Test</h4>
-                <p>เปิดทดสอบใช้งานจริงร่วมกับคณะอนุกรรมการ ศิษยาภิบาล และเจ้าหน้าที่หน้างาน</p>
-            </div>
-            <div class="process-step">
-                <div class="step-num">4</div>
-                <h4>Phase 4: Training & Go-Live</h4>
-                <p>จัดอบรมการใช้งานสั้นๆ แบบจับมือทำ และเปิดใช้งานเต็มรูปแบบทั่วทั้งคริสตจักร</p>
-            </div>
-        </div>
-
-        <!-- Section 11: Executive Q&A -->
-        <div class="section-title">
-            <span>❓</span> 11. คู่มือตอบคำถามคณะอนุกรรมการ (Executive Q&A Cheat Sheet)
-        </div>GitHub Repository:</strong> โครงสร้างโค้ดโปรเจกต์มาตรฐานสากล</li>
-                        <li class="check"><strong>Working Vercel Environment:</strong> ระบบ Demo ที่เปิดใช้งานได้บน
-                            Cloud</li>
-                        <li class="check"><strong>Architecture Docs:</strong> เอกสาร ARCHITECTURE.md, DECISION.md,
-                            PoC_Scope.md</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Section 8: Honest System Status -->
-        <div class="section-title">
-            <span>🔍</span> 8. รายงานความคืบหน้าระบบตามความเป็นจริง (Honest System Status)
-        </div>
-
-        <!-- Sub-section 8.1: Logic Bound & DB Complete -->
-        <h3 style="color: #10b981; margin: 20px 0 15px 0; font-size: 1.3rem;">🟢 หมวดที่ 1: เสร็จสมบูรณ์ และผูก Backend
-            / Database / Logic จริงแล้ว (100% Implemented)</h3>
-
-        <div class="grid-2">
-            <div class="card card-logic-done">
-                <span class="status-pill status-done">✓ ผูก DB & Logic จริงแล้ว</span>
-                <div class="card-header">
-                    <div class="card-icon icon-green">📦</div>
-                    <h3>คลังอุปกรณ์ & สแกน QR Code (Equipment API)</h3>
-                </div>
-                <div class="card-body">
-                    <ul>
-                        <li class="check">สร้าง Database Schema รองรับหมวดหมู่และซีเรียลนัมเบอร์เรียบร้อย</li>
-                        <li class="check">สแกน QR Code ประจำอุปกรณ์ ดึงข้อมูลจริงจาก Supabase PostgreSQL</li>
-                        <li class="check">ตรวจสอบสถานะอุปกรณ์ (พร้อมใช้ / กำลังซ่อม / ถูกยืม) ได้ real-time</li>
-                    </ul>
-                    <div class="metaphor-box">
-                        <strong>สถานะจริง:</strong> เขียนโค้ด API และผูก Logic บันทึกข้อมูลลง Database เรียบร้อยแล้ว
-                    </div>
-                </div>
-            </div>
-
-            <div class="card card-logic-done">
-                <span class="status-pill status-done">✓ ผูก DB & Logic จริงแล้ว</span>
-                <div class="card-header">
-                    <div class="card-icon icon-green">✍️</div>
-                    <h3>ยืม-คืน อุปกรณ์พร้อมลายเซ็นดิจิทัล (Digital Handover API)</h3>
-                </div>
-                <div class="card-body">
-                    <ul>
-                        <li class="check">บันทึกภาพถ่ายและ **ลายเซ็นดิจิทัลจริง (Base64 Signature)** ลง Database</li>
-                        <li class="check">บันทึกชื่อผู้รับมอบ ผู้คืน วันเวลาจริง ป้องกันการปฏิเสธความรับผิดชอบ</li>
-                        <li class="check">มีสถานะติดตามการรับมอบ (pending_handover -> active -> returned)</li>
-                    </ul>
-                    <div class="metaphor-box">
-                        <strong>สถานะจริง:</strong> ระบบลายเซ็นและ API บันทึกการยืม-คืนผูก Logic ทำงานได้จริง
-                    </div>
-                </div>
-            </div>
-
-            <div class="card card-logic-done">
-                <span class="status-pill status-done">✓ ผูก DB & Logic จริงแล้ว</span>
-                <div class="card-header">
-                    <div class="card-icon icon-green">🔧</div>
-                    <h3>แจ้งซ่อม & ติดตามช่างซ่อม (Repair Ticket SLA API)</h3>
-                </div>
-                <div class="card-body">
-                    <ul>
-                        <li class="check">สร้างใบแจ้งซ่อมอุปกรณ์ชำรุด พร้อมคำนวณวันหมดเขตซ่อม (SLA Deadline) อัตโนมัติ
-                        </li>
-                        <li class="check">บันทึกเวลาช่างรับงาน (Responded At) และเวลาซ่อมเสร็จ (Resolved At)</li>
-                        <li class="check">แนบรูปถ่ายหลักฐานก่อน-หลังซ่อมเสร็จจริง</li>
-                    </ul>
-                    <div class="metaphor-box">
-                        <strong>สถานะจริง:</strong> มี API และ Logic คำนวณ SLA ทำงานเชื่อมกับ Database แล้ว
-                    </div>
-                </div>
-            </div>
-
-            <div class="card card-logic-done">
-                <span class="status-pill status-done">✓ ผูก DB & Logic จริงแล้ว</span>
-                <div class="card-header">
-                    <div class="card-icon icon-green">🗄️</div>
-                    <h3>โครงสร้างฐานข้อมูลทะเบียน (Prisma Database Schema)</h3>
-                </div>
-                <div class="card-body">
-                    <ul>
-                        <li class="check">ออกแบบ Schema รองรับข้อมูลบุคลากร อุปกรณ์ คำขอลา และใบแจ้งซ่อม</li>
-                        <li class="check">รองรับการเชื่อมโยงกับฐานข้อมูลทะเบียนคริสตจักรเดิม (Backward Compatible)</li>
-                    </ul>
-                    <div class="metaphor-box">
-                        <strong>สถานะจริง:</strong> โครงสร้างตู้เซฟเก็บข้อมูลถูกสร้างขึ้นและทำงานบน Cloud Supabase แล้ว
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Sub-section 6.2: UI Prototype & Pending Logic -->
-        <h3 style="color: #f59e0b; margin: 30px 0 15px 0; font-size: 1.3rem;">🟡 หมวดที่ 2: หน้า UI Prototype เสร็จแล้ว
-            แต่กำลังอยู่ในช่วงเขียน Logic ผูกหลังบ้าน (Pending Backend Logic)</h3>
-
-        <div class="grid-2">
-            <div class="card card-logic-pending">
-                <span class="status-pill status-pending">⏳ อยู่ระหว่างผูก Logic หลังบ้าน</span>
-                <div class="card-header">
-                    <div class="card-icon icon-amber">📅</div>
-                    <h3>ตารางปรนนิบัติ (Serving Roster & Scheduler Logic)</h3>
-                </div>
-                <div class="card-body">
-                    <ul>
-                        <li class="pending"><strong>สถานะปัจจุบัน:</strong> หน้าจอ UI ออกแบบครบถ้วนสวยงามแล้ว แต่
-                            **ยังใช้ Mock Data ในการแสดงผล**</li>
-                        <li class="pending"><strong>สิ่งที่กำลังทำ:</strong> ทีม Dev กำลังนำ Scheduler Business Logic
-                            (ข้อกำหนด มน. x ศบ.) มาเขียนผูกสายไฟเข้ากับฐานข้อมูลจริง</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="card card-logic-pending">
-                <span class="status-pill status-pending">⏳ อยู่ระหว่างผูก Webhook Bot</span>
-                <div class="card-header">
-                    <div class="card-icon icon-amber">💬</div>
-                    <h3>การเชื่อมต่อ LINE App (LIFF & LINE Bot Notifications)</h3>
-                </div>
-                <div class="card-body">
-                    <ul>
-                        <li class="pending"><strong>สถานะปัจจุบัน:</strong> วางโครงสร้างสถาปัตยกรรม (Architecture & PoC
-                            Scope) เรียบร้อยแล้ว</li>
-                        <li class="pending"><strong>สิ่งที่กำลังทำ:</strong> กำลังพัฒนา LINE Webhook
-                            เพื่อส่งข้อความแจ้งเตือน Reminder ตามลำดับเวลาเข้า LINE</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="card card-logic-pending">
-                <span class="status-pill status-pending">⏳ อยู่ระหว่างพัฒนาระบบสิทธิ์</span>
-                <div class="card-header">
-                    <div class="card-icon icon-amber">🔐</div>
-                    <h3>ระบบจัดการสิทธิ์ผู้ใช้งาน (Full RBAC Authentication)</h3>
-                </div>
-                <div class="card-body">
-                    <ul>
-                        <li class="pending"><strong>สถานะปัจจุบัน:</strong> ออกแบบสิทธิ์ Admin / ศิษยาภิบาล / ผู้รับใช้
-                            ใน Schema ไว้แล้ว</li>
-                        <li class="pending"><strong>สิ่งที่กำลังทำ:</strong>
-                            กำลังพัฒนาระบบยืนยันตัวตนเพื่อล็อกสิทธิ์การเข้าถึงหน้าจอและข้อมูลทะเบียน</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="card card-logic-pending">
-                <span class="status-pill status-pending">⏳ อยู่ระหว่างเชื่อมโยงปฏิทิน</span>
-                <div class="card-header">
-                    <div class="card-icon icon-amber">📆</div>
-                    <h3>ระบบปฏิทินกิจกรรม & การลา (Events & Leave Management)</h3>
-                </div>
-                <div class="card-body">
-                    <ul>
-                        <li class="pending"><strong>สถานะปัจจุบัน:</strong> หน้า UI
-                            แสดงปฏิทินกิจกรรมและการลาออกแบบเสร็จแล้ว</li>
-                        <li class="pending"><strong>สิ่งที่กำลังทำ:</strong> กำลังย้ายจากการใช้ Mock Data
-                            มาเป็นการดึงข้อมูลคำขอลาจริงจาก Database</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-                <!-- Section 10: Development Process & Roadmap -->
-        <div class="section-title">
-            <span>🚀</span> 10. ขั้นตอนการทำงาน และแผนการดำเนินงานถัดไป (Roadmap)
-        </div>
-
-        <div class="process-flow">
-            <div class="process-step">
-                <div class="step-num">1</div>
-                <h4>Phase 1: ผูก Logic ที่เหลือ</h4>
-                <p>เร่งเขียน Scheduler Business Logic ผูกหน้า UI ตารางปรนนิบัติ มน. x ศบ. เข้ากับ Database จริง</p>
-            </div>
-            <div class="process-step">
-                <div class="step-num">2</div>
-                <h4>Phase 2: เชื่อม LINE Bot</h4>
-                <p>พัฒนา LINE Webhook และ Push Notification แจ้งเตือน Reminder ล่วงหน้า 2 อาทิตย์ / 1 อาทิตย์ / 1 วัน</p>
             </div>
             <div class="process-step">
                 <div class="step-num">3</div>

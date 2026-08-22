@@ -59,6 +59,8 @@ export default function EquipmentPage() {
   const [availability, setAvailability] = useState<{ available: boolean; reason?: string } | null>(null);
   const [loading, setLoading] = useState(true);
   const [formLoading, setFormLoading] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedType, setSelectedType] = useState<string>("All");
   const [isImporting, setIsImporting] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -266,9 +268,119 @@ export default function EquipmentPage() {
       <main style={{ padding: "0 20px" }}>
         {/* ─── TAB: CATALOG ─── */}
         {tab === "catalog" && (
-          <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-              <p style={{ fontSize: 13, fontWeight: 700, color: "var(--text-secondary)" }}>รายการอุปกรณ์ทั้งหมด ({equipmentList.length})</p>
+          <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+            {/* Search Input Bar */}
+            <div style={{ position: "relative" }}>
+              <input
+                type="text"
+                placeholder="🔍 ค้นหาตามชื่ออุปกรณ์, รหัสทรัพย์สิน หรือตำแหน่งจัดเก็บ..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                style={{
+                  width: "100%",
+                  padding: "12px 16px 12px 42px",
+                  borderRadius: "var(--radius-md)",
+                  border: "1.5px solid var(--border)",
+                  fontSize: 13.5,
+                  outline: "none",
+                  background: "var(--surface)",
+                  boxShadow: "var(--shadow-sm)",
+                }}
+              />
+              <span
+                style={{
+                  position: "absolute",
+                  left: 14,
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  fontSize: 16,
+                  color: "var(--text-tertiary)",
+                  pointerEvents: "none",
+                }}
+              >
+                🔍
+              </span>
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery("")}
+                  style={{
+                    position: "absolute",
+                    right: 12,
+                    top: "50%",
+                    transform: "translateY(-50%)",
+                    background: "none",
+                    border: "none",
+                    color: "var(--text-tertiary)",
+                    fontSize: 14,
+                    cursor: "pointer",
+                  }}
+                >
+                  ✕
+                </button>
+              )}
+            </div>
+
+            {/* Category Filter Chips */}
+            <div
+              style={{
+                display: "flex",
+                gap: 6,
+                overflowX: "auto",
+                paddingBottom: 4,
+                scrollbarWidth: "none",
+              }}
+            >
+              {[
+                { id: "All", label: "ทั้งหมด", icon: "📦" },
+                { id: "Camera", label: "กล้อง", icon: "📷" },
+                { id: "Projector", label: "โปรเจกเตอร์/จอ", icon: "📽️" },
+                { id: "Microphone", label: "ไมโครโฟน", icon: "🎤" },
+                { id: "SoundSystem", label: "ระบบเสียง", icon: "🔊" },
+                { id: "Other", label: "อื่นๆ", icon: "⚙️" },
+              ].map((cat) => {
+                const isActive = selectedType === cat.id;
+                return (
+                  <button
+                    key={cat.id}
+                    onClick={() => setSelectedType(cat.id)}
+                    style={{
+                      padding: "6px 14px",
+                      borderRadius: 20,
+                      border: isActive ? "1.5px solid var(--mtc-red)" : "1px solid var(--border)",
+                      background: isActive ? "var(--mtc-red-bg)" : "var(--surface)",
+                      color: isActive ? "var(--mtc-red)" : "var(--text-secondary)",
+                      fontSize: 12,
+                      fontWeight: isActive ? 700 : 500,
+                      cursor: "pointer",
+                      whiteSpace: "nowrap",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 4,
+                      transition: "all 0.15s ease",
+                    }}
+                  >
+                    <span>{cat.icon}</span>
+                    <span>{cat.label}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Header & Excel Action */}
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 4 }}>
+              <p style={{ fontSize: 13, fontWeight: 700, color: "var(--text-secondary)" }}>
+                อุปกรณ์ที่พบ ({
+                  equipmentList.filter((eq) => {
+                    const matchSearch =
+                      searchQuery === "" ||
+                      eq.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                      (eq.location && eq.location.toLowerCase().includes(searchQuery.toLowerCase())) ||
+                      eq.qrCode.toLowerCase().includes(searchQuery.toLowerCase());
+                    const matchType = selectedType === "All" || eq.type === selectedType;
+                    return matchSearch && matchType;
+                  }).length
+                } รายการ)
+              </p>
               <button
                 onClick={() => fileInputRef.current?.click()}
                 disabled={isImporting}
@@ -283,7 +395,8 @@ export default function EquipmentPage() {
                   color: "var(--text-primary)",
                   display: "flex",
                   alignItems: "center",
-                  gap: 4
+                  gap: 4,
+                  boxShadow: "var(--shadow-sm)",
                 }}
               >
                 {isImporting ? "กำลังนำเข้า..." : "📥 นำเข้า Excel"}
@@ -297,81 +410,159 @@ export default function EquipmentPage() {
               />
             </div>
 
-            {equipmentList.length === 0 && (
-              <div className="mtc-card" style={{ textAlign: "center", padding: 40, color: "var(--text-tertiary)" }}>
+            {/* Equipment Items List */}
+            {equipmentList.filter((eq) => {
+              const matchSearch =
+                searchQuery === "" ||
+                eq.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                (eq.location && eq.location.toLowerCase().includes(searchQuery.toLowerCase())) ||
+                eq.qrCode.toLowerCase().includes(searchQuery.toLowerCase());
+              const matchType = selectedType === "All" || eq.type === selectedType;
+              return matchSearch && matchType;
+            }).length === 0 && (
+              <div className="mtc-card" style={{ textAlign: "center", padding: "40px 20px", color: "var(--text-tertiary)" }}>
                 <div style={{ fontSize: 40, marginBottom: 12 }}>📦</div>
-                <p>ยังไม่มีอุปกรณ์ในระบบ</p>
+                <p style={{ fontSize: 14, fontWeight: 600, color: "var(--text-secondary)" }}>ไม่พบรายการอุปกรณ์ตามเงื่อนไขที่ค้นหา</p>
+                <p style={{ fontSize: 12, color: "var(--text-tertiary)", marginTop: 4 }}>ลองเปลี่ยนคำค้นหา หรือเลือกหมวดหมู่อื่นๆ</p>
               </div>
             )}
-            {equipmentList.map((eq) => (
-              <div
-                key={eq.id}
-                className="mtc-card"
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 16,
-                  cursor: "pointer",
-                  border: selectedEquipment?.id === eq.id ? "2px solid var(--mtc-red)" : "2px solid transparent",
-                  transition: "border 0.2s",
-                }}
-                onClick={() => setSelectedEquipment(eq)}
-              >
-                <div
-                  style={{
-                    width: 52,
-                    height: 52,
-                    borderRadius: 14,
-                    background: "var(--mtc-red-bg)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: 26,
-                    flexShrink: 0,
-                  }}
-                >
-                  {TYPE_ICONS[eq.type] ?? "📦"}
-                </div>
-                <div style={{ flex: 1, minWidth: 0 }}>
-                  <div style={{ fontWeight: 700, fontSize: 15, color: "var(--text-primary)" }}>{eq.name}</div>
-                  <div style={{ fontSize: 12, color: "var(--text-tertiary)" }}>
-                    {eq.location ?? "ไม่ระบุตำแหน่ง"} · รหัส {eq.qrCode}
+
+            {equipmentList
+              .filter((eq) => {
+                const matchSearch =
+                  searchQuery === "" ||
+                  eq.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                  (eq.location && eq.location.toLowerCase().includes(searchQuery.toLowerCase())) ||
+                  eq.qrCode.toLowerCase().includes(searchQuery.toLowerCase());
+                const matchType = selectedType === "All" || eq.type === selectedType;
+                return matchSearch && matchType;
+              })
+              .map((eq) => {
+                const isSelected = selectedEquipment?.id === eq.id;
+                const isAvailable = eq.status === "available";
+                const isBorrowed = eq.status === "borrowed";
+                const isMaintenance = eq.status === "maintenance";
+
+                let statusBg = "#E8F5E9";
+                let statusColor = "#2E7D32";
+                let statusText = "🟢 พร้อมใช้งาน";
+
+                if (isBorrowed) {
+                  statusBg = "#E3F2FD";
+                  statusColor = "#1565C0";
+                  statusText = "🔵 กำลังยืม";
+                } else if (isMaintenance) {
+                  statusBg = "#FFF3E0";
+                  statusColor = "#E65100";
+                  statusText = "🟡 แจ้งซ่อม";
+                }
+
+                return (
+                  <div
+                    key={eq.id}
+                    className="mtc-card"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 14,
+                      padding: 16,
+                      cursor: "pointer",
+                      border: isSelected ? "2px solid var(--mtc-red)" : "1px solid var(--border-light)",
+                      background: isSelected ? "var(--mtc-red-bg)" : "var(--surface)",
+                      boxShadow: isSelected ? "var(--shadow-md)" : "var(--shadow-sm)",
+                      borderRadius: "var(--radius-lg)",
+                      transition: "all 0.2s ease",
+                    }}
+                    onClick={() => setSelectedEquipment(isSelected ? null : eq)}
+                  >
+                    <div
+                      style={{
+                        width: 50,
+                        height: 50,
+                        borderRadius: 14,
+                        background: isSelected ? "var(--mtc-red)" : "var(--surface-secondary)",
+                        color: isSelected ? "white" : "inherit",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontSize: 24,
+                        flexShrink: 0,
+                      }}
+                    >
+                      {TYPE_ICONS[eq.type] ?? "📦"}
+                    </div>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{ fontWeight: 700, fontSize: 14.5, color: "var(--text-primary)", marginBottom: 4, lineHeight: 1.3 }}>
+                        {eq.name}
+                      </div>
+                      <div style={{ display: "flex", flexWrap: "wrap", gap: 6, alignItems: "center", fontSize: 11.5, color: "var(--text-secondary)" }}>
+                        <span style={{ background: "#F1F5F9", padding: "2px 8px", borderRadius: 4, color: "#475569", fontWeight: 600 }}>
+                          🏷️ {eq.qrCode}
+                        </span>
+                        <span>📍 {eq.location ?? "อาคาร 3 ชั้น 2"}</span>
+                      </div>
+                    </div>
+                    <span
+                      style={{
+                        padding: "5px 10px",
+                        borderRadius: 20,
+                        fontSize: 11,
+                        fontWeight: 700,
+                        background: statusBg,
+                        color: statusColor,
+                        flexShrink: 0,
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      {statusText}
+                    </span>
                   </div>
-                </div>
-                <span
-                  style={{
-                    padding: "4px 12px",
-                    borderRadius: 8,
-                    fontSize: 11,
-                    fontWeight: 700,
-                    background: eq.status === "available" ? "#E8F5E9" : "#FFEBEE",
-                    color: eq.status === "available" ? "#2E7D32" : "#C62828",
-                    flexShrink: 0,
-                  }}
-                >
-                  {eq.status === "available" ? "ว่าง" : "ไม่ว่าง"}
-                </span>
-              </div>
-            ))}
+                );
+              })}
 
             {selectedEquipment && (
-              <button
-                onClick={() => setShowBookingForm(true)}
+              <div
                 style={{
-                  padding: "15px",
-                  background: "var(--mtc-red)",
-                  color: "white",
-                  border: "none",
-                  borderRadius: 14,
-                  fontSize: 16,
-                  fontWeight: 700,
-                  cursor: "pointer",
-                  boxShadow: "var(--shadow-red-sm)",
-                  marginTop: 4,
+                  position: "sticky",
+                  bottom: 80,
+                  zIndex: 30,
+                  background: "rgba(255, 255, 255, 0.95)",
+                  backdropFilter: "blur(12px)",
+                  padding: 14,
+                  borderRadius: "var(--radius-xl)",
+                  boxShadow: "var(--shadow-xl)",
+                  border: "1px solid var(--border)",
+                  marginTop: 8,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  gap: 12,
                 }}
               >
-                🗓️ จองอุปกรณ์ที่เลือก: {selectedEquipment.name}
-              </button>
+                <div style={{ minWidth: 0, flex: 1 }}>
+                  <p style={{ fontSize: 11, color: "var(--text-tertiary)", fontWeight: 600 }}>เลือกอุปกรณ์แล้ว</p>
+                  <p style={{ fontSize: 13.5, fontWeight: 800, color: "var(--text-primary)", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>
+                    {selectedEquipment.name}
+                  </p>
+                </div>
+                <button
+                  onClick={() => setShowBookingForm(true)}
+                  style={{
+                    padding: "12px 20px",
+                    background: "linear-gradient(135deg, var(--mtc-red), var(--mtc-red-dark))",
+                    color: "white",
+                    border: "none",
+                    borderRadius: "var(--radius-full)",
+                    fontSize: 14,
+                    fontWeight: 700,
+                    cursor: "pointer",
+                    boxShadow: "var(--shadow-red)",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  🗓️ ทำรายการยืม
+                </button>
+              </div>
             )}
           </div>
         )}

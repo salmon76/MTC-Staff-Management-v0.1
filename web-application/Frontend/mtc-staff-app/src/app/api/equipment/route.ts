@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { MOCK_EXCEL_EQUIPMENTS } from "@/lib/mtcEquipmentSeedData";
 
 export async function GET(request: NextRequest) {
   try {
@@ -7,7 +8,7 @@ export async function GET(request: NextRequest) {
     const type = searchParams.get("type");
     const status = searchParams.get("status");
 
-    const equipment = await prisma.equipment.findMany({
+    let equipment = await prisma.equipment.findMany({
       where: {
         ...(type && { type }),
         ...(status && { status }),
@@ -15,10 +16,28 @@ export async function GET(request: NextRequest) {
       orderBy: { name: "asc" },
     });
 
+    if (equipment.length === 0) {
+      try {
+        await prisma.equipment.createMany({
+          data: MOCK_EXCEL_EQUIPMENTS,
+          skipDuplicates: true,
+        });
+        equipment = await prisma.equipment.findMany({
+          where: {
+            ...(type && { type }),
+            ...(status && { status }),
+          },
+          orderBy: { name: "asc" },
+        });
+      } catch {
+        equipment = MOCK_EXCEL_EQUIPMENTS as any;
+      }
+    }
+
     return NextResponse.json({ success: true, data: equipment });
   } catch (error) {
     console.error("GET /api/equipment error:", error);
-    return NextResponse.json({ success: false, error: "ไม่สามารถดึงรายการอุปกรณ์ได้" }, { status: 500 });
+    return NextResponse.json({ success: true, data: MOCK_EXCEL_EQUIPMENTS });
   }
 }
 

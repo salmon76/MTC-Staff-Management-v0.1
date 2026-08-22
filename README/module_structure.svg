@@ -1,0 +1,293 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" style="background-color: #0b1329; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1329"/>
+      <stop offset="50%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+
+    <!-- Header Gradient -->
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e3a8a"/>
+      <stop offset="50%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#6d28d9"/>
+    </linearGradient>
+
+    <!-- Layer 1 Card Gradient (Blue Theme) -->
+    <linearGradient id="layer1Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+
+    <!-- Layer 2 Card Gradient (Purple/Indigo Theme) -->
+    <linearGradient id="layer2Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+
+    <!-- Layer 3 Card Gradient (Emerald/Teal Theme) -->
+    <linearGradient id="layer3Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#064e3b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+
+    <!-- Glow Effects -->
+    <filter id="glowBlue" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="glowPurple" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="glowGreen" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="1920" height="1080" fill="url(#bgGradient)"/>
+  
+  <!-- Subtle Grid Pattern Background Overlay -->
+  <g opacity="0.05" stroke="#ffffff" stroke-width="1">
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40"/>
+    </pattern>
+    <rect width="1920" height="1080" fill="url(#grid)"/>
+  </g>
+
+  <!-- ==================== HEADER BANNER ==================== -->
+  <rect x="40" y="30" width="1840" height="110" rx="16" fill="url(#headerGrad)" opacity="0.95" />
+  <rect x="40" y="30" width="1840" height="110" rx="16" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+  
+  <!-- Logo Icon Badge -->
+  <rect x="65" y="50" width="70" height="70" rx="14" fill="#ffffff" opacity="0.15"/>
+  <text x="100" y="98" font-size="40" text-anchor="middle" fill="#ffffff">🏛️</text>
+
+  <!-- Title & Subtitle -->
+  <text x="155" y="75" font-size="30" font-weight="800" fill="#ffffff" letter-spacing="0.5">MTC STAFF MANAGEMENT v1 — SYSTEM &amp; MODULE ARCHITECTURE</text>
+  <text x="155" y="110" font-size="17" font-weight="500" fill="#bae6fd">โครงสร้างระบบและโมดูลการทำงานภาพรวม: LINE Gateway ➔ Core Business Logic Engine ➔ Supabase Cloud Vault</text>
+
+  <!-- Header Tech Badges -->
+  <g transform="translate(1320, 60)">
+    <!-- Badge 1 -->
+    <rect x="0" y="0" width="120" height="32" rx="8" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)"/>
+    <text x="60" y="21" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">Next.js 15</text>
+    <!-- Badge 2 -->
+    <rect x="130" y="0" width="120" height="32" rx="8" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)"/>
+    <text x="190" y="21" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">Prisma ORM</text>
+    <!-- Badge 3 -->
+    <rect x="260" y="0" width="140" height="32" rx="8" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)"/>
+    <text x="330" y="21" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">Supabase DB</text>
+    <!-- Badge 4 -->
+    <rect x="410" y="0" width="120" height="32" rx="8" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)"/>
+    <text x="470" y="21" font-size="13" font-weight="700" fill="#ffffff" text-anchor="middle">LINE LIFF</text>
+  </g>
+
+
+  <!-- ==================== LAYER 1: FRONTEND & USER GATEWAYS ==================== -->
+  <g transform="translate(40, 165)">
+    <!-- Layer 1 Column Box -->
+    <rect x="0" y="0" width="580" height="780" rx="20" fill="url(#layer1Grad)" stroke="#38bdf8" stroke-width="2.5" opacity="0.95"/>
+    
+    <!-- Column Header -->
+    <rect x="0" y="0" width="580" height="65" rx="20" fill="#0284c7" opacity="0.9"/>
+    <path d="M 0 45 L 0 65 L 580 65 L 580 45 Z" fill="#0284c7"/>
+    <text x="30" y="42" font-size="20" font-weight="800" fill="#ffffff">📱 LAYER 1: FRONTEND &amp; USER GATEWAYS</text>
+    <text x="550" y="42" font-size="14" font-weight="600" fill="#e0f2fe" text-anchor="end">ฝั่งผู้ใช้งาน</text>
+
+    <!-- Sub-Box 1.1: LINE LIFF Gateway -->
+    <g transform="translate(20, 85)">
+      <rect x="0" y="0" width="540" height="205" rx="14" fill="#1e293b" stroke="#0284c7" stroke-width="1.5"/>
+      <rect x="15" y="15" width="36" height="36" rx="8" fill="#06c755"/>
+      <text x="33" y="40" font-size="20" font-weight="bold" fill="#ffffff" text-anchor="middle">LINE</text>
+      <text x="62" y="38" font-size="17" font-weight="700" fill="#38bdf8">1.1 LINE Official Account &amp; LIFF Gateway</text>
+
+      <rect x="20" y="60" width="500" height="1" fill="rgba(255,255,255,0.1)"/>
+
+      <text x="25" y="88" font-size="14" fill="#cbd5e1">• <tspan font-weight="700" fill="#ffffff">LINE Rich Menu Buttons:</tspan> My Schedule, Staff, Equipment, Car</text>
+      <text x="25" y="118" font-size="14" fill="#cbd5e1">• <tspan font-weight="700" fill="#ffffff">Single Sign-On (SSO):</tspan> ดึง LINE User Profile อัตโนมัติ</text>
+      <text x="25" y="148" font-size="14" fill="#cbd5e1">• <tspan font-weight="700" fill="#ffffff">LINE Webhook Listener:</tspan> รับ Event ข้อความและการตอบกลับ</text>
+      <text x="25" y="178" font-size="14" fill="#cbd5e1">• <tspan font-weight="700" fill="#ffffff">Push Notification Gateway:</tspan> ส่งเตือนตารางรับใช้และอนุมัติลา</text>
+    </g>
+
+    <!-- Sub-Box 1.2: Mobile Staff Web App -->
+    <g transform="translate(20, 310)">
+      <rect x="0" y="0" width="540" height="225" rx="14" fill="#1e293b" stroke="#0284c7" stroke-width="1.5"/>
+      <text x="20" y="38" font-size="17" font-weight="700" fill="#38bdf8">📱 1.2 Mobile Staff Web App (React / Next.js)</text>
+      <rect x="20" y="55" width="500" height="1" fill="rgba(255,255,255,0.1)"/>
+
+      <text x="25" y="85" font-size="14" fill="#cbd5e1">• <tspan font-weight="700" fill="#ffffff">Personal Roster View:</tspan> ดูตารางรับใช้ส่วนตัว ตอบรับ/ขอเปลี่ยนงาน</text>
+      <text x="25" y="115" font-size="14" fill="#cbd5e1">• <tspan font-weight="700" fill="#ffffff">Staff Directory &amp; Contacts:</tspan> สมุดโทรศัพท์ทำเนียบผู้รับใช้</text>
+      <text x="25" y="145" font-size="14" fill="#cbd5e1">• <tspan font-weight="700" fill="#ffffff">Equipment QR Scanner:</tspan> สแกน ยืม-คืน และเซ็นลายเซ็นดิจิทัล</text>
+      <text x="25" y="175" font-size="14" fill="#cbd5e1">• <tspan font-weight="700" fill="#ffffff">Repair Ticket Portal:</tspan> แจ้งซ่อมอุปกรณ์และติดตามสถานะช่าง</text>
+      <text x="25" y="205" font-size="14" fill="#cbd5e1">• <tspan font-weight="700" fill="#ffffff">Leave Request &amp; Calendar:</tspan> ยื่นใบลาและดูปฏิทินกิจกรรมพันธกิจ</text>
+    </g>
+
+    <!-- Sub-Box 1.3: Executive Backoffice CRM Admin Portal -->
+    <g transform="translate(20, 555)">
+      <rect x="0" y="0" width="540" height="205" rx="14" fill="#1e293b" stroke="#0284c7" stroke-width="1.5"/>
+      <text x="20" y="38" font-size="17" font-weight="700" fill="#38bdf8">🖥️ 1.3 Executive Backoffice CRM Admin Portal</text>
+      <rect x="20" y="55" width="500" height="1" fill="rgba(255,255,255,0.1)"/>
+
+      <text x="25" y="85" font-size="14" fill="#cbd5e1">• <tspan font-weight="700" fill="#ffffff">Analytics Dashboard:</tspan> สรุปจำนวนบุคลากร 342 คน &amp; อัตราการรับใช้</text>
+      <text x="25" y="115" font-size="14" fill="#cbd5e1">• <tspan font-weight="700" fill="#ffffff">Roster Master Scheduler:</tspan> หน้าจอจัดตารางลากวาง (Drag &amp; Drop)</text>
+      <text x="25" y="145" font-size="14" fill="#cbd5e1">• <tspan font-weight="700" fill="#ffffff">Equipment &amp; QR Manager:</tspan> ตรวจคลังอุปกรณ์ พิมพ์ QR Code</text>
+      <text x="25" y="175" font-size="14" fill="#cbd5e1">• <tspan font-weight="700" fill="#ffffff">Member Registry &amp; Excel:</tspan> บริหารข้อมูลทะเบียน &amp; Bulk Import</text>
+    </g>
+  </g>
+
+
+  <!-- Connector Arrow 1 -> 2 -->
+  <g transform="translate(625, 520)">
+    <path d="M 0 0 L 25 0 M 15 -8 L 25 0 L 15 8" stroke="#38bdf8" stroke-width="3" fill="none" filter="url(#glowBlue)"/>
+    <rect x="-10" y="-35" width="45" height="24" rx="6" fill="#0284c7"/>
+    <text x="12.5" y="-19" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">REST</text>
+  </g>
+
+
+  <!-- ==================== LAYER 2: CORE BUSINESS LOGIC & API ENGINE ==================== -->
+  <g transform="translate(670, 165)">
+    <!-- Layer 2 Column Box -->
+    <rect x="0" y="0" width="580" height="780" rx="20" fill="url(#layer2Grad)" stroke="#c084fc" stroke-width="2.5" opacity="0.95"/>
+    
+    <!-- Column Header -->
+    <rect x="0" y="0" width="580" height="65" rx="20" fill="#7e22ce" opacity="0.9"/>
+    <path d="M 0 45 L 0 65 L 580 65 L 580 45 Z" fill="#7e22ce"/>
+    <text x="30" y="42" font-size="20" font-weight="800" fill="#ffffff">⚙️ LAYER 2: CORE BUSINESS LOGICS &amp; API</text>
+    <text x="550" y="42" font-size="14" font-weight="600" fill="#f3e8ff" text-anchor="end">โมดูลประมวลผล</text>
+
+    <!-- Module A: Serving Roster Engine -->
+    <g transform="translate(20, 85)">
+      <rect x="0" y="0" width="540" height="165" rx="14" fill="#2e1065" stroke="#c084fc" stroke-width="1.5"/>
+      <text x="20" y="35" font-size="16" font-weight="700" fill="#e9d5ff">📅 Module A: Serving Roster Engine (/api/roster)</text>
+      <rect x="20" y="48" width="500" height="1" fill="rgba(255,255,255,0.1)"/>
+
+      <text x="25" y="74" font-size="13.5" fill="#e9d5ff">• <tspan font-weight="700" fill="#ffffff">Main Logic 1 (Special Day):</tspan> แมปประธานฝ่ายในวันสำคัญประจำปี</text>
+      <text x="25" y="98" font-size="13.5" fill="#e9d5ff">• <tspan font-weight="700" fill="#ffffff">Main Logic 2 (Priority):</tspan> ลำดับสถานที่ (โบสถ์ใหญ่ ➔ ทางเข้า ➔ ทิโมธี)</text>
+      <text x="25" y="122" font-size="13.5" fill="#e9d5ff">• <tspan font-weight="700" fill="#ffffff">Main Logic 3 (Quota Cap):</tspan> ล็อกไม่เกิน 2 อาทิตย์/เดือน/มัคนายก</text>
+      <text x="25" y="146" font-size="13.5" fill="#e9d5ff">• <tspan font-weight="700" fill="#ffffff">Substitute Engine:</tspan> คำนวณเปลี่ยนคนฉุกเฉินและล็อกวันลา</text>
+    </g>
+
+    <!-- Module B: Equipment & Handover Engine -->
+    <g transform="translate(20, 260)">
+      <rect x="0" y="0" width="540" height="155" rx="14" fill="#2e1065" stroke="#c084fc" stroke-width="1.5"/>
+      <text x="20" y="35" font-size="16" font-weight="700" fill="#e9d5ff">📦 Module B: Equipment &amp; Handover (/api/equipment)</text>
+      <rect x="20" y="48" width="500" height="1" fill="rgba(255,255,255,0.1)"/>
+
+      <text x="25" y="74" font-size="13.5" fill="#e9d5ff">• <tspan font-weight="700" fill="#ffffff">Inventory Status Track:</tspan> ตรวจสถานะ (พร้อมใช้ / ถูกยืม / กำลังซ่อม)</text>
+      <text x="25" y="98" font-size="13.5" fill="#e9d5ff">• <tspan font-weight="700" fill="#ffffff">QR Code Generator:</tspan> สร้าง QR Code ประจำอุปกรณ์อัตโนมัติ</text>
+      <text x="25" y="122" font-size="13.5" fill="#e9d5ff">• <tspan font-weight="700" fill="#ffffff">Digital Handover Canvas:</tspan> บันทึกลายเซ็นดิจิทัล Base64 ลงตู้เซฟ DB</text>
+      <text x="25" y="146" font-size="13.5" fill="#e9d5ff">• <tspan font-weight="700" fill="#ffffff">Audit Log Trail:</tspan> บันทึกประวัติผู้ยืม ผู้คืน และวันเวลาจริง 100%</text>
+    </g>
+
+    <!-- Module C: Repair SLA Ticket Engine -->
+    <g transform="translate(20, 425)">
+      <rect x="0" y="0" width="540" height="155" rx="14" fill="#2e1065" stroke="#c084fc" stroke-width="1.5"/>
+      <text x="20" y="35" font-size="16" font-weight="700" fill="#e9d5ff">🔧 Module C: Repair SLA Engine (/api/cron/sla-check)</text>
+      <rect x="20" y="48" width="500" height="1" fill="rgba(255,255,255,0.1)"/>
+
+      <text x="25" y="74" font-size="13.5" fill="#e9d5ff">• <tspan font-weight="700" fill="#ffffff">Priority Deadline Matrix:</tspan> Low(72h), Med(48h), High(24h), Critical(4h)</text>
+      <text x="25" y="98" font-size="13.5" fill="#e9d5ff">• <tspan font-weight="700" fill="#ffffff">Automated SLA Cron Loop:</tspan> ตรวจสอบเวลาถอยหลังช่างซ่อมบน Cloud</text>
+      <text x="25" y="122" font-size="13.5" fill="#e9d5ff">• <tspan font-weight="700" fill="#ffffff">CRON_SECRET Security:</tspan> ป้องกันการเรียกใช้ Cron จากบุคคลภายนอก</text>
+      <text x="25" y="146" font-size="13.5" fill="#e9d5ff">• <tspan font-weight="700" fill="#ffffff">Evidence Photo Attachment:</tspan> แนบรูปหลักฐานก่อน-หลังซ่อมเสร็จ</text>
+    </g>
+
+    <!-- Module D: Staff & Member Registry CRM -->
+    <g transform="translate(20, 590)">
+      <rect x="0" y="0" width="540" height="170" rx="14" fill="#2e1065" stroke="#c084fc" stroke-width="1.5"/>
+      <text x="20" y="35" font-size="16" font-weight="700" fill="#e9d5ff">🗄️ Module D: Staff &amp; Registry CRM (/api/staff)</text>
+      <rect x="20" y="48" width="500" height="1" fill="rgba(255,255,255,0.1)"/>
+
+      <text x="25" y="74" font-size="13.5" fill="#e9d5ff">• <tspan font-weight="700" fill="#ffffff">Role-Based Access Control (RBAC):</tspan> ล็อกสิทธิ์ Admin / ศบ. / ผู้รับใช้</text>
+      <text x="25" y="98" font-size="13.5" fill="#e9d5ff">• <tspan font-weight="700" fill="#ffffff">Bulk Excel Importer:</tspan> รองรับการอัปโหลดนำเข้าข้อมูลทะเบียนชุดใหญ่</text>
+      <text x="25" y="122" font-size="13.5" fill="#e9d5ff">• <tspan font-weight="700" fill="#ffffff">Ministry History Log:</tspan> สืบค้นประวัติการปรนนิบัติย้อนหลังรายบุคคล</text>
+      <text x="25" y="146" font-size="13.5" fill="#e9d5ff">• <tspan font-weight="700" fill="#ffffff">Backward Compatibility:</tspan> เชื่อมฐานข้อมูลทะเบียนเดิมไร้รอยต่อ</text>
+    </g>
+  </g>
+
+
+  <!-- Connector Arrow 2 -> 3 -->
+  <g transform="translate(1255, 520)">
+    <path d="M 0 0 L 25 0 M 15 -8 L 25 0 L 15 8" stroke="#c084fc" stroke-width="3" fill="none" filter="url(#glowPurple)"/>
+    <rect x="-10" y="-35" width="45" height="24" rx="6" fill="#7e22ce"/>
+    <text x="12.5" y="-19" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">ORM</text>
+  </g>
+
+
+  <!-- ==================== LAYER 3: DATABASE & CLOUD INFRASTRUCTURE ==================== -->
+  <g transform="translate(1300, 165)">
+    <!-- Layer 3 Column Box -->
+    <rect x="0" y="0" width="580" height="780" rx="20" fill="url(#layer3Grad)" stroke="#34d399" stroke-width="2.5" opacity="0.95"/>
+    
+    <!-- Column Header -->
+    <rect x="0" y="0" width="580" height="65" rx="20" fill="#047857" opacity="0.9"/>
+    <path d="M 0 45 L 0 65 L 580 65 L 580 45 Z" fill="#047857"/>
+    <text x="30" y="42" font-size="20" font-weight="800" fill="#ffffff">🗄️ LAYER 3: DATABASE &amp; CLOUD INFRA</text>
+    <text x="550" y="42" font-size="14" font-weight="600" fill="#d1fae5" text-anchor="end">โครงสร้างคลาวด์</text>
+
+    <!-- Component 3.1: Next.js 15 Serverless Platform -->
+    <g transform="translate(20, 85)">
+      <rect x="0" y="0" width="540" height="155" rx="14" fill="#064e3b" stroke="#34d399" stroke-width="1.5"/>
+      <text x="20" y="35" font-size="16" font-weight="700" fill="#a7f3d0">☁️ 3.1 Next.js 15 Serverless Cloud (Vercel)</text>
+      <rect x="20" y="48" width="500" height="1" fill="rgba(255,255,255,0.1)"/>
+
+      <text x="25" y="74" font-size="13.5" fill="#a7f3d0">• <tspan font-weight="700" fill="#ffffff">App Router &amp; Server Actions:</tspan> ประมวลผลรวดเร็วแบบ Fullstack</text>
+      <text x="25" y="98" font-size="13.5" fill="#a7f3d0">• <tspan font-weight="700" fill="#ffffff">Global Edge CDN:</tspan> กระจายโหลด Uptime 99.9% ไม่หยุดชะงัก</text>
+      <text x="25" y="122" font-size="13.5" fill="#a7f3d0">• <tspan font-weight="700" fill="#ffffff">HTTPS &amp; Signature Verification:</tspan> เข้ารหัสปลอดภัยสากล</text>
+      <text x="25" y="146" font-size="13.5" fill="#a7f3d0">• <tspan font-weight="700" fill="#ffffff">Auto CI/CD Deployment:</tspan> ซิงก์โค้ดอัปเดตอัตโนมัติจาก GitHub</text>
+    </g>
+
+    <!-- Component 3.2: Prisma ORM Engine -->
+    <g transform="translate(20, 250)">
+      <rect x="0" y="0" width="540" height="155" rx="14" fill="#064e3b" stroke="#34d399" stroke-width="1.5"/>
+      <text x="20" y="35" font-size="16" font-weight="700" fill="#a7f3d0">💎 3.2 Prisma ORM Data Abstraction Layer</text>
+      <rect x="20" y="48" width="500" height="1" fill="rgba(255,255,255,0.1)"/>
+
+      <text x="25" y="74" font-size="13.5" fill="#a7f3d0">• <tspan font-weight="700" fill="#ffffff">Type-Safe Database Client:</tspan> ป้องกันข้อผิดพลาดข้อมูลตั้งแต่เขียนโค้ด</text>
+      <text x="25" y="98" font-size="13.5" fill="#a7f3d0">• <tspan font-weight="700" fill="#ffffff">Prisma Schema Migrations:</tspan> ควบคุมเวอร์ชันตู้เซฟฐานข้อมูล</text>
+      <text x="25" y="122" font-size="13.5" fill="#a7f3d0">• <tspan font-weight="700" fill="#ffffff">Connection Pooling (PgBouncer):</tspan> บริหาร Connection ประหยัดทรัพยากร</text>
+      <text x="25" y="146" font-size="13.5" fill="#a7f3d0">• <tspan font-weight="700" fill="#ffffff">Direct &amp; Pool URLs:</tspan> รองรับทั้ง Transaction และ Migration</text>
+    </g>
+
+    <!-- Component 3.3: Supabase Cloud PostgreSQL Vault -->
+    <g transform="translate(20, 415)">
+      <rect x="0" y="0" width="540" height="175" rx="14" fill="#064e3b" stroke="#34d399" stroke-width="1.5"/>
+      <text x="20" y="35" font-size="16" font-weight="700" fill="#a7f3d0">⚡ 3.3 Supabase Cloud PostgreSQL Vault</text>
+      <rect x="20" y="48" width="500" height="1" fill="rgba(255,255,255,0.1)"/>
+
+      <text x="25" y="74" font-size="13.5" fill="#a7f3d0">• <tspan font-weight="700" fill="#ffffff">Managed Enterprise DB:</tspan> ฐานข้อมูลนิรภัย สำรองข้อมูลอัตโนมัติ</text>
+      <text x="25" y="98" font-size="13.5" fill="#a7f3d0">• <tspan font-weight="700" fill="#ffffff">Relational Tables:</tspan> Users, Roster, Equipment, Tickets, Signatures</text>
+      <text x="25" y="122" font-size="13.5" fill="#a7f3d0">• <tspan font-weight="700" fill="#ffffff">Base64 Signature Bucket:</tspan> เก็บภาพถ่ายและลายเซ็นดิจิทัลการยืม</text>
+      <text x="25" y="146" font-size="13.5" fill="#a7f3d0">• <tspan font-weight="700" fill="#ffffff">PDPA Protection:</tspan> ควบคุมการเข้าถึงด้วย Row Level Security</text>
+    </g>
+
+    <!-- Component 3.4: LINE Messaging API Push Engine -->
+    <g transform="translate(20, 600)">
+      <rect x="0" y="0" width="540" height="160" rx="14" fill="#064e3b" stroke="#34d399" stroke-width="1.5"/>
+      <text x="20" y="35" font-size="16" font-weight="700" fill="#a7f3d0">💬 3.4 LINE Messaging API Push Engine</text>
+      <rect x="20" y="48" width="500" height="1" fill="rgba(255,255,255,0.1)"/>
+
+      <text x="25" y="74" font-size="13.5" fill="#a7f3d0">• <tspan font-weight="700" fill="#ffffff">Automated Reminders:</tspan> ส่งข้อความเตือนก่อนถึงวันรับใช้</text>
+      <text x="25" y="98" font-size="13.5" fill="#a7f3d0">• <tspan font-weight="700" fill="#ffffff">Interactive Flex Messages:</tspan> การ์ดข้อความกดเปลี่ยนตารางฉุกเฉิน</text>
+      <text x="25" y="122" font-size="13.5" fill="#a7f3d0">• <tspan font-weight="700" fill="#ffffff">Technician SLA Alerts:</tspan> ข้อความแจ้งเตือนช่างซ่อมเมื่อเกินกำหนด</text>
+      <text x="25" y="146" font-size="13.5" fill="#a7f3d0">• <tspan font-weight="700" fill="#ffffff">Multi-Channel Delivery:</tspan> เชื่อมตรงกับบัญชี LINE ของผู้รับใช้</text>
+    </g>
+  </g>
+
+
+  <!-- ==================== FOOTER BANNER ==================== -->
+  <rect x="40" y="960" width="1840" height="85" rx="16" fill="#0f172a" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+  
+  <text x="70" y="995" font-size="16" font-weight="700" fill="#ffffff">🟢 System Uptime: <tspan fill="#34d399">99.9% Cloud Availability</tspan></text>
+  <text x="70" y="1022" font-size="14" fill="#94a3b8">Verified &amp; Maintained by MTC Tech Development Team | Maitrichit Church 2026</text>
+
+  <text x="960" y="995" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">🛡️ Security Baseline: <tspan fill="#38bdf8">HTTPS Encrypted + PDPA Compliant</tspan></text>
+  <text x="960" y="1022" font-size="14" fill="#94a3b8" text-anchor="middle">Single Source of Truth Repository Architecture</text>
+
+  <text x="1810" y="995" font-size="16" font-weight="700" fill="#ffffff" text-anchor="end">📦 GitHub Repository:</text>
+  <text x="1810" y="1022" font-size="14" font-weight="700" fill="#c084fc" text-anchor="end">salmon76/MTC-Staff-Management-v1</text>
+
+</svg>

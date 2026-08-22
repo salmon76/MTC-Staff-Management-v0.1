@@ -105,6 +105,8 @@ const staffData = [
   },
 ];
 
+import { MOCK_EXCEL_EQUIPMENTS } from "../src/lib/mtcEquipmentSeedData";
+
 async function main() {
   console.log("Start seeding...");
   for (const staff of staffData) {
@@ -114,6 +116,15 @@ async function main() {
       create: staff,
     });
     console.log(`Upserted staff: ${upserted.name}`);
+  }
+
+  for (const eq of MOCK_EXCEL_EQUIPMENTS) {
+    const upsertedEq = await prisma.equipment.upsert({
+      where: { qrCode: eq.qrCode },
+      update: eq,
+      create: eq,
+    });
+    console.log(`Upserted equipment: ${upsertedEq.name}`);
   }
   console.log("Seeding finished.");
 }
